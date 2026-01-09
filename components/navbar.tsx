@@ -49,7 +49,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors",
+                    "text-sm font-medium transition-colors hover:underline underline-offset-4",
                     isScrolled ? "text-foreground-muted hover:text-accent-wcag" : "text-white/90 hover:text-white",
                   )}
                 >
@@ -94,7 +94,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2 text-base font-medium text-foreground-muted hover:text-accent-wcag hover:bg-muted transition-colors"
+                  className="block px-4 py-2 text-base font-medium text-foreground-muted hover:text-accent-wcag hover:bg-muted hover:underline underline-offset-4 transition-colors"
                 >
                   {link.label}
                 </Link>
