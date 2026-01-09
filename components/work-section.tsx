@@ -12,10 +12,6 @@ export function WorkSection() {
         <FadeIn className="max-w-2xl mb-12 md:mb-16">
           <p className="font-mono text-xs md:text-sm uppercase tracking-widest text-accent-wcag mb-3">Selected Work</p>
           <h2 className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-primary-dark mb-4">Case Studies</h2>
-          <p className="text-base md:text-lg text-foreground-muted leading-relaxed">
-            A selection of projects showcasing my approach to solving design challenges through research, iteration, and
-            user-centered thinking.
-          </p>
         </FadeIn>
 
         {/* Projects Grid - staggered fade-in for each card */}
