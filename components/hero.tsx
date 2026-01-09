@@ -66,7 +66,7 @@ export function Hero() {
           >
             <Link
               href="#work"
-              className="px-8 py-3.5 bg-accent-wcag text-white font-medium rounded-lg hover:bg-accent transition-all hover:scale-105"
+              className="px-8 py-3.5 bg-accent-wcag text-white font-medium rounded-lg hover:bg-accent hover:text-[#cf6766] transition-all hover:scale-105"
             >
               View My Work
             </Link>
