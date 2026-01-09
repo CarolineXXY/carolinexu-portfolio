@@ -13,10 +13,6 @@ export function Footer() {
           </Link>
 
           <p className="text-sm text-white/70">© {currentYear} Caroline Xu. All rights reserved.</p>
-
-          <Link href="#hero" className="text-sm text-white/90 hover:text-accent transition-colors">
-            Back to top ↑
-          </Link>
         </div>
       </div>
     </footer>
