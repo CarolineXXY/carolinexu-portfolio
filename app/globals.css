@@ -207,3 +207,20 @@ html {
     transform: translateY(0);
   }
 }
+
+/* Hero heading typing animation */
+.hero-typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: hero-typing 2s steps(19, end) forwards;
+}
+
+@keyframes hero-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 19ch;
+  }
+}

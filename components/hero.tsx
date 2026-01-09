@@ -39,13 +39,8 @@ export function Hero() {
           </p>
 
           {/* Main Heading */}
-          <h1
-            className={`font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 transition-all duration-700 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            <span className="text-balance">Hi, I&apos;m </span>
-            <span className="text-accent">Caroline Xu</span>
+          <h1 className="font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 hero-typing">
+            Hi, I&apos;m <span className="text-accent">Caroline Xu</span>
           </h1>
 
           {/* Tagline */}
