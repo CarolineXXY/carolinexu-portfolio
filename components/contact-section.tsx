@@ -1,41 +1,10 @@
 "use client"
 
-import type React from "react"
-import { useState } from "react"
 import { Mail, Linkedin, ExternalLink } from "lucide-react"
 import { socialLinks } from "@/lib/data"
 import { FadeIn } from "./fade-in"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormData({ name: "", email: "", message: "" })
-
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
-  }
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-background">
@@ -53,74 +22,8 @@ export function ContactSection() {
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Contact Form - fade in from left */}
-            <FadeIn className="lg:col-span-3" direction="left" delay={100}>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-primary-dark mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors text-foreground"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-primary-dark mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors text-foreground"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-primary-dark mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none text-foreground"
-                    placeholder="Tell me about your project..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full sm:w-auto px-8 py-3.5 bg-accent-wcag text-white font-medium rounded-lg hover:bg-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
-
-                {isSubmitted && (
-                  <p className="text-green-700 font-medium">Thanks for your message! I&apos;ll be in touch soon.</p>
-                )}
-              </form>
-            </FadeIn>
-
-            {/* Contact Info - fade in from right */}
-            <FadeIn className="lg:col-span-2" direction="right" delay={200}>
+          {/* Contact Info - fade in */}
+          <FadeIn className="max-w-2xl mx-auto" delay={100}>
               <div className="bg-muted rounded-xl p-6 md:p-8">
                 <h3 className="font-mono text-lg font-semibold text-primary-dark mb-6">Contact Info</h3>
 
@@ -180,7 +83,6 @@ export function ContactSection() {
                 </div>
               </div>
             </FadeIn>
-          </div>
         </div>
       </div>
     </section>
