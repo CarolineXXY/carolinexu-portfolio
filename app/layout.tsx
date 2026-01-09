@@ -2,6 +2,9 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Plus_Jakarta_Sans, Space_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { BackToTop } from "@/components/back-to-top"
 import "./globals.css"
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
       "I'm passionate about user-centred design, and ready to bring fresh, creative ideas to solve real-world problems.",
     type: "website",
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export const viewport: Viewport = {
@@ -46,7 +49,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${spaceMono.variable}`}>
       <body className="font-sans antialiased">
+        <Navbar />
         {children}
+        <Footer />
+        <BackToTop />
         <Analytics />
       </body>
     </html>

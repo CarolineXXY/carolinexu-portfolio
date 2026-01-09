@@ -4,6 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { Mail, Linkedin, ExternalLink } from "lucide-react"
 import { socialLinks } from "@/lib/data"
+import { FadeIn } from "./fade-in"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -40,8 +41,8 @@ export function ContactSection() {
     <section id="contact" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16">
+          {/* Section Header - fade in */}
+          <FadeIn className="text-center mb-12 md:mb-16">
             <p className="font-mono text-xs md:text-sm uppercase tracking-widest text-accent-wcag mb-3">Get in Touch</p>
             <h2 className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-primary-dark mb-4">
               Let&apos;s work together
@@ -50,11 +51,11 @@ export function ContactSection() {
               Have a project in mind or just want to chat? I&apos;d love to hear from you. Drop me a message and
               I&apos;ll get back to you as soon as possible.
             </p>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Contact Form */}
-            <div className="lg:col-span-3">
+            {/* Contact Form - fade in from left */}
+            <FadeIn className="lg:col-span-3" direction="left" delay={100}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-primary-dark mb-2">
@@ -116,10 +117,10 @@ export function ContactSection() {
                   <p className="text-green-700 font-medium">Thanks for your message! I&apos;ll be in touch soon.</p>
                 )}
               </form>
-            </div>
+            </FadeIn>
 
-            {/* Contact Info */}
-            <div className="lg:col-span-2">
+            {/* Contact Info - fade in from right */}
+            <FadeIn className="lg:col-span-2" direction="right" delay={200}>
               <div className="bg-muted rounded-xl p-6 md:p-8">
                 <h3 className="font-mono text-lg font-semibold text-primary-dark mb-6">Contact Info</h3>
 
@@ -178,7 +179,7 @@ export function ContactSection() {
                   </a>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import type { Project } from "@/lib/data"
+import { caseStudies } from "@/lib/data"
 
 interface ProjectCardProps {
   project: Project
@@ -11,9 +12,12 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const hasCaseStudy = project.id in caseStudies
+  const href = hasCaseStudy ? `/work/${project.id}` : `#${project.id}`
+
   return (
     <Link
-      href={`#${project.id}`}
+      href={href}
       className="group block bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
     >
       {/* Thumbnail */}
