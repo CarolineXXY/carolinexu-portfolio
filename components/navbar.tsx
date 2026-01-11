@@ -60,7 +60,7 @@ export function Navbar() {
             <li>
               <Link
                 href="#contact"
-                className="px-5 py-2.5 bg-accent-wcag text-white text-sm font-medium rounded-lg hover:bg-accent hover:text-accent transition-colors"
+                className="px-5 py-2.5 bg-accent-wcag text-white text-sm font-medium rounded-lg hover:bg-white hover:text-accent transition-colors"
               >
                 Get in Touch
               </Link>
@@ -104,7 +104,7 @@ export function Navbar() {
               <Link
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-5 py-2.5 bg-accent-wcag text-white text-base font-medium rounded-lg hover:bg-accent hover:text-accent transition-colors"
+                className="block w-full text-center px-5 py-2.5 bg-accent-wcag text-white text-base font-medium rounded-lg hover:bg-white hover:text-accent transition-colors"
               >
                 Get in Touch
               </Link>

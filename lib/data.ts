@@ -70,11 +70,11 @@ export interface CaseStudy extends Project {
 export const projects: Project[] = [
   {
     id: "mobile-banking-app",
-    title: "Mobile Banking App Redesign",
-    category: "End-to-End Application",
-    description: "Redesigning the mobile banking experience to improve usability and accessibility for all users.",
+    title: "Accounting Firm Homepage Redesign",
+    category: "Responsive Website",
+    description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
     thumbnail: "/mobile-banking-app.png",
-    tags: ["UX Research", "UI Design", "Prototyping"],
+    tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
     year: "2025",
   },
   {

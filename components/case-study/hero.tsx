@@ -33,16 +33,14 @@ export function CaseStudyHero({ study }: CaseStudyHeroProps) {
       </div>
 
       {/* Hero Image */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden shadow-2xl">
-          <Image
-            src={study.heroImage || "/placeholder.svg"}
-            alt={`${study.title} hero image`}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      <div className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden shadow-2xl">
+        <Image
+          src={study.heroImage || "/placeholder.svg"}
+          alt={`${study.title} hero image`}
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
     </section>
   )
