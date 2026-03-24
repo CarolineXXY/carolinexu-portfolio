@@ -90,7 +90,7 @@ export const projects: Project[] = [
     id: "health-tracking-app",
     title: "Health & Wellness Tracker",
     category: "Mobile Application",
-    description: "Designing a health tracking app that motivates users to build healthy habits through gamification.",
+    description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
     thumbnail: "/health-tracking-app-ui-design.jpg",
     tags: ["Mobile Design", "UX Strategy", "Visual Design"],
     year: "2024",
@@ -109,15 +109,15 @@ export const projects: Project[] = [
 export const caseStudies: Record<string, CaseStudy> = {
   "mobile-banking-app": {
     id: "mobile-banking-app",
-    title: "Mobile Banking App Redesign",
-    category: "End-to-End Application",
+    title: "Accounting Firm Homepage Redesign",
+    category: "Responsive Website",
     description: "Redesigning the mobile banking experience to improve usability and accessibility for all users.",
     thumbnail: "/mobile-banking-app.png",
     heroImage: "/mobile-banking-app-hero-mockup-on-phone.jpg",
-    tags: ["UX Research", "UI Design", "Prototyping"],
+    tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
     year: "2025",
-    role: "Lead UX/UI Designer",
-    duration: "4 months (Jan - Apr 2025)",
+    role: "UX/UI Designer",
+    duration: "1 months (Oct 2025)",
     tools: ["Figma", "Maze", "Miro", "Lottie"],
     team: ["1 × Product Manager", "1 × UX Designer", "2 × iOS Engineers", "2 × Android Engineers"],
     challenge:
@@ -258,8 +258,8 @@ export const skills = [
 ]
 
 export const socialLinks = {
-  linkedin: "https://linkedin.com/in/",
+  linkedin: "https://www.linkedin.com/in/caroline-xu-334a8b28b/",
   dribbble: "https://dribbble.com/",
   behance: "https://behance.net/",
-  email: "hello@carolinexu.com",
+  email: "carolinexu0116@gmail.com",
 }
