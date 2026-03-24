@@ -112,8 +112,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "Accounting Firm Homepage Redesign",
     category: "Responsive Website",
     description: "Redesigning the mobile banking experience to improve usability and accessibility for all users.",
-    thumbnail: "/accounting-firm-thumbnail.png",
-    heroImage: "/accounting-firm-thumbnail.png",
+    thumbnail: "/accounting-firm-banner.png",
+    heroImage: "/accounting-firm-banner.png",
     tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
     year: "2025",
     role: "UX/UI Designer",
@@ -248,31 +248,30 @@ export function getAdjacentProjects(currentId: string) {
 
 export const skills = [
   "User Research",
+  "User Interface Design",
   "Wireframing",
   "Prototyping",
   "Visual Design",
   "Design Systems",
   "Usability Testing",
-  "Figma",
-  "Adobe Creative Suite",
+  "Web Development",
+  "Responsive Design",
 ]
 
 export const designTools = [
-  { name: "Figma", logo: "https://via.placeholder.com/64/F24E1E/FFFFFF?text=Figma" },
-  { name: "Adobe XD", logo: "https://via.placeholder.com/64/FF61F6/FFFFFF?text=XD" },
-  { name: "Sketch", logo: "https://via.placeholder.com/64/F7B500/FFFFFF?text=Sketch" },
-  { name: "Photoshop", logo: "https://via.placeholder.com/64/31A8FF/FFFFFF?text=Ps" },
-  { name: "Illustrator", logo: "https://via.placeholder.com/64/FF9A00/FFFFFF?text=Ai" },
-  { name: "Miro", logo: "https://via.placeholder.com/64/FFD02F/000000?text=Miro" },
-  { name: "InVision", logo: "https://via.placeholder.com/64/FF3366/FFFFFF?text=InVision" },
-  { name: "Protopie", logo: "https://via.placeholder.com/64/6C5CE7/FFFFFF?text=Protopie" },
-  { name: "Maze", logo: "https://via.placeholder.com/64/09F/FFFFFF?text=Maze" },
-  { name: "Notion", logo: "https://via.placeholder.com/64/000000/FFFFFF?text=Notion" },
+  { name: "Figma", logo: "/figma-icon.svg" },
+  { name: "Adobe XD", logo: "/adobe-2.svg" },
+  { name: "Miro", logo: "/miro-2.svg" },
+  { name: "Notion", logo: "/notion-logo.png" },
+  { name: "Canva", logo: "/canva-wordmark-2.svg" },
+  { name: "Framer", logo: "/framer-1.svg" },
+  { name: "HTML", logo: "/html-1.svg" },
+  { name: "CSS", logo: "/css-3.svg" },
+  { name: "JavaScript", logo: "/javascript-r.svg" },
+  { name: "Unity", logo: "/unity-technologies-logo.svg" },
 ]
 
 export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/caroline-xu-334a8b28b/",
-  dribbble: "https://dribbble.com/",
-  behance: "https://behance.net/",
   email: "carolinexu0116@gmail.com",
 }
