@@ -1,117 +1,74 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-card/95 backdrop-blur-sm shadow-sm" : "bg-transparent",
-      )}
-    >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link
-            href="/"
-            className={cn(
-              "font-mono text-lg md:text-xl font-bold transition-colors",
-              isScrolled ? "text-primary-dark hover:text-accent-wcag" : "text-white hover:text-accent",
-            )}
-          >
-            Caroline Xu
-          </Link>
-
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "text-sm font-medium transition-colors hover:underline underline-offset-4",
-                    isScrolled ? "text-foreground-muted hover:text-accent-wcag" : "text-white/90 hover:text-white",
-                  )}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                href="#contact"
-                className="px-5 py-2.5 bg-accent-wcag text-white text-sm font-medium rounded-lg hover:bg-white hover:text-accent transition-colors"
-              >
-                Get in Touch
-              </Link>
-            </li>
-          </ul>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={cn(
-              "md:hidden p-2 transition-colors",
-              isScrolled ? "text-primary-dark hover:text-accent-wcag" : "text-white hover:text-accent",
-            )}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0",
-          )}
+    <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
+      {/* Padding matches the hero container: 24px mobile, 36px tablet, 48px desktop */}
+      <nav className="mx-auto w-full max-w-[1000px] px-[24px] md:px-[36px] lg:px-[48px] pt-[24px] md:pt-[36px] lg:pt-[48px] flex items-center justify-between">
+        <Link
+          href="/"
+          className="font-serif text-3xl md:text-4xl text-foreground transition-colors hover:text-accent no-underline"
         >
-          <ul className="py-4 space-y-4 bg-card rounded-lg mb-4 shadow-lg">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2 text-base font-medium text-foreground-muted hover:text-accent-wcag hover:bg-muted hover:underline underline-offset-4 transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li className="px-4">
+          CX.
+        </Link>
+
+        {/* Desktop Links */}
+        <ul className="hidden md:flex items-center gap-[32px]">
+          {navLinks.map((link) => (
+            <li key={link.href}>
               <Link
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-5 py-2.5 bg-accent-wcag text-white text-base font-medium rounded-lg hover:bg-white hover:text-accent transition-colors"
+                href={link.href}
+                className="font-medium text-foreground-muted no-underline transition-colors duration-300 hover:text-accent focus:text-accent active:text-accent"
               >
-                Get in Touch
+                {link.label}
               </Link>
             </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
+
+        {/* Mobile Hamburger (3 lines, 1.5px, #1a1a1a) */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden flex flex-col justify-center items-center w-7 h-7 gap-[5px] z-50 relative"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          <span className={`block w-6 h-[1.5px] bg-[#1a1a1a] transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
+          <span className={`block w-6 h-[1.5px] bg-[#1a1a1a] transition-opacity duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`} />
+          <span className={`block w-6 h-[1.5px] bg-[#1a1a1a] transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`} />
+        </button>
       </nav>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`md:hidden absolute top-full left-0 right-0 bg-background transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-64 border-b border-border" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col items-center py-6 space-y-6">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="font-medium text-lg text-foreground-muted no-underline transition-colors hover:text-accent"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   )
 }

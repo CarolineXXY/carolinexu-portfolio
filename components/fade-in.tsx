@@ -8,7 +8,6 @@ interface FadeInProps {
   children: React.ReactNode
   className?: string
   delay?: number
-  direction?: "up" | "down" | "left" | "right" | "none"
   duration?: number
   threshold?: number
 }
@@ -17,8 +16,7 @@ export function FadeIn({
   children,
   className = "",
   delay = 0,
-  direction = "up",
-  duration = 600,
+  duration = 400,
   threshold = 0.1,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null)
@@ -47,31 +45,13 @@ export function FadeIn({
     }
   }, [threshold])
 
-  const getTransform = () => {
-    switch (direction) {
-      case "up":
-        return "translateY(30px)"
-      case "down":
-        return "translateY(-30px)"
-      case "left":
-        return "translateX(30px)"
-      case "right":
-        return "translateX(-30px)"
-      case "none":
-        return "none"
-      default:
-        return "translateY(30px)"
-    }
-  }
-
   return (
     <div
       ref={ref}
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translate(0)" : getTransform(),
-        transition: `opacity ${duration}ms ease-out, transform ${duration}ms ease-out`,
+        transition: `opacity ${duration}ms ease`,
         transitionDelay: `${delay}ms`,
       }}
     >

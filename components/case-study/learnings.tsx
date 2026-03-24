@@ -8,22 +8,19 @@ interface LearningsProps {
 
 export function CaseStudyLearnings({ learnings }: LearningsProps) {
   return (
-    <section className="py-12 md:py-20">
-      <h2 className="font-mono text-2xl md:text-3xl font-bold text-primary-dark mb-6">{learnings.title}</h2>
+    <section className="section-y border-b border-border">
+      <h2 className="font-serif mb-6">{learnings.title}</h2>
 
-      <p className="text-foreground-muted leading-relaxed max-w-3xl mb-8">{learnings.content}</p>
+      <p className="text-foreground-muted leading-[1.75] max-w-3xl mb-10">{learnings.content}</p>
 
-      {/* Learning Points */}
-      <div className="bg-secondary/10 border-l-4 border-secondary rounded-r-xl p-6 md:p-8">
-        <ul className="space-y-4">
-          {learnings.points.map((point, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-2 h-2 bg-secondary rounded-full mt-2" />
-              <span className="text-foreground-muted leading-relaxed">{point}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="space-y-6 max-w-3xl border-t border-border pt-10">
+        {learnings.points.map((point, index) => (
+          <li key={index} className="flex items-start gap-4 text-foreground-muted leading-[1.75]">
+            <span className="text-accent font-medium shrink-0">{String(index + 1).padStart(2, "0")}</span>
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }

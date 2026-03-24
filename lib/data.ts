@@ -73,7 +73,7 @@ export const projects: Project[] = [
     title: "Accounting Firm Homepage Redesign",
     category: "Responsive Website",
     description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
-    thumbnail: "/mobile-banking-app.png",
+    thumbnail: "/accounting-firm-thumbnail.png",
     tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
     year: "2025",
   },
@@ -112,30 +112,30 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "Accounting Firm Homepage Redesign",
     category: "Responsive Website",
     description: "Redesigning the mobile banking experience to improve usability and accessibility for all users.",
-    thumbnail: "/mobile-banking-app.png",
-    heroImage: "/mobile-banking-app-hero-mockup-on-phone.jpg",
+    thumbnail: "/accounting-firm-thumbnail.png",
+    heroImage: "/accounting-firm-thumbnail.png",
     tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
     year: "2025",
     role: "UX/UI Designer",
-    duration: "1 months (Oct 2025)",
-    tools: ["Figma", "Maze", "Miro", "Lottie"],
+    duration: "1 month (Oct 2025)",
+    tools: ["Figma", "Pen and Paper"],
     team: ["1 × Product Manager", "1 × UX Designer", "2 × iOS Engineers", "2 × Android Engineers"],
     challenge:
-      "The existing mobile banking app had a dated interface and complex navigation that frustrated users. Customer satisfaction scores were declining, and competitors were gaining market share with more modern, intuitive experiences. Users struggled to complete basic tasks like transfers and bill payments, leading to increased call center volume.",
+      "The existing accounting firm website had an outdated design that failed to meet modern user expectations, with poor navigation, lack of clear calls-to-action, and disorganised content, and zero responsiveness, which greatly hinders user engagement and trust in the firm's professional services.",
     solution:
       "I led a complete redesign focused on simplifying the core banking experience. By conducting extensive user research and iterative testing, we created an intuitive interface that reduced task completion time by 40% and significantly improved accessibility compliance.",
     sections: {
       research: {
         title: "Research & Discovery",
         content:
-          "We began with a comprehensive research phase to understand user pain points and behaviors. This included analyzing customer support tickets, conducting user interviews, and performing a competitive analysis of leading fintech apps.",
+          "As this was a self-initiated trial project without formal user testing, I conducted a heuristic evaluation based on Nielsen's 10 Usability Heuristics and supplemented it with an informal competitor analysis of modern accounting firm websites to benchmark against industry standards.",
+        images: ["/original.png"],
         findings: [
-          "78% of users found the navigation confusing and hard to find key features",
-          "Average task completion time for transfers was 3x longer than competitors",
-          "Accessibility issues affected 15% of the user base, particularly older users",
-          "Users wanted quick access to their most-used features without deep navigation",
+          "Visual & Aesthetic: Outdated UI and oversized logo disrupt the Aesthetic-Usability Effect and reduce brand trust.",
+          "Navigation: Poor navigation structure and lack of clear CTAs and contact forms lead to increased bounce rates.",
+          "Content: Disorganised content and lack of clear hierarchy make it difficult for users to find the information they need.",
+          "Responsiveness: Non-responsive design and lack of footer/styling on subpages break web standards.",
         ],
-        images: ["/user-research-affinity-mapping.jpg", "/competitive-analysis-chart.jpg"],
       },
       personas: {
         title: "User Personas",
@@ -255,6 +255,19 @@ export const skills = [
   "Usability Testing",
   "Figma",
   "Adobe Creative Suite",
+]
+
+export const designTools = [
+  { name: "Figma", logo: "https://via.placeholder.com/64/F24E1E/FFFFFF?text=Figma" },
+  { name: "Adobe XD", logo: "https://via.placeholder.com/64/FF61F6/FFFFFF?text=XD" },
+  { name: "Sketch", logo: "https://via.placeholder.com/64/F7B500/FFFFFF?text=Sketch" },
+  { name: "Photoshop", logo: "https://via.placeholder.com/64/31A8FF/FFFFFF?text=Ps" },
+  { name: "Illustrator", logo: "https://via.placeholder.com/64/FF9A00/FFFFFF?text=Ai" },
+  { name: "Miro", logo: "https://via.placeholder.com/64/FFD02F/000000?text=Miro" },
+  { name: "InVision", logo: "https://via.placeholder.com/64/FF3366/FFFFFF?text=InVision" },
+  { name: "Protopie", logo: "https://via.placeholder.com/64/6C5CE7/FFFFFF?text=Protopie" },
+  { name: "Maze", logo: "https://via.placeholder.com/64/09F/FFFFFF?text=Maze" },
+  { name: "Notion", logo: "https://via.placeholder.com/64/000000/FFFFFF?text=Notion" },
 ]
 
 export const socialLinks = {

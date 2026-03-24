@@ -14,31 +14,29 @@ interface ProcessProps {
 
 export function CaseStudyProcess({ process }: ProcessProps) {
   return (
-    <section className="py-12 md:py-20 border-b border-border">
-      <h2 className="font-mono text-2xl md:text-3xl font-bold text-primary-dark mb-6">{process.title}</h2>
+    <section className="section-y border-b border-border">
+      <h2 className="font-serif mb-6">{process.title}</h2>
 
-      <p className="text-foreground-muted leading-relaxed max-w-3xl mb-10">{process.content}</p>
+      <p className="text-foreground-muted leading-[1.75] max-w-3xl mb-14">{process.content}</p>
 
-      {/* Process Steps */}
-      <div className="grid md:grid-cols-2 gap-6 mb-10">
+      <div className="grid md:grid-cols-2 gap-12 mb-16">
         {process.steps.map((step, index) => (
-          <div key={index} className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-primary-dark text-white font-mono font-bold rounded-lg flex items-center justify-center">
+          <div key={index} className="flex gap-5">
+            <div className="flex-shrink-0 w-10 h-10 border-[1.5px] border-foreground text-foreground font-medium text-sm flex items-center justify-center rounded-full">
               {index + 1}
             </div>
             <div>
-              <h3 className="font-mono text-lg font-semibold text-primary-dark mb-2">{step.title}</h3>
-              <p className="text-foreground-muted text-sm leading-relaxed">{step.description}</p>
+              <h3 className="font-serif text-xl mb-2">{step.title}</h3>
+              <p className="text-foreground-muted text-sm leading-[1.75]">{step.description}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Process Images */}
       {process.images && process.images.length > 0 && (
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-10">
           {process.images.map((image, index) => (
-            <div key={index} className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+            <div key={index} className="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-muted">
               <Image
                 src={image || "/placeholder.svg"}
                 alt={`Process image ${index + 1}`}

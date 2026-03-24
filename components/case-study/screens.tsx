@@ -13,24 +13,23 @@ interface ScreensProps {
 
 export function CaseStudyScreens({ screens }: ScreensProps) {
   return (
-    <section className="py-12 md:py-20 border-b border-border">
-      <h2 className="font-mono text-2xl md:text-3xl font-bold text-primary-dark mb-6">{screens.title}</h2>
+    <section className="section-y border-b border-border">
+      <h2 className="font-serif mb-6">{screens.title}</h2>
 
-      <p className="text-foreground-muted leading-relaxed max-w-3xl mb-10">{screens.content}</p>
+      <p className="text-foreground-muted leading-[1.75] max-w-3xl mb-14">{screens.content}</p>
 
-      {/* Screens Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
         {screens.images.map((screen, index) => (
-          <div key={index} className="group">
-            <div className="relative aspect-[9/16] rounded-xl overflow-hidden shadow-lg mb-3 bg-muted">
+          <div key={index}>
+            <div className="relative aspect-[9/16] overflow-hidden rounded-[4px] mb-4 bg-muted">
               <Image
                 src={screen.src || "/placeholder.svg"}
                 alt={screen.caption}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                className="object-cover"
               />
             </div>
-            <p className="text-sm text-foreground-muted text-center leading-snug">{screen.caption}</p>
+            <p className="text-sm text-foreground-muted text-left leading-snug">{screen.caption}</p>
           </div>
         ))}
       </div>

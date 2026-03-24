@@ -35,15 +35,15 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   if (!study) {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center px-4">
-        <div className="text-center max-w-md">
-          <h1 className="font-mono text-6xl md:text-8xl font-bold text-accent mb-4">404</h1>
-          <h2 className="font-mono text-xl md:text-2xl font-semibold text-primary-dark mb-4">Project Not Found</h2>
-          <p className="text-foreground-muted mb-8 leading-relaxed">
+        <div className="max-w-md text-left">
+          <h1 className="font-serif text-6xl md:text-8xl text-accent mb-4">404</h1>
+          <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-4">Project Not Found</h2>
+          <p className="text-foreground-muted mb-10 leading-[1.75]">
             Sorry, the case study you&apos;re looking for doesn&apos;t exist or may have been moved.
           </p>
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent-wcag text-white rounded-lg font-medium hover:bg-accent transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium bg-transparent text-foreground border-[1.5px] border-foreground transition-colors duration-300 hover:border-warm-orange hover:text-warm-orange no-underline"
           >
             Back to Work
           </Link>
@@ -56,32 +56,36 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Hero */}
       <CaseStudyHero study={study} />
 
-      {/* Breadcrumb - fade in */}
-      <FadeIn className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <FadeIn className="max-w-content px-4 sm:px-6 lg:px-8 py-8 md:py-10">
         <nav className="text-sm text-foreground-muted" aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2">
+          <ol className="flex flex-wrap items-center gap-2">
             <li>
-              <Link href="/" className="hover:text-accent-wcag transition-colors">
+              <Link href="/" className="no-underline transition-colors hover:text-warm-orange hover:underline underline-offset-[0.2em] decoration-warm-orange">
                 Home
               </Link>
             </li>
-            <li aria-hidden="true">→</li>
+            <li aria-hidden="true" className="text-foreground-muted">
+              /
+            </li>
             <li>
-              <Link href="/#work" className="hover:text-accent-wcag transition-colors">
+              <Link
+                href="/#work"
+                className="no-underline transition-colors hover:text-warm-orange hover:underline underline-offset-[0.2em] decoration-warm-orange"
+              >
                 Work
               </Link>
             </li>
-            <li aria-hidden="true">→</li>
-            <li className="text-foreground font-medium truncate max-w-[200px]">{study.title}</li>
+            <li aria-hidden="true" className="text-foreground-muted">
+              /
+            </li>
+            <li className="text-foreground font-medium truncate max-w-[220px]">{study.title}</li>
           </ol>
         </nav>
       </FadeIn>
 
-      {/* Content Sections - each section fades in on scroll */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <div className="max-w-content px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
         <FadeIn>
           <CaseStudyOverview study={study} />
         </FadeIn>
@@ -123,7 +127,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         )}
       </div>
 
-      {/* Project Navigation */}
       <FadeIn>
         <ProjectNavigation prev={prev} next={next} />
       </FadeIn>

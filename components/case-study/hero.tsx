@@ -7,40 +7,35 @@ interface CaseStudyHeroProps {
 
 export function CaseStudyHero({ study }: CaseStudyHeroProps) {
   return (
-    <section className="relative bg-primary-dark pt-24 pb-12 md:pt-32 md:pb-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Category Tag */}
-        <span className="inline-block px-3 py-1 bg-accent/20 text-accent text-xs font-mono uppercase tracking-wider rounded-full mb-4">
-          {study.category}
-        </span>
+    <section className="relative bg-background pt-28 pb-12 md:pt-32 md:pb-16 border-b border-border">
+      <div className="max-w-content px-4 sm:px-6 lg:px-8">
+        <p className="text-label mb-6">
+          <span className="text-accent">{study.category}</span>
+        </p>
 
-        {/* Title */}
-        <h1 className="font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance max-w-4xl">
-          {study.title}
-        </h1>
+        <h1 className="font-serif mb-6 max-w-[20ch]">{study.title}</h1>
 
-        {/* Description */}
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl mb-8 leading-relaxed">{study.description}</p>
+        <p className="text-lg md:text-xl text-foreground-muted max-w-2xl mb-10 leading-[1.75]">{study.description}</p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-12">
           {study.tags.map((tag) => (
-            <span key={tag} className="px-3 py-1 bg-white/10 text-white/90 text-sm rounded-full">
+            <span key={tag} className="text-label text-foreground-muted border border-border px-3 py-1.5">
               {tag}
             </span>
           ))}
         </div>
       </div>
 
-      {/* Hero Image */}
-      <div className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden shadow-2xl">
-        <Image
-          src={study.heroImage || "/placeholder.svg"}
-          alt={`${study.title} hero image`}
-          fill
-          className="object-cover"
-          priority
-        />
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden rounded-[4px]">
+          <Image
+            src={study.heroImage || "/placeholder.svg"}
+            alt={`${study.title} hero image`}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
       </div>
     </section>
   )

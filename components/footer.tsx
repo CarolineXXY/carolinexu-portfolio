@@ -4,15 +4,17 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary-dark py-8 md:py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Logo - using accent color on dark bg passes WCAG */}
-          <Link href="/" className="font-mono text-lg font-bold text-white hover:text-accent transition-colors">
+    <footer className="border-t border-border bg-background py-10 md:py-14">
+      <div className="max-w-content px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <Link
+            href="/"
+            className="font-serif text-lg tracking-[0.02em] text-foreground no-underline transition-colors hover:text-warm-orange"
+          >
             Caroline Xu
           </Link>
 
-          <p className="text-sm text-white/70">© {currentYear} Caroline Xu. All rights reserved.</p>
+          <p className="text-sm text-foreground-muted">© {currentYear} Caroline Xu. All rights reserved.</p>
         </div>
       </div>
     </footer>

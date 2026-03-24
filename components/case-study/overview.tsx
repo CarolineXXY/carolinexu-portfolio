@@ -6,39 +6,36 @@ interface CaseStudyOverviewProps {
 
 export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
   return (
-    <section className="py-12 md:py-20 border-b border-border">
-      {/* Overview Title */}
-      <h2 className="font-mono text-2xl md:text-3xl font-bold text-primary-dark mb-8">Overview</h2>
+    <section className="section-y border-b border-border">
+      <h2 className="font-serif mb-10 md:mb-14">Overview</h2>
 
-      {/* Challenge & Solution */}
-      <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-12">
+      <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-16">
         <div>
-          <h3 className="font-mono text-lg font-semibold text-accent-wcag mb-4">The Challenge</h3>
-          <p className="text-foreground-muted leading-relaxed">{study.challenge}</p>
+          <h3 className="text-label mb-4 text-accent">The Challenge</h3>
+          <p className="text-foreground-muted leading-[1.75]">{study.challenge}</p>
         </div>
         <div>
-          <h3 className="font-mono text-lg font-semibold text-accent-wcag mb-4">The Solution</h3>
-          <p className="text-foreground-muted leading-relaxed">{study.solution}</p>
+          <h3 className="text-label mb-4 text-accent">The Solution</h3>
+          <p className="text-foreground-muted leading-[1.75]">{study.solution}</p>
         </div>
       </div>
 
-      {/* Project Details Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 p-6 md:p-8 bg-muted rounded-xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 pt-12 border-t border-border">
         <div>
-          <h4 className="text-sm font-mono text-foreground-muted uppercase tracking-wider mb-2">Role</h4>
-          <p className="text-foreground font-medium">{study.role}</p>
+          <h4 className="text-label mb-3">Role</h4>
+          <p className="text-foreground font-medium leading-[1.75]">{study.role}</p>
         </div>
         <div>
-          <h4 className="text-sm font-mono text-foreground-muted uppercase tracking-wider mb-2">Duration</h4>
-          <p className="text-foreground font-medium">{study.duration}</p>
+          <h4 className="text-label mb-3">Duration</h4>
+          <p className="text-foreground font-medium leading-[1.75]">{study.duration}</p>
         </div>
         <div>
-          <h4 className="text-sm font-mono text-foreground-muted uppercase tracking-wider mb-2">Tools</h4>
-          <p className="text-foreground font-medium">{study.tools.join(", ")}</p>
+          <h4 className="text-label mb-3">Tools</h4>
+          <p className="text-foreground font-medium leading-[1.75]">{study.tools.join(", ")}</p>
         </div>
         <div>
-          <h4 className="text-sm font-mono text-foreground-muted uppercase tracking-wider mb-2">Team</h4>
-          <ul className="text-foreground font-medium">
+          <h4 className="text-label mb-3">Team</h4>
+          <ul className="text-foreground font-medium leading-[1.75]">
             {study.team.map((member) => (
               <li key={member}>{member}</li>
             ))}
