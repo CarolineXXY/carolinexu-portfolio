@@ -26,8 +26,8 @@ export function CaseStudyProcess({ process }: ProcessProps) {
               {index + 1}
             </div>
             <div>
-              <h3 className="font-serif text-xl mb-2">{step.title}</h3>
-              <p className="text-foreground-muted text-sm leading-[1.75]">{step.description}</p>
+              <h3 className="font-serif mb-2">{step.title}</h3>
+              <p className="text-foreground-muted leading-[1.75]">{step.description}</p>
             </div>
           </div>
         ))}

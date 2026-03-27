@@ -24,7 +24,7 @@ export interface CaseStudy extends Project {
 
 export const projects: Project[] = [
   {
-    id: "mobile-banking-app",
+    id: "accounting-firm-redesign",
     title: "Accounting Firm Homepage Redesign",
     category: "Responsive Website",
     description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
@@ -42,28 +42,28 @@ export const projects: Project[] = [
     year: "2024",
   },
   {
-    id: "health-tracking-app",
-    title: "Health & Wellness Tracker",
+    id: "water-tracking-app",
+    title: "DropWise: Smart Water Tracking App",
     category: "Mobile Application",
-    description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
-    thumbnail: "/health-tracking-app-ui-design.jpg",
-    tags: ["Mobile Design", "UX Strategy", "Visual Design"],
+    description: "A mobile app that helps users track their daily water usage with smart reminders and customised goals.",
+    thumbnail: "/dropwise-banner.png",
+    tags: ["Mobile Design", "IoT", "Sustainability"],
     year: "2024",
   },
   {
-    id: "saas-dashboard",
-    title: "SaaS Analytics Dashboard",
-    category: "Web Application",
-    description: "Building a data visualization dashboard that makes complex analytics accessible and actionable.",
-    thumbnail: "/analytics-dashboard-ui.png",
-    tags: ["Dashboard Design", "Data Viz", "B2B"],
+    id: "shroomcycle",
+    title: "Sleep Accountability Lamp",
+    category: "Product Design",
+    description: "An innovative smart lamp designed to promote healthy sleep habits through gentle light cues and accountability features.",
+    thumbnail: "/shroomcycle-banner.png",
+    tags: ["Product Design", "IoT", "Health & Wellness"],
     year: "2024",
   },
 ]
 
 export const caseStudies: Record<string, CaseStudy> = {
-  "mobile-banking-app": {
-    id: "mobile-banking-app",
+  "accounting-firm-redesign": {
+    id: "accounting-firm-redesign",
     title: "Accounting Firm Homepage Redesign",
     category: "Responsive Website",
     description: "Redesigning the mobile banking experience to improve usability and accessibility for all users.",
@@ -297,37 +297,27 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
         itemsTitle: "KEY FEATURES",
         items: [
-          { title: "Modular Home Screen", description: "Easy access to key services like events, student advocacy services, volunteering, deals, news and resources" },
-          { title: "Event Calendar", description: "Searchable calendar with filters, RSVPs, and reminders to boost participation" },
-          { title: "MatesRates Barcode", description: "Always-visible tappable card for instant scan to buy discounted products on campus" },
-          { title: "SAS Quick Access", description: "Quick links to welfare, support, and other resources with in-app navigation" },
-          { title: "Notifications and Alerts", description: "Push notifications for upcoming events, deadlines, and promotions" }
-        ]
-      },
-      {
-        title: "Wireframes",
-        content: "Before committing to high fidelity visuals, we mapped out the core user journeys and created low-fidelity wireframes to rapidly test the structural layout and navigation logic.",
-        images: [
-          "/placeholder.svg",
-          "/placeholder.svg"
+          { title: "Modular Home Screen", description: "Easy access to key services like events, student advocacy services, volunteering, deals, news and resources." },
+          { title: "Event Calendar", description: "Searchable calendar with filters, RSVPs, and reminders to boost participation." },
+          { title: "MatesRates Barcode", description: "Always-visible tappable card for instant scan to buy discounted products on campus." },
+          { title: "SAS Quick Access", description: "Quick links to welfare, support, and other resources with in-app navigation." },
+          { title: "Notifications and Alerts", description: "Push notifications for upcoming events, deadlines, and promotions." }
         ]
       },
       {
         title: "Design System",
-        content: "We established a vibrant, accessible design system that aligns perfectly with the university's official branding while still feeling modern, lightweight, and engaging for a Gen Z demographic.",
+        content: "The colour palette was drawn directly from the UQ Union's existing branding. The colours feel vibrant and engaging for uni students demographic. For typography, we used a combination of Futura and Roboto fonts to create a modern, clean and accessible look.",
         images: ["/uqu-designsystem.png"]
       },
       {
         title: "High Fidelity Prototype",
-        content: "The final high-fidelity screens brought the wireframes to life. We prioritized large touch targets, high legibility, and a clear visual hierarchy to ensure the app felt inherently simple to use.",
-        link: { text: "View Figma Prototype", url: "#" },
-        images: [
-          { src: "/placeholder.svg", caption: "UQU App - Dashboard and Event Screens" }
-        ]
+        content: "For the final high-fidelity prototype, we prioritised key UQU services, high legibility, and a clear visual hierarchy to ensure the app felt simple to use.",
+        link: { text: "View Figma Prototype", url: "https://www.figma.com/proto/qY57GRfthfIfOCtbAgVONu/UQU?page-id=122%3A413&node-id=122-1366&viewport=296%2C265%2C0.13&t=HIfHi4c3RF1IbMn8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=122%3A1366" },
+        images: ["/uqu-hifi-1.png", "/uqu-hifi-2.png"]
       },
       {
         title: "User Testing",
-        content: "We conducted an unmoderated usability testing session with 5 students to validate the new navigation and event discovery flow. Each participant was given a scenario: visiting the app as a new student seeking weekend activities, and asked to complete a series of tasks independently.",
+        content: "We conducted a moderated usability testing session with think-aloud method with 5 students to validate the design. Each participant was asked to complete a series of tasks independently.",
         subSections: [
           {
             subtitle: "TASKS GIVEN",
@@ -352,31 +342,17 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         title: "Outcome",
-        content: "The centralized platform approach was highly successful. The results validated our design decisions around personalized discovery feeds and simplified RSVP mechanics.",
+        content: "Overall, participants were satisfied with the design. They appreciated the centralised access and easy navigation, noting it would increase their engagement.",
         items: [
           { value: "100%", label: "Task success rate", subNote: "All users successfully RSVP'd to an event" },
-          { value: "4.7/5", label: "Ease of use", subNote: "Average rating for event discovery" },
-          { value: "AA", label: "Accessibility", subNote: "Exceeded WCAG baseline requirements" },
+          { value: "4.6/5", label: "Ease of use", subNote: "Average rating for event discovery" },
           { value: "< 10s", label: "Time to book", subNote: "Fastest critical task across all sessions", highlight: true }
-        ]
+        ],
+        outro: "While the overall feedback was positive, some participants felt a bit overwhelmed by the variations in colour use (to reflect UQU’s diverse branding), so for iteration, we would use neutral colours like black and white as the primary colours and use the accent colours sparingly."
       },
       {
         title: "Key Learnings",
-        content: "Designing the UQU App taught us how to balance incredibly dense structural information architectures in a mobile environment without cognitively overwhelming the user.",
-        items: [
-          {
-            title: "Personalization is critical",
-            description: "Students only engage with campus content that is hyper-relevant to their specific faculty, interests, and year level."
-          },
-          {
-            title: "Simplicity drives engagement",
-            description: "Reducing the friction to RSVP to an event by just one click directly increased the likelihood of a student attending."
-          },
-          {
-            title: "Testing reveals blind spots",
-            description: "Early wireframe testing helped us correct a confusing navigation pattern for the services directory before we invested time in high fidelity designs."
-          }
-        ]
+        content: "Designing the UQU App taught me how to balance incredibly dense structural information in a mobile environment without cognitively overwhelming the user. Through research and testing, I learned the importance of making all features easy to find while giving priority to the ones users value most.",
       }
     ]
   }

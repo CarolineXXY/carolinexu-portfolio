@@ -29,8 +29,8 @@ export function CaseStudyPersonas({ personas }: PersonasProps) {
                 <Image src={persona.image || "/placeholder.svg"} alt={persona.name} fill className="object-cover" />
               </div>
               <div>
-                <h3 className="font-serif text-xl">{persona.name}</h3>
-                <p className="text-foreground-muted text-sm">{persona.role}</p>
+                <h3 className="font-serif">{persona.name}</h3>
+                <p className="text-foreground-muted">{persona.role}</p>
               </div>
             </div>
 
@@ -38,7 +38,7 @@ export function CaseStudyPersonas({ personas }: PersonasProps) {
               <h4 className="text-label mb-3 text-foreground-muted">Goals</h4>
               <ul className="space-y-2">
                 {persona.goals.map((goal, index) => (
-                  <li key={index} className="text-foreground-muted text-sm flex items-start gap-2 leading-[1.75]">
+                  <li key={index} className="text-foreground-muted flex items-start gap-2 leading-[1.75]">
                     <span className="text-foreground mt-0.5">✓</span>
                     {goal}
                   </li>
@@ -50,7 +50,7 @@ export function CaseStudyPersonas({ personas }: PersonasProps) {
               <h4 className="text-label mb-3 text-warm-orange">Pain Points</h4>
               <ul className="space-y-2">
                 {persona.painPoints.map((pain, index) => (
-                  <li key={index} className="text-foreground-muted text-sm flex items-start gap-2 leading-[1.75]">
+                  <li key={index} className="text-foreground-muted flex items-start gap-2 leading-[1.75]">
                     <span className="text-warm-orange mt-0.5">×</span>
                     {pain}
                   </li>

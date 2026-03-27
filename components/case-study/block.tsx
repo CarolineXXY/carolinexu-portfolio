@@ -86,7 +86,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <div className="w-full flex flex-col gap-10 mb-12 max-w-3xl">
           {block.subSections.map((sub, idx) => (
             <div key={idx} className="flex flex-col gap-4">
-              {sub.title && <h3 className="font-serif text-xl md:text-2xl text-foreground">{sub.title}</h3>}
+              {sub.title && <h3 className="font-serif text-foreground">{sub.title}</h3>}
               {sub.subtitle && <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-1">{sub.subtitle}</h4>}
               {sub.content && <p className="text-foreground-muted leading-[1.75]">{sub.content}</p>}
 
@@ -123,7 +123,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
               <span className="font-serif text-2xl md:text-3xl font-medium tracking-wide">{block.persona.avatarInitials}</span>
             </div>
 
-            <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mt-[16px]">{block.persona.name}</h3>
+            <h3 className="font-serif font-medium text-foreground mt-[16px]">{block.persona.name}</h3>
             <p className="italic text-foreground-muted mt-[4px]">{block.persona.tagLine}</p>
 
             <hr className="border-t border-border my-[20px]" />

@@ -15,7 +15,7 @@ export function CaseStudyHero({ study }: CaseStudyHeroProps) {
 
         <h1 className="font-serif mb-6 max-w-[20ch]">{study.title}</h1>
 
-        <p className="text-lg md:text-xl text-foreground-muted max-w-2xl mb-10 leading-[1.75]">{study.description}</p>
+        <p className="text-foreground-muted max-w-2xl mb-10 leading-[1.75]">{study.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-12">
           {study.tags.map((tag) => (

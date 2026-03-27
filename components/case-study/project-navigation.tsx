@@ -20,7 +20,7 @@ export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
               <ArrowLeft size={22} strokeWidth={1.5} className="text-foreground-muted shrink-0" />
               <div>
                 <span className="text-label block mb-1">Previous</span>
-                <h3 className="font-serif text-lg text-foreground group-hover:text-warm-orange transition-colors">
+                <h3 className="font-serif text-foreground group-hover:text-warm-orange transition-colors">
                   {prev.title}
                 </h3>
               </div>
@@ -36,7 +36,7 @@ export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
             >
               <div>
                 <span className="text-label block mb-1">Next</span>
-                <h3 className="font-serif text-lg text-foreground group-hover:text-warm-orange transition-colors">
+                <h3 className="font-serif text-foreground group-hover:text-warm-orange transition-colors">
                   {next.title}
                 </h3>
               </div>
@@ -49,7 +49,7 @@ export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
             >
               <div>
                 <span className="text-label block mb-1">View All</span>
-                <h3 className="font-serif text-lg text-foreground group-hover:text-warm-orange transition-colors">
+                <h3 className="font-serif text-foreground group-hover:text-warm-orange transition-colors">
                   Back to Portfolio
                 </h3>
               </div>
