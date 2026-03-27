@@ -2,12 +2,7 @@ import Link from "next/link"
 import { caseStudies, getAdjacentProjects } from "@/lib/data"
 import { CaseStudyHero } from "@/components/case-study/hero"
 import { CaseStudyOverview } from "@/components/case-study/overview"
-import { CaseStudyResearch } from "@/components/case-study/research"
-import { CaseStudyPersonas } from "@/components/case-study/personas"
-import { CaseStudyProcess } from "@/components/case-study/process"
-import { CaseStudyScreens } from "@/components/case-study/screens"
-import { CaseStudyResults } from "@/components/case-study/results"
-import { CaseStudyLearnings } from "@/components/case-study/learnings"
+import { GenericCaseStudyBlock } from "@/components/case-study/block"
 import { ProjectNavigation } from "@/components/case-study/project-navigation"
 import { FadeIn } from "@/components/fade-in"
 
@@ -58,73 +53,16 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     <main className="min-h-screen bg-background">
       <CaseStudyHero study={study} />
 
-      <FadeIn className="max-w-content px-4 sm:px-6 lg:px-8 py-8 md:py-10">
-        <nav className="text-sm text-foreground-muted" aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-2">
-            <li>
-              <Link href="/" className="no-underline transition-colors hover:text-warm-orange hover:underline underline-offset-[0.2em] decoration-warm-orange">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-foreground-muted">
-              /
-            </li>
-            <li>
-              <Link
-                href="/#work"
-                className="no-underline transition-colors hover:text-warm-orange hover:underline underline-offset-[0.2em] decoration-warm-orange"
-              >
-                Work
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-foreground-muted">
-              /
-            </li>
-            <li className="text-foreground font-medium truncate max-w-[220px]">{study.title}</li>
-          </ol>
-        </nav>
-      </FadeIn>
-
-      <div className="max-w-content px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
+      <div className="max-w-content px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 pt-8 md:pt-12">
         <FadeIn>
           <CaseStudyOverview study={study} />
         </FadeIn>
 
-        {study.sections.research && (
-          <FadeIn>
-            <CaseStudyResearch research={study.sections.research} />
+        {study.blocks?.map((block, index) => (
+          <FadeIn key={index}>
+            <GenericCaseStudyBlock block={block} />
           </FadeIn>
-        )}
-
-        {study.sections.personas && (
-          <FadeIn>
-            <CaseStudyPersonas personas={study.sections.personas} />
-          </FadeIn>
-        )}
-
-        {study.sections.process && (
-          <FadeIn>
-            <CaseStudyProcess process={study.sections.process} />
-          </FadeIn>
-        )}
-
-        {study.sections.screens && (
-          <FadeIn>
-            <CaseStudyScreens screens={study.sections.screens} />
-          </FadeIn>
-        )}
-
-        {study.sections.results && (
-          <FadeIn>
-            <CaseStudyResults results={study.sections.results} />
-          </FadeIn>
-        )}
-
-        {study.sections.learnings && (
-          <FadeIn>
-            <CaseStudyLearnings learnings={study.sections.learnings} />
-          </FadeIn>
-        )}
+        ))}
       </div>
 
       <FadeIn>

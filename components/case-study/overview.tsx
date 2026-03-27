@@ -7,7 +7,13 @@ interface CaseStudyOverviewProps {
 export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
   return (
     <section className="section-y border-b border-border">
-      <h2 className="font-serif mb-10 md:mb-14">Overview</h2>
+      <h2 className="font-serif mb-6">Overview</h2>
+
+      {study.disclaimer && (
+        <div className="bg-muted/30 border border-border text-foreground-muted px-6 py-4 rounded-sm text-[13px] md:text-sm italic mb-12 max-w-3xl leading-[1.75]">
+          {study.disclaimer}
+        </div>
+      )}
 
       <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-16">
         <div>
@@ -33,14 +39,14 @@ export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
           <h4 className="text-label mb-3">Tools</h4>
           <p className="text-foreground font-medium leading-[1.75]">{study.tools.join(", ")}</p>
         </div>
-        <div>
+        {/* <div>
           <h4 className="text-label mb-3">Team</h4>
           <ul className="text-foreground font-medium leading-[1.75]">
             {study.team.map((member) => (
               <li key={member}>{member}</li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     </section>
   )

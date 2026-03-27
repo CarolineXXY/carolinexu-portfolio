@@ -35,8 +35,7 @@ export function ToolsCarousel({ tools }: ToolsCarouselProps) {
                 <Image
                   src={tool.logo}
                   alt={`${tool.name} logo`}
-                  width={40}
-                  height={40}
+                  fill
                   className="object-contain"
                 />
               </div>
