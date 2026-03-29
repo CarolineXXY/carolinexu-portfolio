@@ -12,6 +12,8 @@ export interface CaseStudyBlock {
     content?: string
     listType?: 'number' | 'bullet'
     items?: string[]
+    image?: { src: string; caption?: string; size?: 'small' | 'medium' | 'large' }
+    images?: (string | { src: string; caption?: string; size?: 'small' | 'medium' | 'large' })[]
   }[]
   persona?: {
     avatarInitials: string
@@ -25,7 +27,8 @@ export interface CaseStudyBlock {
   cards?: { title: string; content: string }[]
   itemsTitle?: string
   items?: string[] | { title: string; description: string }[] | { value: string; label: string; subNote?: string; highlight?: boolean }[]
-  images?: (string | { src: string; caption: string })[]
+  images?: (string | { src: string; caption?: string; size?: 'small' | 'medium' | 'large' })[]
+  videoUrl?: string
 }
 
 export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
@@ -63,8 +66,11 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
           {block.images.map((img, index) => {
             const src = typeof img === 'string' ? img : img.src;
             const caption = typeof img === 'string' ? null : img.caption;
+            const size = typeof img === 'object' && 'size' in img ? img.size : 'large';
+            const widthClass = size === 'small' ? 'max-w-md' : size === 'medium' ? 'max-w-2xl' : 'max-w-4xl';
+
             return (
-              <div key={index} className="w-full max-w-4xl flex flex-col items-center">
+              <div key={index} className={`w-full ${widthClass} flex flex-col items-center`}>
                 <div className="w-full overflow-hidden rounded-sm bg-muted mb-4 shadow-sm border border-border flex justify-center">
                   <Image
                     src={src || "/placeholder.svg"}
@@ -81,33 +87,79 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         </div>
       )}
 
+      {/* Video if any */}
+      {block.videoUrl && (
+        <div className="flex flex-col items-center gap-10 mt-4 mb-16 w-full">
+          <div className="w-full max-w-4xl flex flex-col items-center">
+            <div className="w-full aspect-[16/9] overflow-hidden rounded-sm bg-muted shadow-sm border border-border">
+              <iframe
+                src={block.videoUrl}
+                allow="autoplay; encrypted-media; fullscreen"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Sub sections if any */}
       {block.subSections && block.subSections.length > 0 && (
-        <div className="w-full flex flex-col gap-10 mb-12 max-w-3xl">
+        <div className="w-full flex flex-col gap-10 mb-12">
           {block.subSections.map((sub, idx) => (
-            <div key={idx} className="flex flex-col gap-4">
-              {sub.title && <h3 className="font-serif text-foreground">{sub.title}</h3>}
-              {sub.subtitle && <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-1">{sub.subtitle}</h4>}
-              {sub.content && <p className="text-foreground-muted leading-[1.75]">{sub.content}</p>}
+            <div key={idx} className="flex flex-col gap-6 w-full">
+              <div className="flex flex-col gap-4 max-w-3xl w-full">
+                {sub.title && <h3 className="font-serif text-foreground">{sub.title}</h3>}
+                {sub.subtitle && <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-1">{sub.subtitle}</h4>}
+                {sub.content && <p className="text-foreground-muted leading-[1.75]">{sub.content}</p>}
 
-              {sub.items && sub.items.length > 0 && sub.listType === 'number' && (
-                <ol className="list-decimal pl-5 space-y-3">
-                  {sub.items.map((item, i) => (
-                    <li key={i} className="text-foreground-muted leading-[1.75] pl-1">{item}</li>
-                  ))}
-                </ol>
-              )}
+                {sub.items && sub.items.length > 0 && sub.listType === 'number' && (
+                  <ol className="list-decimal pl-5 space-y-3">
+                    {sub.items.map((item, i) => (
+                      <li key={i} className="text-foreground-muted leading-[1.75] pl-1">{item}</li>
+                    ))}
+                  </ol>
+                )}
 
-              {sub.items && sub.items.length > 0 && sub.listType === 'bullet' && (
-                <ul className="space-y-3">
-                  {sub.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">•</span>
-                      <span className="text-foreground-muted leading-[1.75]">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                {sub.items && sub.items.length > 0 && sub.listType === 'bullet' && (
+                  <ul className="space-y-3">
+                    {sub.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">•</span>
+                        <span className="text-foreground-muted leading-[1.75]">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {(sub.image || (sub.images && sub.images.length > 0)) && (() => {
+                const imagesToRender = sub.images || (sub.image ? [sub.image] : []);
+                return (
+                  <div className="w-full flex flex-col gap-8 items-center mt-2 mb-4">
+                    {imagesToRender.map((img, imgIdx) => {
+                      const src = typeof img === 'string' ? img : img.src;
+                      const caption = typeof img === 'string' ? null : img.caption;
+                      const size = typeof img === 'object' && 'size' in img ? img.size : 'large';
+                      const widthClass = size === 'small' ? 'max-w-md' : size === 'medium' ? 'max-w-2xl' : 'max-w-4xl';
+                      return (
+                        <div key={imgIdx} className={`w-full flex flex-col items-center ${widthClass}`}>
+                          <div className="w-full overflow-hidden rounded-sm bg-muted mb-3 shadow-sm border border-border flex justify-center">
+                            <Image
+                              src={src || "/placeholder.svg"}
+                              alt={caption || "Subsection image"}
+                              width={1920}
+                              height={1080}
+                              className="w-full h-auto object-contain"
+                            />
+                          </div>
+                          {caption && <p className="text-sm font-medium text-foreground-muted text-center max-w-xl">{caption}</p>}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </div>
           ))}
         </div>

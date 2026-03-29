@@ -42,21 +42,21 @@ export const projects: Project[] = [
     year: "2024",
   },
   {
-    id: "water-tracking-app",
-    title: "DropWise: Smart Water Tracking App",
-    category: "Mobile Application",
-    description: "A mobile app that helps users track their daily water usage with smart reminders and customised goals.",
-    thumbnail: "/dropwise-banner.png",
-    tags: ["Mobile Design", "IoT", "Sustainability"],
-    year: "2024",
-  },
-  {
     id: "shroomcycle",
     title: "Sleep Accountability Lamp",
     category: "Product Design",
     description: "An innovative smart lamp designed to promote healthy sleep habits through gentle light cues and accountability features.",
     thumbnail: "/shroomcycle-banner.png",
     tags: ["Product Design", "IoT", "Health & Wellness"],
+    year: "2024",
+  },
+  {
+    id: "water-tracking-app",
+    title: "DropWise: Smart Water Tracking App",
+    category: "Mobile Application",
+    description: "A mobile app that helps users track their daily water usage with smart reminders and customised goals.",
+    thumbnail: "/dropwise-banner.png",
+    tags: ["Mobile Design", "IoT", "Sustainability"],
     year: "2024",
   },
 ]
@@ -313,7 +313,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: "High Fidelity Prototype",
         content: "For the final high-fidelity prototype, we prioritised key UQU services, high legibility, and a clear visual hierarchy to ensure the app felt simple to use.",
         link: { text: "View Figma Prototype", url: "https://www.figma.com/proto/qY57GRfthfIfOCtbAgVONu/UQU?page-id=122%3A413&node-id=122-1366&viewport=296%2C265%2C0.13&t=HIfHi4c3RF1IbMn8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=122%3A1366" },
-        images: ["/uqu-hifi-1.png", "/uqu-hifi-2.png"]
+        images: ["/uqu-hifi.png", "/uqu-keyscreen1.png", "/uqu-keyscreen2.png"]
       },
       {
         title: "User Testing",
@@ -353,6 +353,123 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Key Learnings",
         content: "Designing the UQU App taught me how to balance incredibly dense structural information in a mobile environment without cognitively overwhelming the user. Through research and testing, I learned the importance of making all features easy to find while giving priority to the ones users value most.",
+      }
+    ]
+  },
+  "shroomcycle": {
+    id: "shroomcycle",
+    title: "Sleep Accountability Lamp",
+    category: "Product Design",
+    description: "An innovative smart lamp designed to promote healthy sleep habits through gentle light cues and accountability features.",
+    thumbnail: "/shroomcycle-banner.png",
+    heroImage: "/shroomcycle-banner.png",
+    tags: ["Product Design", "IoT", "Health & Wellness"],
+    year: "2024",
+    role: "Product Designer, UX Researcher, Prototype Developer",
+    duration: "4 months",
+    tools: ["Arduino", "Miro", "Pen and Paper", "SolidWorks"],
+    team: ["1 × Product Designer", "1 × Software Engineer", "1 × Electrical Engineer"],
+    challenge:
+      "University students often struggle with poor sleep hygiene due to irregular schedules, academic pressure, and excessive screen time. On average, students get 6.2 hours of sleep compared to the recommended 8-9 hours, leading to reduced focus and well-being. There's a need for a collaborative, accessible solution to encourage better sleep routines.",
+    solution:
+      "We designed Shroomcycle, a smart, interactive lamp that uses gentle ambient lights and a physical accountability mechanism to help users build and maintain healthier sleep routines without relying on harsh screen-based interactions.",
+    blocks: [
+      {
+        title: "Research & Discovery",
+        content: "To deeply understand university students' sleep habits, we used three research methods: interviews, autoethnographies, and diary studies.",
+        subSections: [
+          {
+            subtitle: "INTERVIEWS",
+            content: "From our interviews, we were able to identify a few key pieces of information:",
+            listType: "bullet",
+            items: [
+              "Interviewees categorise 6-9 hours of sleep as “Good Sleep”. Most were unable to meet this due to academic and job pressures.",
+              "Most participants habitually use their phones prior to sleeping.",
+              "Interviewees frequently get disturbed by noises from housemates/neighbours that often wake them up."
+            ]
+          },
+          {
+            subtitle: "AUTOETHNOGRAPHY",
+            content: "From conducting autoethnographies, we were able to understand that one common routine that we all had prior to sleeping was to browse our phones, be it social media or YouTube."
+          },
+          {
+            subtitle: "DIARY STUDY",
+            content: "Users would often watch videos on YouTube or browse social media prior to sleeping to help them wind down.",
+            listType: "bullet",
+            items: [
+              "Users would often stay awake and not have good sleep around assignment deadlines and exam times.",
+              "Users would often check their phones as soon as they wake up."
+            ],
+            image: { src: "/shroomcycle-diarystudy.png", caption: "Diary Study Questions", size: "medium" }
+          },
+          {
+            image: { src: "/shroomcycle-user-research.png" }
+          }
+        ],
+        cardsTitle: "KEY INSIGHTS",
+        cards: [
+          { title: "Sleep Shortfall", content: "Students average 6.2 hours of sleep due to academic and environmental pressures." },
+          { title: "Screen Time Impact", content: "Phone use before bed disrupts sleep quality." },
+          { title: "Need for Consistency", content: "Consistent schedules and reduced device use could improve sleep hygiene." }
+        ]
+      },
+      {
+        title: "Persona",
+        persona: {
+          avatarInitials: "ET",
+          name: "Emma Tan",
+          tagLine: "21-year-old university student struggling with sleep hygiene",
+          bio: [
+            { label: "Age", value: "21" },
+            { label: "Occupation", value: "Full-time student" },
+            { label: "Location", value: "Brisbane, Australia" }
+          ],
+          quote: "I know I should sleep better, but it's hard to stick to a routine with my schedule.",
+          sections: [
+            { title: "Goals", items: ["Improve sleep quality for better focus and well-being", "Maintain academic performance", "Build consistent bedtime routines"] },
+            { title: "Frustrations", items: ["Inconsistent sleep schedule", "Difficulty winding down", "Waking up tired", "Lack of accountability for timely bedtimes"] },
+            { title: "Needs", items: ["A tool encourage consistent sleep schedules", "A way to track sleep progress", "Simple, affordable solution to stay accountable to my goals"] }
+          ]
+        }
+      },
+      {
+        title: "Storyboard",
+        images: [{ src: "/shroomcycle-storyboard.jpg", size: "large" }]
+      },
+      {
+        title: "Proposed Solution",
+        content: "We designed ShroomCycle, a smart, interactive lamp that uses gentle ambient lights and a accountability mechanism to help university students build and maintain healthier sleep routines.",
+        images: [{ src: "/shroomcycle-initial-design-draft.png", caption: "ShroomCycle Design Draft", size: "medium" }],
+        itemsTitle: "KEY FEATURES",
+        items: [
+          { title: "Ambient Light Detection", description: "Lamps activate when room lights dim." },
+          { title: "Phone Detection Pad", description: "A pad that detects when a phone is placed on it and turns off the user's light, indicating they're ready to sleep." },
+          { title: "Group Accountability", description: "Each lamp's LEDs reflect the sleep status of friends, creating a sense of shared motivation." },
+          { title: "Simple and Affordable", description: "An accessible solution that integrates seamlessly into the bedroom environment." }
+        ]
+      },
+      {
+        title: "Hardware Prototyping",
+        content: "We started with breadboard prototypes using Arduino to test the ambient light detection and pressure sensor logic. Later, we moved to building the lamp using cardboard, planks, and paper.",
+        subSections: [
+          {
+            subtitle: "INITIAL PROTOTYPE",
+            content: "For our initial prototype, we used an Arduino and a breadboard to wire up the ambient light and pressure sensors. This allowed us to quickly test the core logic of detecting room lighting and sensing phone placement before committing to a physical housing.",
+            images: ["/shroomcycle-Initial_Prototype.png",
+              "/shroomcycle-Initial_prototype2.png"]
+          },
+          {
+            subtitle: "BUILDING THE MUSHROOM",
+            content: "We used cardboard, wood planks, and paper to create a mushroom-shaped lamp that diffused the LED light while safely housing all the internal wiring.",
+            image: { src: "/Make_Shroom.png", size: "small" }
+          }
+        ]
+      },
+      {
+        title: "Final Product & Promotion",
+        content: "The final ShroomCycle product seamlessly integrates into the user's bedroom environment, using soft, diffused light to remind users of their accountability to sleep. \n\nCheck out our promotional video to see Shroomcycle in action and understand how it works to encourage healthier sleep habits.",
+        link: { text: "View GitHub Project", url: "https://github.com/LiCHihTseng/ShroomCycle" },
+        videoUrl: "https://drive.google.com/file/d/1IocXM9hf5OOcszXdiTAdlhlAWu1WDyQI/preview"
       }
     ]
   }
