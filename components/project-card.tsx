@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const hasCaseStudy = project.id in caseStudies
-  const isDeactivated = index >= 2
+  const isDeactivated = index >= 3
   const href = hasCaseStudy ? `/work/${project.id}` : `#${project.id}`
 
   const CardWrapper = isDeactivated ? "div" : Link
