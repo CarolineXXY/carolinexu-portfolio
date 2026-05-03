@@ -8,6 +8,7 @@ export interface Project {
   thumbnail: string
   tags: string[]
   year: string
+  status?: "completed" | "in-progress" | "coming-soon"
 }
 
 export interface CaseStudy extends Project {
@@ -51,13 +52,14 @@ export const projects: Project[] = [
     year: "2024",
   },
   {
-    id: "water-tracking-app",
-    title: "DropWise: Smart Water Tracking App",
-    category: "Mobile Application",
-    description: "A mobile app that helps users track their daily water usage with smart reminders and customised goals.",
-    thumbnail: "/dropwise-banner.png",
-    tags: ["Mobile Design", "IoT", "Sustainability"],
-    year: "2024",
+    id: "crumb",
+    title: "Crumb: An AI-assisted design project",
+    category: "AI-assisted UI Design",
+    description: "A mobile app designed for amateur home bakers who want to grow their skills, discover new recipes, and manage their baking journey.",
+    thumbnail: "/crumb-logo.jpg",
+    tags: ["Mobile Design", "AI-Assited Design", "Lifestyle"],
+    year: "2026",
+    status: "in-progress",
   },
 ]
 

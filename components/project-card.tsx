@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const hasCaseStudy = project.id in caseStudies
-  const isDeactivated = index >= 3
+  const isDeactivated = project.status === "coming-soon" || (!project.status && index >= 3)
   const href = hasCaseStudy ? `/work/${project.id}` : `#${project.id}`
 
   const CardWrapper = isDeactivated ? "div" : Link
@@ -22,13 +22,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <CardWrapper
       {...(wrapperProps as any)}
-      className={`group block bg-transparent pt-6 border-t border-border transition-all duration-300 ${isDeactivated ? 'opacity-80 cursor-default' : 'hover:-translate-y-1 cursor-pointer'}`}
+      className={`group block bg-transparent pt-6 border-t border-border transition-all duration-300 ${isDeactivated ? "opacity-80 cursor-default" : "hover:-translate-y-1 cursor-pointer"}`}
     >
       {/* Thumbnail */}
       <div className="relative aspect-[3/2] overflow-hidden bg-muted rounded-sm">
-        {isDeactivated && (
+        {(isDeactivated || project.status === "in-progress") && (
           <div className="absolute top-4 right-4 z-20 bg-background/95 backdrop-blur-sm px-[10px] py-[4px] rounded-sm font-sans text-[10px] md:text-[11px] font-medium tracking-[0.08em] uppercase text-foreground shadow-sm">
-            Coming Soon...
+            {project.status === "in-progress" ? "In Progress" : "Coming Soon..."}
           </div>
         )}
         <Image
