@@ -63,6 +63,35 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <GenericCaseStudyBlock block={block} />
           </FadeIn>
         ))}
+
+        {study.statusBanner && (
+          <FadeIn>
+            <div className="mt-16 bg-white border border-border p-8 rounded-sm text-center shadow-sm">
+              <h4 className="text-label mb-6 text-accent">Project Status</h4>
+              <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
+                {study.statusBanner.map((item, idx) => {
+                  const isDone = item.includes("✓");
+                  const label = item.replace("✓", "").replace("— coming next", "").trim();
+                  return (
+                    <div key={idx} className="flex items-center gap-2 font-sans">
+                      <span className={`w-2.5 h-2.5 rounded-full ${isDone ? 'bg-emerald-500' : 'bg-amber-500/80 animate-pulse'}`} />
+                      <span className={`font-medium ${isDone ? 'text-foreground' : 'text-foreground-muted'}`}>
+                        {label}
+                      </span>
+                      {isDone ? (
+                        <span className="text-emerald-500 text-sm font-bold">✓</span>
+                      ) : (
+                        <span className="text-[11px] uppercase tracking-wider text-amber-600 bg-amber-50 px-1.5 py-0.5 border border-amber-200/50 rounded-sm">
+                          In Progress
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </FadeIn>
+        )}
       </div>
 
       <FadeIn>

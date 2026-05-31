@@ -14,6 +14,7 @@ export interface CaseStudyBlock {
     items?: string[]
     image?: { src: string; caption?: string; size?: 'small' | 'medium' | 'large' }
     images?: (string | { src: string; caption?: string; size?: 'small' | 'medium' | 'large' })[]
+    layout?: 'side-by-side' | 'stacked'
   }[]
   persona?: {
     avatarInitials: string
@@ -26,7 +27,7 @@ export interface CaseStudyBlock {
   cardsTitle?: string
   cards?: { title: string; content: string }[]
   itemsTitle?: string
-  items?: string[] | { title: string; description: string }[] | { value: string; label: string; subNote?: string; highlight?: boolean }[]
+  items?: string[] | { title: string; description: string; tags?: { label: string; value: string }[] }[] | { value: string; label: string; subNote?: string; highlight?: boolean }[]
   images?: (string | { src: string; caption?: string; size?: 'small' | 'medium' | 'large' })[]
   videoUrl?: string
 }
@@ -106,36 +107,63 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
       {/* Sub sections if any */}
       {block.subSections && block.subSections.length > 0 && (
         <div className="w-full flex flex-col gap-10 mb-12">
-          {block.subSections.map((sub, idx) => (
-            <div key={idx} className="flex flex-col gap-6 w-full">
-              <div className="flex flex-col gap-4 max-w-3xl w-full">
-                {sub.title && <h3 className="font-serif text-foreground">{sub.title}</h3>}
-                {sub.subtitle && <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-1">{sub.subtitle}</h4>}
-                {sub.content && <p className="text-foreground-muted leading-[1.75]">{sub.content}</p>}
+          {block.subSections.map((sub, idx) => {
+            const isSideBySide = sub.layout === 'side-by-side';
+            const imagesToRender = sub.images || (sub.image ? [sub.image] : []);
 
-                {sub.items && sub.items.length > 0 && sub.listType === 'number' && (
-                  <ol className="list-decimal pl-5 space-y-3">
-                    {sub.items.map((item, i) => (
-                      <li key={i} className="text-foreground-muted leading-[1.75] pl-1">{item}</li>
-                    ))}
-                  </ol>
-                )}
+            return (
+              <div key={idx} className="flex flex-col gap-6 w-full">
+                <div className={`flex flex-col ${isSideBySide ? 'md:flex-row md:items-start md:gap-12' : 'gap-4'} max-w-none w-full`}>
+                  <div className={`${isSideBySide ? 'flex-1' : 'max-w-3xl'} flex flex-col gap-4 w-full`}>
+                    {sub.title && <h3 className="font-serif text-foreground">{sub.title}</h3>}
+                    {sub.subtitle && <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-1">{sub.subtitle}</h4>}
+                    {sub.content && <p className="text-foreground-muted leading-[1.75]">{sub.content}</p>}
 
-                {sub.items && sub.items.length > 0 && sub.listType === 'bullet' && (
-                  <ul className="space-y-3">
-                    {sub.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-4">
-                        <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">•</span>
-                        <span className="text-foreground-muted leading-[1.75]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+                    {sub.items && sub.items.length > 0 && sub.listType === 'number' && (
+                      <ol className="list-decimal pl-5 space-y-3">
+                        {sub.items.map((item, i) => (
+                          <li key={i} className="text-foreground-muted leading-[1.75] pl-1">{item}</li>
+                        ))}
+                      </ol>
+                    )}
 
-              {(sub.image || (sub.images && sub.images.length > 0)) && (() => {
-                const imagesToRender = sub.images || (sub.image ? [sub.image] : []);
-                return (
+                    {sub.items && sub.items.length > 0 && sub.listType === 'bullet' && (
+                      <ul className="space-y-3">
+                        {sub.items.map((item, i) => (
+                          <li key={i} className="flex items-start gap-4">
+                            <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">•</span>
+                            <span className="text-foreground-muted leading-[1.75]">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+
+                  {isSideBySide && imagesToRender.length > 0 && (
+                    <div className="w-full md:w-[350px] lg:w-[400px] md:flex-shrink-0 flex flex-col gap-6 mt-4 md:mt-0">
+                      {imagesToRender.map((img, imgIdx) => {
+                        const src = typeof img === 'string' ? img : img.src;
+                        const caption = typeof img === 'string' ? null : img.caption;
+                        return (
+                          <div key={imgIdx} className="w-full flex flex-col items-center">
+                            <div className="w-full overflow-hidden rounded-sm bg-muted mb-2 shadow-sm border border-border flex justify-center">
+                              <Image
+                                src={src || "/placeholder.svg"}
+                                alt={caption || "Subsection image"}
+                                width={800}
+                                height={600}
+                                className="w-full h-auto object-contain"
+                              />
+                            </div>
+                            {caption && <p className="text-xs font-medium text-foreground-muted text-center max-w-xs">{caption}</p>}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+
+                {!isSideBySide && imagesToRender.length > 0 && (
                   <div className="w-full flex flex-col gap-8 items-center mt-2 mb-4">
                     {imagesToRender.map((img, imgIdx) => {
                       const src = typeof img === 'string' ? img : img.src;
@@ -158,10 +186,10 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                       );
                     })}
                   </div>
-                );
-              })()}
-            </div>
-          ))}
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
 
@@ -221,7 +249,13 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-6">{block.cardsTitle}</h4>
       )}
       {block.cards && block.cards.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 w-full">
+        <div className={`grid grid-cols-1 ${
+          block.cards.length === 4 
+            ? "md:grid-cols-2" 
+            : block.cards.length % 3 === 0 
+              ? "md:grid-cols-3" 
+              : "md:grid-cols-2 lg:grid-cols-3"
+        } gap-6 mb-12 w-full`}>
           {block.cards.map((card, idx) => (
             <div key={idx} className="bg-white border border-border p-6 rounded-sm flex flex-col">
               <span className="text-accent font-serif text-4xl mb-3">{(idx + 1).toString().padStart(2, '0')}</span>
@@ -251,12 +285,38 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                     </li>
                   )
                 } else if ('title' in item && 'description' in item) {
-                  return (
-                    <li key={index} className="flex flex-col gap-1">
-                      <strong className="text-foreground font-medium">{item.title}</strong>
-                      <span className="text-foreground-muted leading-[1.75]">{item.description}</span>
-                    </li>
-                  )
+                  const hasTags = 'tags' in item && Array.isArray(item.tags);
+                  if (hasTags) {
+                    return (
+                      <li key={index} className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-border/50 pb-6 last:border-0 last:pb-0">
+                        <div className="flex-1">
+                          <strong className="text-foreground font-medium text-lg block mb-1">{item.title}</strong>
+                          <span className="text-foreground-muted leading-[1.75]">{item.description}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2 md:w-80 md:flex-shrink-0 md:justify-end mt-2 md:mt-0">
+                          {(item.tags as { label: string; value: string }[]).map((tag, idx) => (
+                            <span 
+                              key={idx} 
+                              className={`text-[12px] px-2.5 py-1 rounded-sm border font-medium ${
+                                tag.label.toLowerCase().includes('claude') || tag.label.toLowerCase().includes('stitch')
+                                  ? 'bg-accent/10 border-accent/20 text-accent font-sans' 
+                                  : 'bg-muted border-border text-foreground-muted font-sans'
+                              }`}
+                            >
+                              <span className="font-semibold">{tag.label}:</span> {tag.value}
+                            </span>
+                          ))}
+                        </div>
+                      </li>
+                    )
+                  } else {
+                    return (
+                      <li key={index} className="flex flex-col gap-1">
+                        <strong className="text-foreground font-medium">{item.title}</strong>
+                        <span className="text-foreground-muted leading-[1.75]">{item.description}</span>
+                      </li>
+                    )
+                  }
                 }
                 return null;
               })}

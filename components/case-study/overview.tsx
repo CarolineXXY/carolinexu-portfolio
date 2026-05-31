@@ -48,6 +48,13 @@ export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
           </ul>
         </div> */}
       </div>
+
+      {study.roleDescription && (
+        <div className="mt-12 bg-white border border-border p-6 md:p-8 rounded-sm shadow-sm">
+          <h4 className="text-label mb-3 text-accent">Role Description</h4>
+          <p className="text-foreground-muted leading-[1.75]">{study.roleDescription}</p>
+        </div>
+      )}
     </section>
   )
 }

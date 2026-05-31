@@ -20,6 +20,8 @@ export interface CaseStudy extends Project {
   solution: string
   heroImage: string
   disclaimer?: string
+  roleDescription?: string
+  statusBanner?: string[]
   blocks: CaseStudyBlock[]
 }
 
@@ -55,7 +57,7 @@ export const projects: Project[] = [
     id: "crumb",
     title: "Crumb: An AI-Assisted Design Project",
     category: "AI-Assisted UI Design",
-    description: "A mobile app designed for amateur home bakers who want to grow their skills, discover new recipes, and manage their baking journey.",
+    description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
     thumbnail: "/crumb-thumbnail.png",
     tags: ["Mobile Design", "AI-Assisted Design", "Lifestyle"],
     year: "2026",
@@ -472,6 +474,190 @@ export const caseStudies: Record<string, CaseStudy> = {
         content: "The final ShroomCycle product seamlessly integrates into the user's bedroom environment, using soft, diffused light to remind users of their accountability to sleep. \n\nCheck out our promotional video to see Shroomcycle in action and understand how it works to encourage healthier sleep habits.",
         link: { text: "View GitHub Project", url: "https://github.com/LiCHihTseng/ShroomCycle" },
         videoUrl: "https://drive.google.com/file/d/1IocXM9hf5OOcszXdiTAdlhlAWu1WDyQI/preview"
+      }
+    ]
+  },
+  "crumb": {
+    id: "crumb",
+    title: "Crumb — Learning to bake, one recipe at a time",
+    category: "AI-Assisted UI Design",
+    description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
+    thumbnail: "/crumb-thumbnail.png",
+    heroImage: "/crumb-thumbnail.png",
+    tags: ["Mobile Design", "AI-Assisted Design", "Lifestyle"],
+    year: "2026",
+    role: "UX & Product Designer",
+    duration: "In Progress",
+    tools: ["Claude AI", "Google Stitch", "Figma"],
+    team: [],
+    challenge: "Home bakers have no structured place to learn. Recipe apps are libraries, not teaching tools. Beginners have no clear starting point, no progression, and no help when something goes wrong.",
+    solution: "A learning-first baking app with tier-based skill progression, AI photo feedback to validate each bake, and a contextual troubleshooter accessible mid-recipe.",
+    roleDescription: "UX & Product Designer — responsible for problem research, information architecture, feature prioritisation, AI prompt direction, and design critique at every stage.",
+    statusBanner: [
+      "Home screen ✓",
+      "Journey screen ✓",
+      "Recipe card — coming next",
+      "AI Troubleshooter — coming next"
+    ],
+    blocks: [
+      {
+        title: "Research",
+        content: "Before designing anything, I researched real home baker pain points. The most common frustrations were: confusing recipes buried in blog posts, no idea why a bake failed, oven temperature inconsistencies, no skill progression, and rising ingredient costs.",
+        cardsTitle: "Competitor Analysis",
+        cards: [
+          {
+            title: "King Arthur Baking",
+            content: "Excellent recipe library and flour retailer, but behaves like an archive rather than a guided teaching tool."
+          },
+          {
+            title: "Tasty",
+            content: "Engaging and viral step-by-step video formats, but focuses on entertainment rather than baking principles."
+          },
+          {
+            title: "Kneady",
+            content: "Great dedicated community space for bread enthusiasts, but lacks guidance for general baking and troubleshooting."
+          },
+          {
+            title: "The gap",
+            content: "No application addresses why a bake failed, features AI visual validation, or structures learning with progression."
+          }
+        ]
+      },
+      {
+        title: "User Persona",
+        persona: {
+          avatarInitials: "M",
+          name: "Maya, 27",
+          tagLine: "Marketing Coordinator & Aspiring Home Baker",
+          bio: [
+            { label: "Age", value: "27" },
+            { label: "Occupation", value: "Marketing Coordinator" },
+            { label: "Baking Skill", value: "Complete Beginner" },
+            { label: "Motivation", value: "Creative outlet" }
+          ],
+          quote: "I keep seeing people make beautiful things online and I want to try — but every time I do, something goes wrong and I don't know why.",
+          sections: [
+            {
+              title: "Goals",
+              items: [
+                "Learn to bake from scratch",
+                "Build confidence",
+                "Understand techniques not just follow steps"
+              ]
+            },
+            {
+              title: "Frustrations",
+              items: [
+                "Recipes assume prior knowledge",
+                "No feedback when things fail",
+                "Doesn't know where to start"
+              ]
+            },
+            {
+              title: "Behaviours",
+              items: [
+                "Watches baking videos on TikTok",
+                "Has tried 2–3 recipes with mixed results",
+                "Gives up after a failed bake with no explanation"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        title: "Process",
+        itemsTitle: "How I used AI as a design tool",
+        items: [
+          {
+            title: "Problem space research",
+            description: "Used AI to quickly synthesize common home baker problems, then chose which target audience pain points to build the app for.",
+            tags: [
+              { label: "Claude", value: "Research speed" },
+              { label: "Me", value: "Problem selection" }
+            ]
+          },
+          {
+            title: "Feature ideation and MVP scoping",
+            description: "Brainstormed dozens of feature ideas with AI before prioritizing the core tier-based progression and photo troubleshooter features.",
+            tags: [
+              { label: "Claude", value: "Ideation" },
+              { label: "Me", value: "Prioritisation" }
+            ]
+          },
+          {
+            title: "Information architecture",
+            description: "Sketched the user journey flow and hierarchy of screens myself, and used AI to pressure-test edge cases and alternative pathways.",
+            tags: [
+              { label: "Me", value: "IA decisions" },
+              { label: "Claude", value: "Pressure testing" }
+            ]
+          },
+          {
+            title: "Stitch prompt crafting",
+            description: "Wrote systemic UI prompts with AI assistance to generate clean layout variations matching the brand style guide.",
+            tags: [
+              { label: "Claude", value: "Sharpening prompts" },
+              { label: "Stitch", value: "Generation" }
+            ]
+          },
+          {
+            title: "Critical design review",
+            description: "Analyzed generated screens for icon consistency and alignment, then iterated on the visual styling elements to lock down components.",
+            tags: [
+              { label: "Me", value: "Critique & direction" },
+              { label: "Stitch", value: "Iteration" }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Design Decisions",
+        content: "During the visual refinement phase, I worked through several rounds of design reviews to catch inconsistencies and optimize the user flow.",
+        subSections: [
+          {
+            title: "Home screen",
+            listType: "bullet",
+            items: [
+              "Removed Baker's Pantry tips section (competed with main CTAs)",
+              "Changed recommended recipe from Sourdough to Chocolate Chip Cookies (Sourdough is Tier 3 — wrong for a beginner)",
+              "Removed Troubleshoot from nav bar (reactive feature, not a destination)"
+            ],
+            image: { src: "/crumb-homescreen.png", caption: "[IMAGE] Home Screen iterative design decisions", size: "medium" },
+            layout: "side-by-side"
+          },
+          {
+            title: "Journey screen",
+            listType: "bullet",
+            items: [
+              "Caught icon inconsistency between screens (pan vs chef's hat)",
+              "Tier 2 locked cards had wrong layout (full-width images vs compact cards)",
+              "Active recipe card missing thumbnail image"
+            ],
+            image: { src: "/crumb-journeyscreen.png", caption: "[IMAGE] Journey Screen visual and layout fixes", size: "medium" },
+            layout: "side-by-side"
+          }
+        ]
+      },
+      {
+        title: "Key Learnings",
+        items: [
+          {
+            title: "AI is strong at layout, weak at component precision",
+            description: "AI can generate visual hierarchies extremely quickly, but is prone to missing micro-inconsistencies like changing icons, padding, and layout alignments between views."
+          },
+          {
+            title: "The prompt is a design artefact",
+            description: "Formulating system prompts is design work. Prompts act as a living spec sheet defining margins, style rules, and structural priorities."
+          },
+          {
+            title: "Design system drift happens fast across screens",
+            description: "Without careful human oversight, screens generated independently will quickly drift in style, font weights, and border radius properties."
+          },
+          {
+            title: "Critical thinking is what makes AI-assisted work yours",
+            description: "The AI provides speed and options, but human design judgment is required to evaluate layout trade-offs, curate features, and align everything to real user needs."
+          }
+        ]
       }
     ]
   }
