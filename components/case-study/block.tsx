@@ -3,7 +3,10 @@ import { ArrowUpRight } from "lucide-react"
 
 export interface CaseStudyBlock {
   title: string
+  label?: string
   content?: string
+  quote?: string
+  callout?: { eyebrow: string; text: string }
   outro?: string
   link?: { text: string; url: string }
   subSections?: {
@@ -25,11 +28,15 @@ export interface CaseStudyBlock {
     sections: { title: string; items: string[] }[]
   }
   cardsTitle?: string
-  cards?: { title: string; content: string }[]
+  cards?: { title: string; content: string; prefix?: string; note?: string }[]
   itemsTitle?: string
   items?: string[] | { title: string; description: string; tags?: { label: string; value: string }[] }[] | { value: string; label: string; subNote?: string; highlight?: boolean }[]
   images?: (string | { src: string; caption?: string; size?: 'small' | 'medium' | 'large' })[]
   videoUrl?: string
+  table?: {
+    headers: string[]
+    rows: string[][]
+  }
 }
 
 export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
@@ -39,6 +46,14 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
     <section className="section-y border-b border-border">
       <h2 className="font-serif mb-6">{block.title}</h2>
 
+      {block.label && (
+        <div className="mb-8">
+          <span className="inline-flex items-center gap-2 text-[13px] uppercase tracking-wider font-semibold font-sans text-accent border border-accent/25 bg-accent/5 px-3 py-1.5 rounded-sm">
+            {block.label}
+          </span>
+        </div>
+      )}
+
       {block.content && (
         <div className={`flex flex-col gap-6 max-w-3xl ${block.link ? 'mb-8' : 'mb-12'}`}>
           {block.content.split('\n\n').map((paragraph, idx) => (
@@ -46,6 +61,12 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
               {paragraph}
             </p>
           ))}
+        </div>
+      )}
+
+      {block.quote && (
+        <div className="my-10 max-w-3xl bg-muted/40 border-l-4 border-accent rounded-r-sm px-7 py-6">
+          <p className="text-foreground leading-[1.8] text-[15px] md:text-[16px]">{block.quote}</p>
         </div>
       )}
 
@@ -101,6 +122,45 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
               />
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Table if any */}
+      {block.table && (
+        <div className="w-full overflow-x-auto mb-12 border border-border rounded-sm bg-white shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
+          <table className="w-full border-collapse text-left text-sm md:text-base font-sans">
+            <thead>
+              <tr className="border-b border-border bg-muted/30">
+                {block.table.headers.map((header, idx) => (
+                  <th key={idx} className="p-4 md:p-5 font-semibold text-foreground text-sm md:text-[15px] uppercase tracking-wider">
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border/60">
+              {block.table.rows.map((row, rowIdx) => (
+                <tr key={rowIdx} className="hover:bg-muted/10 transition-colors">
+                  {row.map((cell, cellIdx) => {
+                    const isHex = /^#[0-9A-Fa-f]{3,6}$/.test(cell.trim());
+                    return (
+                      <td key={cellIdx} className="p-4 md:p-5 text-foreground-muted text-[15px] md:text-base leading-relaxed align-top">
+                        {isHex ? (
+                          <span className="inline-flex items-center gap-2">
+                            <span
+                              className="inline-block w-4 h-4 rounded-sm border border-black/10 flex-shrink-0"
+                              style={{ backgroundColor: cell.trim() }}
+                            />
+                            {cell}
+                          </span>
+                        ) : cell}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
 
@@ -250,17 +310,22 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
       )}
       {block.cards && block.cards.length > 0 && (
         <div className={`grid grid-cols-1 ${
-          block.cards.length === 4 
-            ? "md:grid-cols-2" 
-            : block.cards.length % 3 === 0 
-              ? "md:grid-cols-3" 
-              : "md:grid-cols-2 lg:grid-cols-3"
+          block.cards.length === 2
+            ? "md:grid-cols-2"
+            : block.cards.length === 4
+              ? "md:grid-cols-2"
+              : block.cards.length % 3 === 0
+                ? "md:grid-cols-3"
+                : "md:grid-cols-2 lg:grid-cols-3"
         } gap-6 mb-12 w-full`}>
           {block.cards.map((card, idx) => (
             <div key={idx} className="bg-white border border-border p-6 rounded-sm flex flex-col">
-              <span className="text-accent font-serif text-4xl mb-3">{(idx + 1).toString().padStart(2, '0')}</span>
+              <span className="text-accent font-serif text-4xl mb-3">{card.prefix ?? (idx + 1).toString().padStart(2, '0')}</span>
               <h4 className="text-foreground text-base mb-2 leading-tight">{card.title}</h4>
-              <p className="text-foreground-muted leading-[1.6]">{card.content}</p>
+              <p className="text-foreground-muted leading-[1.6] flex-1">{card.content}</p>
+              {card.note && (
+                <p className="mt-4 pt-4 border-t border-border text-[13px] text-foreground-muted/80 leading-relaxed italic font-sans">{card.note}</p>
+              )}
             </div>
           ))}
         </div>
@@ -337,6 +402,16 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
               return null;
             })
           )}
+        </div>
+      )}
+
+      {/* Callout (e.g. HMW / design opportunity) */}
+      {block.callout && (
+        <div className="my-10 max-w-3xl">
+          <div className="bg-foreground text-background rounded-sm px-7 py-6">
+            <p className="text-[12px] uppercase tracking-widest font-semibold mb-3 opacity-60 font-sans">{block.callout.eyebrow}</p>
+            <p className="text-background leading-[1.8] text-base md:text-[17px]">{block.callout.text}</p>
+          </div>
         </div>
       )}
 

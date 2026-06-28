@@ -20,10 +20,12 @@ export interface CaseStudy extends Project {
   solution: string
   heroImage: string
   disclaimer?: string
+  introduction?: string
   roleDescription?: string
   statusBanner?: string[]
   blocks: CaseStudyBlock[]
 }
+
 
 export const projects: Project[] = [
   {
@@ -55,10 +57,10 @@ export const projects: Project[] = [
   },
   {
     id: "crumb",
-    title: "Crumb: An AI-Assisted Design Project",
-    category: "AI-Assisted UI Design",
+    title: "Crumb — AI-Facilitated UX Design",
+    category: "Mobile app · UX/UI design · AI-assisted workflow",
     description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
-    thumbnail: "/crumb-thumbnail.png",
+    thumbnail: "/placeholder.svg",
     tags: ["Mobile Design", "AI-Assisted Design", "Lifestyle"],
     year: "2026",
     status: "in-progress",
@@ -479,183 +481,178 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   "crumb": {
     id: "crumb",
-    title: "Crumb — Learning to bake, one recipe at a time",
-    category: "AI-Assisted UI Design",
+    title: "Crumb — AI-Facilitated UX Design",
+    category: "Mobile app · UX/UI design · AI-assisted workflow",
     description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
-    thumbnail: "/crumb-thumbnail.png",
-    heroImage: "/crumb-thumbnail.png",
-    tags: ["Mobile Design", "AI-Assisted Design", "Lifestyle"],
+    thumbnail: "/placeholder.svg",
+    heroImage: "/placeholder.svg",
+    tags: ["Mobile App", "UX/UI Design", "AI-assisted Workflow"],
     year: "2026",
     role: "UX & Product Designer",
     duration: "In Progress",
-    tools: ["Claude AI", "Google Stitch", "Figma"],
+    tools: ["Claude", "Google Stitch", "Figma"],
     team: [],
-    challenge: "Home bakers have no structured place to learn. Recipe apps are libraries, not teaching tools. Beginners have no clear starting point, no progression, and no help when something goes wrong.",
-    solution: "A learning-first baking app with tier-based skill progression, AI photo feedback to validate each bake, and a contextual troubleshooter accessible mid-recipe.",
-    roleDescription: "UX & Product Designer — responsible for problem research, information architecture, feature prioritisation, AI prompt direction, and design critique at every stage.",
-    statusBanner: [
-      "Home screen ✓",
-      "Journey screen ✓",
-      "Recipe card — coming next",
-      "AI Troubleshooter — coming next"
-    ],
+    challenge: "Home bakers have nowhere good to go when a bake fails. The real problem isn't a lack of information — it's a vocabulary gap. Bakers fail twice: once in the oven, and again when trying to explain what went wrong.",
+    solution: "Crumb is a mobile baking troubleshooting app that guides users through a structured diagnostic flow, one question at a time, with an AI companion for follow-up and a photo feature to show the AI exactly what went wrong.",
+    status: "in-progress",
+    introduction: "This case study documents how I used Claude and Google Stitch to move from a rough concept to a hi-fi prototype, and where human design judgement still mattered at every step.",
     blocks: [
       {
-        title: "Research",
-        content: "Before designing anything, I researched real home baker pain points. The most common frustrations were: confusing recipes buried in blog posts, no idea why a bake failed, oven temperature inconsistencies, no skill progression, and rising ingredient costs.",
-        cardsTitle: "Competitor Analysis",
-        cards: [
-          {
-            title: "King Arthur Baking",
-            content: "Excellent recipe library and flour retailer, but behaves like an archive rather than a guided teaching tool."
-          },
-          {
-            title: "Tasty",
-            content: "Engaging and viral step-by-step video formats, but focuses on entertainment rather than baking principles."
-          },
-          {
-            title: "Kneady",
-            content: "Great dedicated community space for bread enthusiasts, but lacks guidance for general baking and troubleshooting."
-          },
-          {
-            title: "The gap",
-            content: "No application addresses why a bake failed, features AI visual validation, or structures learning with progression."
-          }
-        ]
-      },
-      {
-        title: "User Persona",
-        persona: {
-          avatarInitials: "M",
-          name: "Maya, 27",
-          tagLine: "Marketing Coordinator & Aspiring Home Baker",
-          bio: [
-            { label: "Age", value: "27" },
-            { label: "Occupation", value: "Marketing Coordinator" },
-            { label: "Baking Skill", value: "Complete Beginner" },
-            { label: "Motivation", value: "Creative outlet" }
-          ],
-          quote: "I keep seeing people make beautiful things online and I want to try — but every time I do, something goes wrong and I don't know why.",
-          sections: [
-            {
-              title: "Goals",
-              items: [
-                "Learn to bake from scratch",
-                "Build confidence",
-                "Understand techniques not just follow steps"
-              ]
-            },
-            {
-              title: "Frustrations",
-              items: [
-                "Recipes assume prior knowledge",
-                "No feedback when things fail",
-                "Doesn't know where to start"
-              ]
-            },
-            {
-              title: "Behaviours",
-              items: [
-                "Watches baking videos on TikTok",
-                "Has tried 2–3 recipes with mixed results",
-                "Gives up after a failed bake with no explanation"
-              ]
-            }
+        title: "The Workflow at a Glance",
+        table: {
+          headers: ["Step", "Tool", "Output"],
+          rows: [
+            ["Problem framing", "Claude", "Structured brief, user segments, design opportunity"],
+            ["Design direction", "Claude", "3 distinct directions, 1 chosen"],
+            ["Visual system", "Claude", "Colour scheme, typography, component rules"],
+            ["Prompt engineering", "Claude", "Structured Stitch prompt"],
+            ["Prototype generation", "Stitch", "4 iterative hi-fi prototype passes"],
+            ["Audit and refinement", "Claude + me", "Screen-by-screen analysis each round"]
           ]
         }
       },
       {
-        title: "Process",
-        itemsTitle: "How I used AI as a design tool",
-        items: [
+        title: "Step 1 — Problem Framing",
+        label: "Tool: Claude (Product Agent Skill)",
+        content: "Instead of jumping straight to UI, I ran a structured problem framing session first. I described the app concept and asked Claude to identify the target user, the real constraints, and the design opportunity of this product.",
+        quote: "This isn't a troubleshooting problem. It's a vocabulary and observation gap. Most troubleshooting resources assume the baker already knows how to diagnose — they skip straight to solutions.",
+        cardsTitle: "Two User Segments Identified",
+        cards: [
           {
-            title: "Problem space research",
-            description: "Used AI to quickly synthesize common home baker problems, then chose which target audience pain points to build the app for.",
-            tags: [
-              { label: "Claude", value: "Research speed" },
-              { label: "Me", value: "Problem selection" }
-            ]
+            title: "Frustrated Beginners",
+            content: "Deflated, need reassurance and plain language. Don't have the vocabulary to describe the problem. They fail twice — once in the oven, and again when trying to explain what went wrong."
           },
           {
-            title: "Feature ideation and MVP scoping",
-            description: "Brainstormed dozens of feature ideas with AI before prioritizing the core tier-based progression and photo troubleshooter features.",
-            tags: [
-              { label: "Claude", value: "Ideation" },
-              { label: "Me", value: "Prioritisation" }
-            ]
-          },
-          {
-            title: "Information architecture",
-            description: "Sketched the user journey flow and hierarchy of screens myself, and used AI to pressure-test edge cases and alternative pathways.",
-            tags: [
-              { label: "Me", value: "IA decisions" },
-              { label: "Claude", value: "Pressure testing" }
-            ]
-          },
-          {
-            title: "Stitch prompt crafting",
-            description: "Wrote systemic UI prompts with AI assistance to generate clean layout variations matching the brand style guide.",
-            tags: [
-              { label: "Claude", value: "Sharpening prompts" },
-              { label: "Stitch", value: "Generation" }
-            ]
-          },
-          {
-            title: "Critical design review",
-            description: "Analyzed generated screens for icon consistency and alignment, then iterated on the visual styling elements to lock down components.",
-            tags: [
-              { label: "Me", value: "Critique & direction" },
-              { label: "Stitch", value: "Iteration" }
-            ]
+            title: "Intermediate Bakers",
+            content: "Want the science behind the fix, not just the fix. They'll find hand-holding patronising — they need depth, not reassurance."
           }
-        ]
+        ],
+        callout: {
+          eyebrow: "Design Opportunity",
+          text: "How might we guide bakers to become better observers of their own bakes, so that troubleshooting is itself a skill-building lesson?"
+        },
+        images: [{ src: "/placeholder.svg", caption: "Problem framing output" }]
       },
       {
-        title: "Design Decisions",
-        content: "During the visual refinement phase, I worked through several rounds of design reviews to catch inconsistencies and optimize the user flow.",
+        title: "Step 2 — Design Direction",
+        label: "Tool: Claude (Design Agent Skill)",
+        content: "With the brief confirmed, I asked Claude to propose three structurally distinct directions — not just visual styles, but different fundamental models for how the diagnostic flow would work.",
+        cardsTitle: "Three Distinct Directions",
+        cards: [
+          {
+            prefix: "A",
+            title: "Visual Symptom Spotter",
+            content: "Users identify their problem by tapping a photo rather than finding words. No typing required.",
+            note: "Trade-off: Strong for beginners, breaks down for flavour problems and compound failures."
+          },
+          {
+            prefix: "B",
+            title: "Guided Investigator",
+            content: "One question at a time, each with embedded micro-copy explaining why it matters. The structure of the questions is where the skill-building happens.",
+            note: "Trade-off: Slower to reach a diagnosis, but each step teaches the user something."
+          },
+          {
+            prefix: "C",
+            title: "AI Conversation with Structure",
+            content: "Free-form chat with a hidden diagnostic checklist running underneath. Most natural to use.",
+            note: "Trade-off: Highest risk of an AI hallucinating a confident but wrong diagnosis."
+          }
+        ],
+        callout: {
+          eyebrow: "My Decision",
+          text: "Direction B as the backbone, extended with the AI companion from C as a \"go deeper\" layer, and the photo feature from A as an optional accelerator at the start."
+        },
+        images: [{ src: "/placeholder.svg", caption: "Design direction summary" }]
+      },
+      {
+        title: "Step 3 — Visual System",
+        label: "Tool: Claude",
+        content: "I chose an editorial aesthetic for a premium food publication feel, and asked Claude to define exact tokens and rules — not vague guidelines, but specific hex values, typeface pairings, and usage constraints.",
         subSections: [
           {
-            title: "Home screen",
-            listType: "bullet",
-            items: [
-              "Removed Baker's Pantry tips section (competed with main CTAs)",
-              "Changed recommended recipe from Sourdough to Chocolate Chip Cookies (Sourdough is Tier 3 — wrong for a beginner)",
-              "Removed Troubleshoot from nav bar (reactive feature, not a destination)"
-            ],
-            image: { src: "/crumb-homescreen.png", caption: "[IMAGE] Home Screen iterative design decisions", size: "medium" },
-            layout: "side-by-side"
-          },
-          {
-            title: "Journey screen",
-            listType: "bullet",
-            items: [
-              "Caught icon inconsistency between screens (pan vs chef's hat)",
-              "Tier 2 locked cards had wrong layout (full-width images vs compact cards)",
-              "Active recipe card missing thumbnail image"
-            ],
-            image: { src: "/crumb-journeyscreen.png", caption: "[IMAGE] Journey Screen visual and layout fixes", size: "medium" },
-            layout: "side-by-side"
+            title: "Colour Palette",
+            content: "Six tokens covering every surface, text, and accent role. Terracotta replaces an earlier gold (#C9A96E) that failed WCAG AA contrast — see revision note below."
           }
-        ]
+        ],
+        table: {
+          headers: ["Token", "Hex", "Use"],
+          rows: [
+            ["Parchment", "#F5F2ED", "App background"],
+            ["Ink", "#1C1A17", "Primary text"],
+            ["Stone", "#6B6460", "Secondary text, labels"],
+            ["Terracotta", "#9E6B58", "Accent fills only — never as text"],
+            ["Linen", "#E8E4DC", "Dividers, card borders"],
+            ["Deep Terracotta", "#8B3A2A", "Errors, warnings"]
+          ]
+        },
+        quote: "Claude's first palette used gold #C9A96E which failed WCAG AA contrast on white (ratio ~2.8:1, minimum 4.5:1) and read as dirty yellow on screen. I flagged this and Claude replaced it with terracotta — warmer, more editorial, and WCAG compliant as a fill.",
+        outro: "Typography followed the same logic: Playfair Display Regular (400) for all headlines — editorial voice, never Bold. DM Sans Regular/Medium for all functional text. DM Sans Italic specifically for the 'why we're asking this' micro-copy.",
+        images: [{ src: "/placeholder.svg", caption: "Colour palette and typography specimen" }]
       },
       {
-        title: "Key Learnings",
-        items: [
+        title: "Step 4 — Prompt Engineering",
+        label: "Tool: Claude → Google Stitch",
+        content: "Claude's most practical contribution was translating design decisions into precise, structured Stitch prompts. Each prompt included exact hex codes, pixel values, font weights, component specs, copy examples, and edge states across all 8 screens.",
+        callout: {
+          eyebrow: "Why this matters",
+          text: "Vague prompts produce vague output. Specifying the design details directly determined what Stitch generated."
+        },
+        images: [{ src: "/placeholder.svg", caption: "Prompt structure excerpt" }]
+      },
+      {
+        title: "Step 5 — Stitch Prototype Iterations",
+        label: "Tool: Google Stitch",
+        content: "4 full generation passes. Each round followed the same cycle: generate → I review screens → ask Claude to audit → Claude produces annotated analysis → I refine the prompt → regenerate.",
+        subSections: [
           {
-            title: "AI is strong at layout, weak at component precision",
-            description: "AI can generate visual hierarchies extremely quickly, but is prone to missing micro-inconsistencies like changing icons, padding, and layout alignments between views."
+            title: "Round 1",
+            content: "Stitch interpreted the editorial tone well. The parchment background, typography hierarchy, and card layout all landed. But structural issues appeared immediately.",
+            subtitle: "Key issues caught",
+            listType: "bullet",
+            items: [
+              "Gold accent failed WCAG AA contrast (ratio 2.8:1 on white)",
+              "Nav bar active state inconsistent across every screen",
+              "Bake names in History truncated mid-word",
+              "Stitch added unsolicited content sections not in the spec"
+            ],
+            image: { src: "/placeholder.svg", caption: "Version 1 — all screens" }
           },
           {
-            title: "The prompt is a design artefact",
-            description: "Formulating system prompts is design work. Prompts act as a living spec sheet defining margins, style rules, and structural priorities."
+            title: "Round 2",
+            content: "Updated colour system, lighter card borders, AI chat bubble switched to white, primary CTA button corrected.",
+            subtitle: "Still missing",
+            listType: "bullet",
+            items: [
+              "No left/right content margins",
+              "Button text inconsistency on several screens",
+              "Home screen still had an unnecessary card wrapper"
+            ],
+            image: { src: "/placeholder.svg", caption: "Version 2 — all screens" }
           },
           {
-            title: "Design system drift happens fast across screens",
-            description: "Without careful human oversight, screens generated independently will quickly drift in style, font weights, and border radius properties."
+            title: "Round 3",
+            content: "Margins applied, card removed from Home, button text mostly sentence case, colour system consistent.",
+            subtitle: "Still missing",
+            listType: "bullet",
+            items: [
+              "Nav labels alternating between ALL CAPS and title case across screens",
+              "Wordmark had an icon artefact embedded in it on the AI Chat screen",
+              "Pastry tile used a sparkle icon (inaccurate for pastry)"
+            ],
+            image: { src: "/placeholder.svg", caption: "Version 3 — all screens" }
           },
           {
-            title: "Critical thinking is what makes AI-assisted work yours",
-            description: "The AI provides speed and options, but human design judgment is required to evaluate layout trade-offs, curate features, and align everything to real user needs."
+            title: "Round 4 — Final Stitch Output",
+            content: "5 of 8 screens mostly met the direction. Three screens still had issues for Figma to resolve.",
+            subtitle: "Remaining issues handed to Figma",
+            listType: "bullet",
+            items: [
+              "Baking History wordmark split across two lines",
+              "Category Selection: wrong categories, wrong grid order, wrong icon",
+              "AI Chat missing the top bar entirely",
+              "Small inconsistency on several screens"
+            ],
+            image: { src: "/placeholder.svg", caption: "Version 4 — final screens, annotated" }
           }
         ]
       }

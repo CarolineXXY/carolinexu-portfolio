@@ -15,6 +15,14 @@ export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
         </div>
       )}
 
+      {study.introduction && (
+        <div className="mb-12 max-w-3xl">
+          <p className="text-lg md:text-xl font-light text-foreground-muted leading-[1.6]">
+            {study.introduction}
+          </p>
+        </div>
+      )}
+
       <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-16">
         <div>
           <h3 className="text-label mb-4 text-accent">The Challenge</h3>
@@ -37,16 +45,30 @@ export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
         </div>
         <div>
           <h4 className="text-label mb-3">Tools</h4>
-          <p className="text-foreground font-medium leading-[1.75]">{study.tools.join(", ")}</p>
+          <p className="text-foreground font-medium leading-[1.75]">{study.tools.join(" · ")}</p>
         </div>
-        {/* <div>
-          <h4 className="text-label mb-3">Team</h4>
-          <ul className="text-foreground font-medium leading-[1.75]">
-            {study.team.map((member) => (
-              <li key={member}>{member}</li>
-            ))}
-          </ul>
-        </div> */}
+        {study.status ? (
+          <div>
+            <h4 className="text-label mb-3">Status</h4>
+            <p className="text-foreground font-medium leading-[1.75] flex items-center gap-2">
+              <span className={`w-2.5 h-2.5 rounded-full ${
+                study.status.toLowerCase().includes('in progress') || study.status.toLowerCase().includes('in-progress') 
+                  ? 'bg-amber-500 animate-pulse' 
+                  : 'bg-emerald-500'
+              } flex-shrink-0`} />
+              {study.status}
+            </p>
+          </div>
+        ) : study.team && study.team.length > 0 ? (
+          <div>
+            <h4 className="text-label mb-3">Team</h4>
+            <ul className="text-foreground font-medium leading-[1.75] text-sm">
+              {study.team.map((member) => (
+                <li key={member}>{member}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </div>
 
       {study.roleDescription && (
