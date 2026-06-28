@@ -484,7 +484,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "Crumb — AI-Facilitated UX Design",
     category: "Mobile app · UX/UI design · AI-assisted workflow",
     description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
-    thumbnail: "/placeholder.svg",
+    thumbnail: "/crumb-thumbnail.png",
     heroImage: "/placeholder.svg",
     tags: ["Mobile App", "UX/UI Design", "AI-assisted Workflow"],
     year: "2026",
