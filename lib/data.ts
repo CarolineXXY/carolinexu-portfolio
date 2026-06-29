@@ -495,7 +495,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     challenge: "Home bakers have nowhere good to go when a bake fails. The real problem isn't a lack of information — it's a vocabulary gap. Bakers fail twice: once in the oven, and again when trying to explain what went wrong.",
     solution: "Crumb is a mobile baking troubleshooting app that guides users through a structured diagnostic flow, one question at a time, with an AI companion for follow-up and a photo feature to show the AI exactly what went wrong.",
     status: "in-progress",
-    introduction: "This case study documents how I used" + "<strong>Claude</strong>" + " and " + "<strong>Google Stitch</strong>" + " to move from a rough concept to a hi-fi prototype, and where human design judgement still mattered at every step.",
+    introduction: "This case study documents how I used <strong>Claude</strong> and <strong>Google Stitch</strong> to move from a rough concept to a hi-fi prototype, and where human design judgement still mattered at every step.",
     blocks: [
       {
         title: "The Workflow at a Glance",
