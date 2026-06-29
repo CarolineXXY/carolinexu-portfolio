@@ -80,7 +80,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     role: "UX/UI Designer",
     duration: "1 month (Oct 2025)",
     tools: ["Figma", "Pen and Paper"],
-    team: ["1 × Product Manager", "1 × UX Designer", "2 × iOS Engineers", "2 × Android Engineers"],
+    team: ["1 × UX/UI Designer"],
     challenge:
       "The existing accounting firm website had an outdated design that failed to meet modern user expectations, with poor navigation, lack of clear calls-to-action, and disorganised content, and zero responsiveness, which greatly hinders user engagement and trust in the firm's professional services.",
     solution:
@@ -218,7 +218,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     role: "UX Researcher, UX/UI Designer",
     duration: "April 2025",
     tools: ["Figma", "Miro", "Pen and Paper", "Excel"],
-    team: ["1 × Product Manager", "2 × UX Designers", "3 × Developers"],
+    team: ["2 × UI Designer", "2 × UX Researcher", "1 × Developer"],
     challenge:
       "The UQ Union is a student organisation dedicated to providing a range of services to students at The University of Queensland. However, due to fragmented information across multiple portals, many students were unaware of the services and events available to them. This led to low student engagement and high frustration when trying to access university resources.",
     solution:
@@ -374,7 +374,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     role: "Product Designer, UX Researcher, Prototype Developer",
     duration: "4 months",
     tools: ["Arduino", "Miro", "Pen and Paper", "SolidWorks"],
-    team: ["1 × Product Designer", "1 × Software Engineer", "1 × Electrical Engineer"],
+    team: ["1 × Product Designer", "1 × Developer", "2 × Interaction Designer"],
     challenge:
       "University students often struggle with poor sleep hygiene due to irregular schedules, academic pressure, and excessive screen time. On average, students get 6.2 hours of sleep compared to the recommended 8-9 hours, leading to reduced focus and well-being. There's a need for a collaborative, accessible solution to encourage better sleep routines.",
     solution:
