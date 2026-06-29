@@ -485,7 +485,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     category: "AI-assisted workflow",
     description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
     thumbnail: "/crumb-thumbnail.png",
-    heroImage: "/crumb-thumbnail.png",
+    heroImage: "/crumb-banner.png",
     tags: ["Mobile App", "UX/UI Design", "AI-assisted Workflow"],
     year: "2026",
     role: "UX & Product Designer",
@@ -495,7 +495,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     challenge: "Home bakers have nowhere good to go when a bake fails. The real problem isn't a lack of information — it's a vocabulary gap. Bakers fail twice: once in the oven, and again when trying to explain what went wrong.",
     solution: "Crumb is a mobile baking troubleshooting app that guides users through a structured diagnostic flow, one question at a time, with an AI companion for follow-up and a photo feature to show the AI exactly what went wrong.",
     status: "in-progress",
-    introduction: "This case study documents how I used Claude and Google Stitch to move from a rough concept to a hi-fi prototype, and where human design judgement still mattered at every step.",
+    introduction: "This case study documents how I used" + "<strong>Claude</strong>" + " and " + "<strong>Google Stitch</strong>" + " to move from a rough concept to a hi-fi prototype, and where human design judgement still mattered at every step.",
     blocks: [
       {
         title: "The Workflow at a Glance",
@@ -586,7 +586,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           ]
         },
         quote: "Claude's first palette used gold #C9A96E which failed WCAG AA contrast on white (ratio ~2.8:1, minimum 4.5:1) and read as dirty yellow on screen. I flagged this and Claude replaced it with terracotta — warmer, more editorial, and WCAG compliant as a fill.",
-        outro: "Typography followed the same logic: Playfair Display Regular (400) for all headlines — editorial voice, never Bold. DM Sans Regular/Medium for all functional text. DM Sans Italic specifically for the 'why we're asking this' micro-copy.",
+        outro: "Typography: Playfair Display Regular (400) for all headlines. DM Sans Regular/Medium for all functional text. DM Sans Italic specifically for micro-copy.",
         images: [{ src: "/placeholder.svg", caption: "Colour palette and typography specimen" }]
       },
       {
