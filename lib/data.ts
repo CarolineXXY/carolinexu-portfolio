@@ -531,7 +531,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           eyebrow: "Design Opportunity",
           text: "How might we guide bakers to become better observers of their own bakes, so that troubleshooting is itself a skill-building lesson?"
         },
-        images: [{ src: "/placeholder.svg", caption: "Problem framing output" }]
+        images: [{ src: "/problem-framing.png", caption: "Problem framing output" }]
       },
       {
         title: "Step 2 — Design Direction",
@@ -562,7 +562,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           eyebrow: "My Decision",
           text: "Direction B as the backbone, extended with the AI companion from C as a \"go deeper\" layer, and the photo feature from A as an optional accelerator at the start."
         },
-        images: [{ src: "/placeholder.svg", caption: "Design direction summary" }]
+        images: [{ src: "/design-direction.png", caption: "Design direction summary" }]
       },
       {
         title: "Step 3 — Visual System",
@@ -597,7 +597,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           eyebrow: "Why this matters",
           text: "Vague prompts produce vague output. Specifying the design details directly determined what Stitch generated."
         },
-        images: [{ src: "/placeholder.svg", caption: "Prompt structure excerpt" }]
+        images: [{ src: "/prompt-excerpt.png", caption: "Prompt structure excerpt" }]
       },
       {
         title: "Step 5 — Stitch Prototype Iterations",
