@@ -567,7 +567,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Step 3 — Visual System",
         label: "Tool: Claude",
-        content: "I chose an editorial aesthetic for a premium food publication feel, and asked Claude to define exact tokens and rules — not vague guidelines, but specific hex values, typeface pairings, and usage constraints.",
+        content: "I chose an editorial aesthetic for a premium food publication feel, and asked Claude to define exact tokens and rules, including specific hex values, typeface pairings, and usage constraints.",
         subSections: [
           {
             title: "Colour Palette",
@@ -615,7 +615,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Bake names in History truncated mid-word",
               "Stitch added unsolicited content sections not in the spec"
             ],
-            image: { src: "/placeholder.svg", caption: "Version 1 — all screens" }
+            image: { src: "/version1.png", caption: "Version 1 — all screens" }
           },
           {
             title: "Round 2",
@@ -627,7 +627,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Button text inconsistency on several screens",
               "Home screen still had an unnecessary card wrapper"
             ],
-            image: { src: "/placeholder.svg", caption: "Version 2 — all screens" }
+            image: { src: "/version2.png", caption: "Version 2 — all screens" }
           },
           {
             title: "Round 3",
@@ -639,7 +639,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Wordmark had an icon artefact embedded in it on the AI Chat screen",
               "Pastry tile used a sparkle icon (inaccurate for pastry)"
             ],
-            image: { src: "/placeholder.svg", caption: "Version 3 — all screens" }
+            image: { src: "/version3.png", caption: "Version 3 — all screens" }
           },
           {
             title: "Round 4 — Final Stitch Output",
@@ -652,7 +652,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "AI Chat missing the top bar entirely",
               "Small inconsistency on several screens"
             ],
-            image: { src: "/placeholder.svg", caption: "Version 4 — final screens, annotated" }
+            image: { src: "/version4.png", caption: "Version 4 — final screens, annotated" }
           }
         ]
       }
