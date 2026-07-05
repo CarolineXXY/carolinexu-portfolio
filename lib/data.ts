@@ -568,12 +568,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: "Step 3 — Visual System",
         label: "Tool: Claude",
         content: "I chose an editorial aesthetic for a premium food publication feel, and asked Claude to define exact tokens and rules, including specific hex values, typeface pairings, and usage constraints.",
-        subSections: [
-          {
-            title: "Colour Palette",
-            content: "Six tokens covering every surface, text, and accent role. Terracotta replaces an earlier gold (#C9A96E) that failed WCAG AA contrast — see revision note below."
-          }
-        ],
+        quote: "Claude's first palette used gold #C9A96E which failed WCAG AA contrast on white (ratio ~2.8:1, minimum 4.5:1) and read as dirty yellow on screen. I flagged this and Claude replaced it with terracotta — warmer, more editorial, and WCAG compliant as a fill.",
         images: [{ src: "/crumb_typography_colour_specimen.png", caption: "Colour palette and typography specimen" }]
       },
       {
