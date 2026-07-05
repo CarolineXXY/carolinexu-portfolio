@@ -574,8 +574,6 @@ export const caseStudies: Record<string, CaseStudy> = {
             content: "Six tokens covering every surface, text, and accent role. Terracotta replaces an earlier gold (#C9A96E) that failed WCAG AA contrast — see revision note below."
           }
         ],
-        quote: "Claude's first palette used gold #C9A96E which failed WCAG AA contrast on white (ratio ~2.8:1, minimum 4.5:1) and read as dirty yellow on screen. I flagged this and Claude replaced it with terracotta — warmer, more editorial, and WCAG compliant as a fill.",
-        outro: "Typography: Playfair Display Regular (400) for all headlines. DM Sans Regular/Medium for all functional text. DM Sans Italic specifically for micro-copy.",
         images: [{ src: "/crumb_typography_colour_specimen.png", caption: "Colour palette and typography specimen" }]
       },
       {
