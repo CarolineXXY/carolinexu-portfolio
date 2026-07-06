@@ -15,6 +15,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: 'export',
+  basePath: '/carolinexu-portfolio',
 }
 
 export default nextConfig
+
+
