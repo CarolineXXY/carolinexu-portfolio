@@ -1,29 +1,6 @@
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 
-function formatText(text: string) {
-  if (!text) return "";
-  const parts = text.split("Figma");
-  if (parts.length === 1) return text;
-
-  return (
-    <>
-      {parts.map((part, index) => (
-        <span key={index}>
-          {part}
-          {index < parts.length - 1 && (
-            <span className="inline-flex items-center gap-1 font-semibold text-foreground mx-0.5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/figma-icon.svg" alt="Figma" width={13} height={13} className="inline-block align-middle" />
-              Figma
-            </span>
-          )}
-        </span>
-      ))}
-    </>
-  );
-}
-
 export interface CaseStudyBlock {
   title: string
   subtitle?: string
@@ -98,7 +75,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <div className={`flex flex-col gap-6 max-w-3xl ${block.link ? 'mb-8' : 'mb-12'}`}>
           {block.content.split('\n\n').map((paragraph, idx) => (
             <p key={idx} className="text-foreground-muted leading-[1.75]">
-              {formatText(paragraph)}
+              {paragraph}
             </p>
           ))}
         </div>
@@ -106,7 +83,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
 
       {block.quote && (
         <div className="my-10 max-w-3xl bg-muted/40 border-l-4 border-accent rounded-r-sm px-7 py-6">
-          <p className="text-foreground leading-[1.8] text-[15px] md:text-[16px]">{formatText(block.quote)}</p>
+          <p className="text-foreground leading-[1.8] text-[15px] md:text-[16px]">{block.quote}</p>
         </div>
       )}
 
@@ -244,7 +221,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                           <li key={i} className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-5 h-5 mt-0.5 rounded-sm bg-red-50 border border-red-200/70 flex items-center justify-center">
                               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.5 1.5L8.5 8.5M8.5 1.5L1.5 8.5" stroke="#dc2626" strokeWidth="1.5" strokeLinecap="round"/>
+                                <path d="M1.5 1.5L8.5 8.5M8.5 1.5L1.5 8.5" stroke="#dc2626" strokeWidth="1.5" strokeLinecap="round" />
                               </svg>
                             </span>
                             <span className="text-foreground-muted leading-[1.75]">{item}</span>
@@ -364,15 +341,14 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-6">{block.cardsTitle}</h4>
       )}
       {block.cards && block.cards.length > 0 && (
-        <div className={`grid grid-cols-1 ${
-          block.cards.length === 2
+        <div className={`grid grid-cols-1 ${block.cards.length === 2
             ? "md:grid-cols-2"
             : block.cards.length === 4
               ? "md:grid-cols-2"
               : block.cards.length % 3 === 0
                 ? "md:grid-cols-3"
                 : "md:grid-cols-2 lg:grid-cols-3"
-        } gap-6 mb-12 w-full`}>
+          } gap-6 mb-12 w-full`}>
           {block.cards.map((card, idx) => (
             <div key={idx} className="bg-white border border-border p-6 rounded-sm flex flex-col">
               <span className="text-accent font-serif text-4xl mb-3">{card.prefix ?? (idx + 1).toString().padStart(2, '0')}</span>
@@ -415,13 +391,12 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                         </div>
                         <div className="flex flex-wrap gap-2 md:w-80 md:flex-shrink-0 md:justify-end mt-2 md:mt-0">
                           {(item.tags as { label: string; value: string }[]).map((tag, idx) => (
-                            <span 
-                              key={idx} 
-                              className={`text-[12px] px-2.5 py-1 rounded-sm border font-medium ${
-                                tag.label.toLowerCase().includes('claude') || tag.label.toLowerCase().includes('stitch')
-                                  ? 'bg-accent/10 border-accent/20 text-accent font-sans' 
+                            <span
+                              key={idx}
+                              className={`text-[12px] px-2.5 py-1 rounded-sm border font-medium ${tag.label.toLowerCase().includes('claude') || tag.label.toLowerCase().includes('stitch')
+                                  ? 'bg-accent/10 border-accent/20 text-accent font-sans'
                                   : 'bg-muted border-border text-foreground-muted font-sans'
-                              }`}
+                                }`}
                             >
                               <span className="font-semibold">{tag.label}:</span> {tag.value}
                             </span>
@@ -475,7 +450,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <div className="flex flex-col gap-6 mt-12 mb-12 max-w-3xl">
           {block.outro.split('\n\n').map((paragraph, idx) => (
             <p key={idx} className="text-foreground-muted leading-[1.75]">
-              {formatText(paragraph)}
+              {paragraph}
             </p>
           ))}
         </div>
@@ -487,40 +462,36 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
           {block.panels.map((panel, pIdx) => (
             <div
               key={pIdx}
-              className={`rounded-sm border flex flex-col ${
-                panel.variant === 'positive'
+              className={`rounded-sm border flex flex-col ${panel.variant === 'positive'
                   ? 'border-emerald-200/70 bg-emerald-50/30'
                   : 'border-amber-200/60 bg-amber-50/20'
-              }`}
+                }`}
             >
               {/* Panel header */}
-              <div className={`flex items-center gap-2.5 px-6 py-4 border-b ${
-                panel.variant === 'positive' ? 'border-emerald-200/60' : 'border-amber-200/50'
-              }`}>
-                <span className={`w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center ${
-                  panel.variant === 'positive' ? 'bg-emerald-500' : 'bg-amber-500'
+              <div className={`flex items-center gap-2.5 px-6 py-4 border-b ${panel.variant === 'positive' ? 'border-emerald-200/60' : 'border-amber-200/50'
                 }`}>
+                <span className={`w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center ${panel.variant === 'positive' ? 'bg-emerald-500' : 'bg-amber-500'
+                  }`}>
                   {panel.variant === 'positive' ? (
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   ) : (
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6 3V6.5" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-                      <path d="M6 8.5V8.6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M6 3V6.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" />
+                      <path d="M6 8.5V8.6" stroke="white" strokeWidth="2" strokeLinecap="round" />
                     </svg>
                   )}
                 </span>
-                <h3 className={`font-sans font-semibold text-sm md:text-[15px] uppercase tracking-wider ${
-                  panel.variant === 'positive' ? 'text-emerald-800' : 'text-amber-800'
-                }`}>{panel.title}</h3>
+                <h3 className={`font-sans font-semibold text-[15px] md:text-[16px] uppercase tracking-wider ${panel.variant === 'positive' ? 'text-emerald-800' : 'text-amber-800'
+                  }`}>{panel.title}</h3>
               </div>
               {/* Panel items */}
               <ul className="flex flex-col divide-y divide-border/40 px-6">
                 {panel.items.map((item, iIdx) => (
                   <li key={iIdx} className="py-5 flex flex-col gap-1.5">
-                    <strong className="text-foreground font-semibold text-[16px] md:text-[17px] leading-snug">{item.title}</strong>
-                    <span className="text-foreground-muted leading-[1.75] text-[15px] md:text-base">{formatText(item.description)}</span>
+                    <strong className="text-foreground font-semibold text-[17px] md:text-[18px] leading-snug">{item.title}</strong>
+                    <span className="text-foreground-muted leading-[1.75] text-[16px] md:text-[17px]">{item.description}</span>
                   </li>
                 ))}
               </ul>
