@@ -643,7 +643,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             items: [
               {
                 title: "Speed",
-                description: "Problem framing, three design directions, visual system, and initial prototype generation happened within a single working session. For a solo designer this is a genuine productivity multiplier."
+                description: "Problem framing, three design directions, visual system, and initial prototype generation happened within a single working session."
               },
               {
                 title: "Structured prompting",
@@ -690,6 +690,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Next Steps",
         subtitle: "HANDOVER TO FIGMA",
+        subtitleIcon: "/figma-icon.svg",
         outro: "The Stitch prototype is now being rebuilt in Figma. Priority fixes include a full WCAG contrast audit, and fixing all inconsistencies. Once it's ready, the next phase is user testing with home bakers."
       }
     ]
