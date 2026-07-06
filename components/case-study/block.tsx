@@ -342,20 +342,20 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
       )}
       {block.cards && block.cards.length > 0 && (
         <div className={`grid grid-cols-1 ${block.cards.length === 2
+          ? "md:grid-cols-2"
+          : block.cards.length === 4
             ? "md:grid-cols-2"
-            : block.cards.length === 4
-              ? "md:grid-cols-2"
-              : block.cards.length % 3 === 0
-                ? "md:grid-cols-3"
-                : "md:grid-cols-2 lg:grid-cols-3"
+            : block.cards.length % 3 === 0
+              ? "md:grid-cols-3"
+              : "md:grid-cols-2 lg:grid-cols-3"
           } gap-6 mb-12 w-full`}>
           {block.cards.map((card, idx) => (
             <div key={idx} className="bg-white border border-border p-6 rounded-sm flex flex-col">
               <span className="text-accent font-serif text-4xl mb-3">{card.prefix ?? (idx + 1).toString().padStart(2, '0')}</span>
-              <h4 className="text-foreground text-base mb-2 leading-tight">{card.title}</h4>
+              <h3 className="text-foreground text-base mb-2 leading-tight">{card.title}</h3>
               <p className="text-foreground-muted leading-[1.6] flex-1">{card.content}</p>
               {card.note && (
-                <p className="mt-4 pt-4 border-t border-border text-[13px] text-foreground-muted/80 leading-relaxed italic font-sans">{card.note}</p>
+                <p className="mt-4 pt-4 border-t border-border text-[15px] text-foreground-muted/80 leading-relaxed italic font-sans">{card.note}</p>
               )}
             </div>
           ))}
@@ -394,8 +394,8 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                             <span
                               key={idx}
                               className={`text-[12px] px-2.5 py-1 rounded-sm border font-medium ${tag.label.toLowerCase().includes('claude') || tag.label.toLowerCase().includes('stitch')
-                                  ? 'bg-accent/10 border-accent/20 text-accent font-sans'
-                                  : 'bg-muted border-border text-foreground-muted font-sans'
+                                ? 'bg-accent/10 border-accent/20 text-accent font-sans'
+                                : 'bg-muted border-border text-foreground-muted font-sans'
                                 }`}
                             >
                               <span className="font-semibold">{tag.label}:</span> {tag.value}
@@ -463,8 +463,8 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
             <div
               key={pIdx}
               className={`rounded-sm border flex flex-col ${panel.variant === 'positive'
-                  ? 'border-emerald-200/70 bg-emerald-50/30'
-                  : 'border-amber-200/60 bg-amber-50/20'
+                ? 'border-emerald-200/70 bg-emerald-50/30'
+                : 'border-amber-200/60 bg-amber-50/20'
                 }`}
             >
               {/* Panel header */}
