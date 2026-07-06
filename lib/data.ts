@@ -29,13 +29,14 @@ export interface CaseStudy extends Project {
 
 export const projects: Project[] = [
   {
-    id: "accounting-firm-redesign",
-    title: "Accounting Firm Homepage Redesign",
-    category: "Responsive Website",
-    description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
-    thumbnail: "/accounting-firm-banner.png",
-    tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
-    year: "2025",
+    id: "crumb",
+    title: "Crumb — AI-Facilitated UX Design",
+    category: "AI-assisted workflow",
+    description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
+    thumbnail: "/crumb-thumbnail.png",
+    tags: ["Mobile Design", "AI-Assisted Design", "Lifestyle"],
+    year: "2026",
+    status: "in-progress",
   },
   {
     id: "uqu-app",
@@ -47,6 +48,15 @@ export const projects: Project[] = [
     year: "2024",
   },
   {
+    id: "accounting-firm-redesign",
+    title: "Accounting Firm Homepage Redesign",
+    category: "Responsive Website",
+    description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
+    thumbnail: "/accounting-firm-banner.png",
+    tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
+    year: "2025",
+  },
+  {
     id: "shroomcycle",
     title: "Sleep Accountability Lamp",
     category: "Product Design",
@@ -54,16 +64,6 @@ export const projects: Project[] = [
     thumbnail: "/shroomcycle-banner.png",
     tags: ["Product Design", "IoT", "Health & Wellness"],
     year: "2024",
-  },
-  {
-    id: "crumb",
-    title: "Crumb — AI-Facilitated UX Design",
-    category: "AI-assisted workflow",
-    description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
-    thumbnail: "/crumb-thumbnail.png",
-    tags: ["Mobile Design", "AI-Assisted Design", "Lifestyle"],
-    year: "2026",
-    status: "in-progress",
   },
 ]
 
