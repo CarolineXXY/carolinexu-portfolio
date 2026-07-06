@@ -13,7 +13,7 @@ export interface CaseStudyBlock {
     title?: string
     subtitle?: string
     content?: string
-    listType?: 'number' | 'bullet'
+    listType?: 'number' | 'bullet' | 'cross'
     items?: string[]
     image?: { src: string; caption?: string; size?: 'small' | 'medium' | 'large' }
     images?: (string | { src: string; caption?: string; size?: 'small' | 'medium' | 'large' })[]
@@ -192,6 +192,21 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                         {sub.items.map((item, i) => (
                           <li key={i} className="flex items-start gap-4">
                             <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">•</span>
+                            <span className="text-foreground-muted leading-[1.75]">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {sub.items && sub.items.length > 0 && sub.listType === 'cross' && (
+                      <ul className="space-y-3">
+                        {sub.items.map((item, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="flex-shrink-0 w-5 h-5 mt-0.5 rounded-sm bg-red-50 border border-red-200/70 flex items-center justify-center">
+                              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 1.5L8.5 8.5M8.5 1.5L1.5 8.5" stroke="#dc2626" strokeWidth="1.5" strokeLinecap="round"/>
+                              </svg>
+                            </span>
                             <span className="text-foreground-muted leading-[1.75]">{item}</span>
                           </li>
                         ))}

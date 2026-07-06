@@ -589,7 +589,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             title: "Round 1",
             content: "Stitch interpreted the editorial tone well. The parchment background, typography hierarchy, and card layout all landed. But structural issues appeared immediately.",
-            listType: "bullet",
+            listType: "cross",
             items: [
               "Gold accent failed WCAG AA contrast (ratio 2.8:1 on white)",
               "Nav bar active state and button styling inconsistent across every screen",
@@ -601,7 +601,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             title: "Round 2",
             content: "Updated colour system, lighter card borders, AI chat bubble switched to white, primary CTA button corrected.",
-            listType: "bullet",
+            listType: "cross",
             items: [
               "No left/right content margins",
               "Button text inconsistency on several screens",
@@ -612,7 +612,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             title: "Round 3",
             content: "Margins applied, card removed from Home, button text mostly sentence case, colour system consistent.",
-            listType: "bullet",
+            listType: "cross",
             items: [
               "Nav labels inconsistent across screens",
               "Result looked not refined",
@@ -623,7 +623,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             title: "Round 4 — Inspiration-led refinement",
             content: "I looked for references in cooking and baking apps and editorial designs. I fed selected examples directly into Stitch and asked it to refine based on those references.",
-            listType: "bullet",
+            listType: "cross",
             items: [
               "Nav bar active state still inconsistent across screens",
               "Heading size and logo scale vary between screens",
