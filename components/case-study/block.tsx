@@ -511,16 +511,16 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                     </svg>
                   )}
                 </span>
-                <h3 className={`font-sans font-semibold text-[13px] uppercase tracking-wider ${
+                <h3 className={`font-sans font-semibold text-sm md:text-[15px] uppercase tracking-wider ${
                   panel.variant === 'positive' ? 'text-emerald-800' : 'text-amber-800'
                 }`}>{panel.title}</h3>
               </div>
               {/* Panel items */}
               <ul className="flex flex-col divide-y divide-border/40 px-6">
                 {panel.items.map((item, iIdx) => (
-                  <li key={iIdx} className="py-5 flex flex-col gap-1">
-                    <strong className="text-foreground font-medium text-[15px] leading-snug">{item.title}</strong>
-                    <span className="text-foreground-muted leading-[1.75] text-[14px] md:text-[15px]">{item.description}</span>
+                  <li key={iIdx} className="py-5 flex flex-col gap-1.5">
+                    <strong className="text-foreground font-semibold text-[16px] md:text-[17px] leading-snug">{item.title}</strong>
+                    <span className="text-foreground-muted leading-[1.75] text-[15px] md:text-base">{formatText(item.description)}</span>
                   </li>
                 ))}
               </ul>
