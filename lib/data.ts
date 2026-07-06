@@ -64,6 +64,7 @@ export const projects: Project[] = [
     thumbnail: "/shroomcycle-banner.png",
     tags: ["Product Design", "IoT", "Health & Wellness"],
     year: "2024",
+    status: "completed",
   },
 ]
 
