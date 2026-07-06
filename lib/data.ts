@@ -311,7 +311,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         ]
       },
       {
-        title: "Design System",
+        title: "Style Guide",
         content: "The colour palette was drawn directly from the UQ Union's existing branding. The colours feel vibrant and engaging for uni students demographic. For typography, we used a combination of Futura and Roboto fonts to create a modern, clean and accessible look.",
         images: ["/uqu-designsystem.png"]
       },
@@ -481,7 +481,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   "crumb": {
     id: "crumb",
-    title: "Crumb — AI-Facilitated UX Design",
+    title: "Crumb — AI-Assisted UX Design",
     category: "AI-assisted workflow",
     description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
     thumbnail: "/crumb-thumbnail.png",
