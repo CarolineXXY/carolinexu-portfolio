@@ -677,7 +677,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               },
               {
                 title: "Claude's audits had blind spots",
-                description: "The button text inconsistency appeared across several versions before Claude flagged it. I had to cross-check Claude's audits against the actual screenshots myself to catch what it missed. AI analysis is a useful second opinion, not a replacement for a designer's own eyes."
+                description: "The button text inconsistency appeared across several versions before Claude flagged it. I had to cross-check Claude's audits against the actual screenshots myself to catch what it missed. AI analysis is a useful second opinion, not a replacement for a designer's judgement."
               },
               {
                 title: "The design system didn't propagate",
