@@ -381,6 +381,10 @@ export const caseStudies: Record<string, CaseStudy> = {
       "We designed Shroomcycle, a smart, interactive lamp that uses gentle ambient lights and a physical accountability mechanism to help users build and maintain healthier sleep routines without relying on harsh screen-based interactions.",
     blocks: [
       {
+        title: "Promo Video",
+        videoUrl: "https://drive.google.com/file/d/1IocXM9hf5OOcszXdiTAdlhlAWu1WDyQI/preview"
+      },
+      {
         title: "Research & Discovery",
         content: "To deeply understand university students' sleep habits, we used three research methods: interviews, autoethnographies, and diary studies.",
         subSections: [
@@ -472,10 +476,9 @@ export const caseStudies: Record<string, CaseStudy> = {
         ]
       },
       {
-        title: "Final Product & Promotion",
+        title: "Final Product",
         content: "The final ShroomCycle product seamlessly integrates into the user's bedroom environment, using soft, diffused light to remind users of their accountability to sleep. \n\nCheck out our promotional video to see Shroomcycle in action and understand how it works to encourage healthier sleep habits.",
-        link: { text: "View GitHub Project", url: "https://github.com/LiCHihTseng/ShroomCycle" },
-        videoUrl: "https://drive.google.com/file/d/1IocXM9hf5OOcszXdiTAdlhlAWu1WDyQI/preview"
+        link: { text: "View GitHub Project", url: "https://github.com/LiCHihTseng/ShroomCycle" }
       }
     ]
   },

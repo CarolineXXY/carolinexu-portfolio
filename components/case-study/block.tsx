@@ -116,7 +116,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                     alt={`${block.title} image ${index + 1}`}
                     width={1920}
                     height={1080}
-                    className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.03]"
+                    className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.06]"
                   />
                 </div>
                 {caption && <p className="text-sm font-medium text-foreground-muted text-center max-w-xl">{caption}</p>}
@@ -244,7 +244,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                                 alt={caption || "Subsection image"}
                                 width={800}
                                 height={600}
-                                className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.03]"
+                                className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.06]"
                               />
                             </div>
                             {caption && <p className="text-xs font-medium text-foreground-muted text-center max-w-xs">{caption}</p>}
@@ -270,7 +270,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                               alt={caption || "Subsection image"}
                               width={1920}
                               height={1080}
-                              className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.03]"
+                              className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.06]"
                             />
                           </div>
                           {caption && <p className="text-sm font-medium text-foreground-muted text-center max-w-xl">{caption}</p>}
