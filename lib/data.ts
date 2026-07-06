@@ -569,7 +569,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         images: [{ src: "/design-direction.png", caption: "Design direction summary" }]
       },
       {
-        title: "Step 3 — Visual System",
+        title: "Step 3 — Design System",
         label: "Tool: Claude",
         content: "I chose an editorial aesthetic for a premium food publication feel, and asked Claude to define exact tokens and rules, including specific hex values, typeface pairings, and usage constraints.",
         quote: "Claude's first palette used gold #C9A96E which failed WCAG AA contrast on white (ratio ~2.8:1, minimum 4.5:1) and read as dirty yellow on screen. I flagged this and Claude replaced it with terracotta — warmer, more editorial, and WCAG compliant as a fill.",
