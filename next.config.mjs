@@ -17,6 +17,7 @@ const nextConfig = {
   },
   output: 'export',
   basePath: '/carolinexu-portfolio',
+  assetPrefix: '/carolinexu-portfolio/',
 }
 
 export default nextConfig
