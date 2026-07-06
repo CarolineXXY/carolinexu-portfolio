@@ -319,7 +319,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: "High Fidelity Prototype",
         content: "For the final high-fidelity prototype, we prioritised key UQU services, high legibility, and a clear visual hierarchy to ensure the app felt simple to use.",
         link: { text: "View Figma Prototype", url: "https://www.figma.com/proto/qY57GRfthfIfOCtbAgVONu/UQU?page-id=122%3A413&node-id=122-1366&viewport=296%2C265%2C0.13&t=HIfHi4c3RF1IbMn8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=122%3A1366" },
-        images: ["/uqu-main-pages.png", "/uqu-event-ticket.png", "public/uqu-sas.png", "/uqu-volunteering.png", "/uqu-community.png"]
+        images: ["/uqu-main-pages.png", "/uqu-event-ticket.png", "/uqu-sas.png", "/uqu-volunteering.png", "/uqu-community.png"]
       },
       {
         title: "User Testing",
