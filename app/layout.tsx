@@ -19,9 +19,6 @@ export const metadata: Metadata = {
     type: "website",
   },
   generator: "v0.app",
-  icons: {
-    icon: '/v0-portfolio-web-project/favicon.svg',
-  },
 }
 
 export const viewport: Viewport = {
