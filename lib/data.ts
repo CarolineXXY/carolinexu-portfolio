@@ -118,7 +118,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         ]
       },
       {
-        title: "Design System",
+        title: "Design Guide",
         content: "To ensure consistency across the site, I created a lightweight design system including responsive typography scaling, a semantic color palette, and reusable UI components like buttons and form inputs. The colour palette is based on the firm's branding to convey trust and professionalism. I chose Helvetica Neue as the primary typeface for its clean, modern aesthetic and excellent readability.",
         images: ["/accounting-branding.png"]
       },
@@ -311,7 +311,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         ]
       },
       {
-        title: "Style Guide",
+        title: "Design Guide",
         content: "The colour palette was drawn directly from the UQ Union's existing branding. The colours feel vibrant and engaging for uni students demographic. For typography, we used a combination of Futura and Roboto fonts to create a modern, clean and accessible look.",
         images: ["/uqu-designsystem.png"]
       },
@@ -484,9 +484,9 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
   "crumb": {
     id: "crumb",
-    title: "Crumb — AI-Assisted UX Design",
-    category: "AI-assisted workflow",
-    description: "A mobile app helping complete beginners learn to bake through structured skill progression and AI-powered feedback",
+    title: "Crumb — AI-powered baking guide",
+    category: "Mobile Application",
+    description: "A mobile app to help home bakers troubleshoot with AI-powered feedback",
     thumbnail: "/crumb-thumbnail.png",
     heroImage: "/crumb-banner.png",
     tags: ["Mobile App", "UX/UI Design", "AI-assisted Workflow"],
