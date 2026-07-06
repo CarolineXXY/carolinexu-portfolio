@@ -589,20 +589,18 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             title: "Round 1",
             content: "Stitch interpreted the editorial tone well. The parchment background, typography hierarchy, and card layout all landed. But structural issues appeared immediately.",
-            subtitle: "Key issues caught",
             listType: "bullet",
             items: [
               "Gold accent failed WCAG AA contrast (ratio 2.8:1 on white)",
-              "Nav bar active state inconsistent across every screen",
+              "Nav bar active state and button styling inconsistent across every screen",
               "Bake names in History truncated mid-word",
-              "Stitch added unsolicited content sections not in the spec"
+              "Stitch added additional content sections not in the spec"
             ],
             image: { src: "/version1.png", caption: "Version 1 — all screens" }
           },
           {
             title: "Round 2",
             content: "Updated colour system, lighter card borders, AI chat bubble switched to white, primary CTA button corrected.",
-            subtitle: "Still missing",
             listType: "bullet",
             items: [
               "No left/right content margins",
@@ -614,27 +612,25 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             title: "Round 3",
             content: "Margins applied, card removed from Home, button text mostly sentence case, colour system consistent.",
-            subtitle: "Still missing",
             listType: "bullet",
             items: [
-              "Nav labels alternating between ALL CAPS and title case across screens",
-              "Wordmark had an icon artefact embedded in it on the AI Chat screen",
-              "Pastry tile used a sparkle icon (inaccurate for pastry)"
+              "Nav labels inconsistent across screens",
+              "Result looked not refined",
+              "Some components felt chunky"
             ],
             image: { src: "/version3.png", caption: "Version 3 — all screens" }
           },
           {
-            title: "Round 4 — Final Stitch Output",
-            content: "5 of 8 screens mostly met the direction. Three screens still had issues for Figma to resolve.",
-            subtitle: "Remaining issues handed to Figma",
+            title: "Round 4 — Inspiration-led refinement",
+            content: "I looked for references in cooking and baking apps and editorial designs. I fed selected examples directly into Stitch and asked it to refine based on those references.",
             listType: "bullet",
             items: [
-              "Baking History wordmark split across two lines",
-              "Category Selection: wrong categories, wrong grid order, wrong icon",
-              "AI Chat missing the top bar entirely",
+              "Nav bar active state still inconsistent across screens",
+              "Heading size and logo scale vary between screens",
+              "Wrong icons on the Bake Category Selection screen",
               "Small inconsistency on several screens"
             ],
-            image: { src: "/version4.png", caption: "Version 4 — final screens, annotated" }
+            image: { src: "/version4.png", caption: "Version 4 — final screens" }
           }
         ]
       }
