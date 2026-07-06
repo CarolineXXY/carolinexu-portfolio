@@ -655,7 +655,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               },
               {
                 title: "Rapid hi-fi",
-                description: "Stitch generated a visually coherent hi-fi prototype in seconds — meaning design decisions could be evaluated on real screens rather than wireframes, earlier in the process."
+                description: "Stitch generated a visually coherent hi-fi prototype in seconds, meaning design decisions could be evaluated on real screens rather than wireframes, earlier in the process."
               },
               {
                 title: "Visual reference accelerates results",
@@ -689,8 +689,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         title: "Next Steps",
-        subtitle: "Handover to Figma",
-        outro: "The Stitch prototype is now being rebuilt in Figma. Priority fixes include a full WCAG contrast audit, and fixing all inconsistencies. Once the Figma file is production-ready, the next phase is user testing with home bakers."
+        subtitle: "HANDOVER TO FIGMA",
+        outro: "The Stitch prototype is now being rebuilt in Figma. Priority fixes include a full WCAG contrast audit, and fixing all inconsistencies. Once it's ready, the next phase is user testing with home bakers."
       }
     ]
   }
