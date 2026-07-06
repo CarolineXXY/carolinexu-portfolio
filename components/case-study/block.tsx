@@ -1,8 +1,33 @@
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 
+function formatText(text: string) {
+  if (!text) return "";
+  const parts = text.split("Figma");
+  if (parts.length === 1) return text;
+
+  return (
+    <>
+      {parts.map((part, index) => (
+        <span key={index}>
+          {part}
+          {index < parts.length - 1 && (
+            <span className="inline-flex items-center gap-1 font-semibold text-foreground mx-0.5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/figma-icon.svg" alt="Figma" width={13} height={13} className="inline-block align-middle" />
+              Figma
+            </span>
+          )}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export interface CaseStudyBlock {
   title: string
+  subtitle?: string
+  subtitleIcon?: string
   label?: string
   content?: string
   quote?: string
@@ -51,6 +76,16 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
     <section className="section-y border-b border-border">
       <h2 className="font-serif mb-6">{block.title}</h2>
 
+      {block.subtitle && (
+        <div className="flex items-center gap-2 mb-8 -mt-2">
+          {block.subtitleIcon && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={block.subtitleIcon} alt="" width={18} height={18} className="opacity-80 flex-shrink-0" />
+          )}
+          <span className="text-foreground-muted font-medium text-[15px] tracking-[0.01em]">{block.subtitle}</span>
+        </div>
+      )}
+
       {block.label && (
         <div className="mb-8">
           <span className="inline-flex items-center gap-2 text-[13px] uppercase tracking-wider font-semibold font-sans text-accent border border-accent/25 bg-accent/5 px-3 py-1.5 rounded-sm">
@@ -63,7 +98,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <div className={`flex flex-col gap-6 max-w-3xl ${block.link ? 'mb-8' : 'mb-12'}`}>
           {block.content.split('\n\n').map((paragraph, idx) => (
             <p key={idx} className="text-foreground-muted leading-[1.75]">
-              {paragraph}
+              {formatText(paragraph)}
             </p>
           ))}
         </div>
@@ -71,7 +106,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
 
       {block.quote && (
         <div className="my-10 max-w-3xl bg-muted/40 border-l-4 border-accent rounded-r-sm px-7 py-6">
-          <p className="text-foreground leading-[1.8] text-[15px] md:text-[16px]">{block.quote}</p>
+          <p className="text-foreground leading-[1.8] text-[15px] md:text-[16px]">{formatText(block.quote)}</p>
         </div>
       )}
 
@@ -440,7 +475,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <div className="flex flex-col gap-6 mt-12 mb-12 max-w-3xl">
           {block.outro.split('\n\n').map((paragraph, idx) => (
             <p key={idx} className="text-foreground-muted leading-[1.75]">
-              {paragraph}
+              {formatText(paragraph)}
             </p>
           ))}
         </div>

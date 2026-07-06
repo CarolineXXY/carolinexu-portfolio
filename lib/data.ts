@@ -689,11 +689,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         title: "Next Steps",
-        callout: {
-          eyebrow: "Status",
-          text: "The Stitch prototype is now being rebuilt in Figma. Priority fixes include a full WCAG contrast audit and resolving all cross-screen inconsistencies."
-        },
-        outro: "Once the Figma file is production-ready, the next phase is user testing with home bakers across both segments — frustrated beginners and intermediate bakers — to validate the diagnostic flow and the AI companion experience."
+        subtitle: "Handover to Figma",
+        outro: "The Stitch prototype is now being rebuilt in Figma. Priority fixes include a full WCAG contrast audit, and fixing all inconsistencies. Once the Figma file is production-ready, the next phase is user testing with home bakers."
       }
     ]
   }
