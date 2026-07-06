@@ -37,6 +37,11 @@ export interface CaseStudyBlock {
     headers: string[]
     rows: string[][]
   }
+  panels?: {
+    title: string
+    variant: 'positive' | 'cautionary'
+    items: { title: string; description: string }[]
+  }[]
 }
 
 export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
@@ -437,6 +442,53 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
             <p key={idx} className="text-foreground-muted leading-[1.75]">
               {paragraph}
             </p>
+          ))}
+        </div>
+      )}
+
+      {/* Panels — two-column comparison layout */}
+      {block.panels && block.panels.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 w-full">
+          {block.panels.map((panel, pIdx) => (
+            <div
+              key={pIdx}
+              className={`rounded-sm border flex flex-col ${
+                panel.variant === 'positive'
+                  ? 'border-emerald-200/70 bg-emerald-50/30'
+                  : 'border-amber-200/60 bg-amber-50/20'
+              }`}
+            >
+              {/* Panel header */}
+              <div className={`flex items-center gap-2.5 px-6 py-4 border-b ${
+                panel.variant === 'positive' ? 'border-emerald-200/60' : 'border-amber-200/50'
+              }`}>
+                <span className={`w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center ${
+                  panel.variant === 'positive' ? 'bg-emerald-500' : 'bg-amber-500'
+                }`}>
+                  {panel.variant === 'positive' ? (
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ) : (
+                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                      <path d="M1.5 1.5L7.5 7.5M7.5 1.5L1.5 7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  )}
+                </span>
+                <h3 className={`font-sans font-semibold text-[13px] uppercase tracking-wider ${
+                  panel.variant === 'positive' ? 'text-emerald-800' : 'text-amber-800'
+                }`}>{panel.title}</h3>
+              </div>
+              {/* Panel items */}
+              <ul className="flex flex-col divide-y divide-border/40 px-6">
+                {panel.items.map((item, iIdx) => (
+                  <li key={iIdx} className="py-5 flex flex-col gap-1">
+                    <strong className="text-foreground font-medium text-[15px] leading-snug">{item.title}</strong>
+                    <span className="text-foreground-muted leading-[1.75] text-[14px] md:text-[15px]">{item.description}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
       )}

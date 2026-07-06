@@ -47,7 +47,7 @@ export function AboutSection() {
 
               <div className="mt-8 md:mt-12">
                 <a
-                  href="https://drive.google.com/file/d/1waAvNr8FSLXwb9j4OeNm1X_si_4Z-p1a/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1cUHccQXRGwIsNP3_XhLIBYvQgy38ubxs/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-[8px] font-sans font-medium text-[15px] md:text-[16px] tracking-[0.04em] text-[#1A1A1A] border-[1.5px] border-[#1A1A1A] rounded-[2px] px-[32px] py-[13px] bg-transparent transition-colors duration-300 hover:border-[#E8602C] hover:text-[#E8602C] no-underline"

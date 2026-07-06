@@ -633,6 +633,67 @@ export const caseStudies: Record<string, CaseStudy> = {
             image: { src: "/version4.png", caption: "Version 4 — final screens" }
           }
         ]
+      },
+      {
+        title: "Critical Reflection",
+        panels: [
+          {
+            title: "What AI did well",
+            variant: "positive",
+            items: [
+              {
+                title: "Speed",
+                description: "Problem framing, three design directions, visual system, and initial prototype generation happened within a single working session. For a solo designer this is a genuine productivity multiplier."
+              },
+              {
+                title: "Structured prompting",
+                description: "Claude translated design intent into precise, multi-screen Stitch prompts more reliably than writing them manually. The prompt quality directly correlated with output quality."
+              },
+              {
+                title: "Iterative auditing",
+                description: "Claude's screen-by-screen audits were structured and thorough, catching WCAG failures, spacing inconsistencies, and component misuse across multiple rounds."
+              },
+              {
+                title: "Rapid hi-fi",
+                description: "Stitch generated a visually coherent hi-fi prototype in seconds — meaning design decisions could be evaluated on real screens rather than wireframes, earlier in the process."
+              },
+              {
+                title: "Visual reference accelerates results",
+                description: "Providing inspiration examples to Stitch produced a noticeably better output than any prompt had managed. Reference gave the AI a clearer visual target, reduced ambiguity, and aligned output much closer to the goal. The earlier this is introduced, the better."
+              }
+            ]
+          },
+          {
+            title: "Where designer judgement was essential",
+            variant: "cautionary",
+            items: [
+              {
+                title: "Stitch doesn't always follow the prompt",
+                description: "Despite explicit specs, Stitch reintroduced fixed issues across multiple passes. After 4 rounds, some problems persisted. A human working in Figma fixes something once and it stays fixed."
+              },
+              {
+                title: "Claude's audits had blind spots",
+                description: "The button text inconsistency appeared across several versions before Claude flagged it. I had to cross-check Claude's audits against the actual screenshots myself to catch what it missed. AI analysis is a useful second opinion, not a replacement for a designer's own eyes."
+              },
+              {
+                title: "The design system didn't propagate",
+                description: "Claude produced a strong, coherent design system. Stitch referenced it in every prompt. But Stitch applied it inconsistently. A shared Figma component library would have prevented this."
+              },
+              {
+                title: "Icon accuracy requires curation",
+                description: "Stitch generated contextually wrong icons. Iconography needs to come from a proper icon library, not generative output."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Next Steps",
+        callout: {
+          eyebrow: "Status",
+          text: "The Stitch prototype is now being rebuilt in Figma. Priority fixes include a full WCAG contrast audit and resolving all cross-screen inconsistencies."
+        },
+        outro: "Once the Figma file is production-ready, the next phase is user testing with home bakers across both segments — frustrated beginners and intermediate bakers — to validate the diagnostic flow and the AI companion experience."
       }
     ]
   }
@@ -672,6 +733,6 @@ export const designTools = [
 ]
 
 export const socialLinks = {
-  linkedin: "https://www.linkedin.com/in/caroline-xu-334a8b28b/",
+  linkedin: "https://www.linkedin.com/in/caroline-xu/",
   email: "carolinexu0116@gmail.com",
 }
