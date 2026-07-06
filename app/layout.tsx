@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   generator: "v0.app",
   icons: {
-    icon: '//v0-portfolio-web-project/app/favicon.svg',
+    icon: '/v0-portfolio-web-project/favicon.svg',
   },
 }
 
