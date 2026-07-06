@@ -481,9 +481,9 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         </div>
       )}
 
-      {/* Panels — two-column comparison layout */}
+      {/* Panels — two rows layout */}
       {block.panels && block.panels.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 w-full">
+        <div className="flex flex-col gap-8 mb-12 w-full">
           {block.panels.map((panel, pIdx) => (
             <div
               key={pIdx}
@@ -505,8 +505,9 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                       <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   ) : (
-                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
-                      <path d="M1.5 1.5L7.5 7.5M7.5 1.5L1.5 7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 3V6.5" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+                      <path d="M6 8.5V8.6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                     </svg>
                   )}
                 </span>
