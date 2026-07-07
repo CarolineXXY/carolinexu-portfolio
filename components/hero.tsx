@@ -4,6 +4,54 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
+const roles = [
+  { label: "UX/UI Designer", color: "#E8602C" },
+  { label: "UX Researcher", color: "#C0763A" },
+  { label: "Interaction Designer", color: "#2D6A4F" },
+  { label: "Product Designer", color: "#4A6FA5" },
+  { label: "Developer", color: "#8B5E83" },
+]
+
+function RoleWord() {
+  const [active, setActive] = useState<number | null>(null)
+  const [displayed, setDisplayed] = useState(0)
+  const [opacity, setOpacity] = useState(1)
+
+  useEffect(() => {
+    if (active === null) return
+    const interval = setInterval(() => {
+      setOpacity(0)
+      setTimeout(() => {
+        setDisplayed(prev => (prev + 1) % roles.length)
+        setOpacity(1)
+      }, 200)
+    }, 900)
+    return () => clearInterval(interval)
+  }, [active])
+
+  const isHovered = active !== null
+
+  return (
+    <span
+      className="font-serif italic cursor-default transition-all duration-300 text-[clamp(28px,5vw,48px)] md:text-[clamp(32px,4vw,52px)]"
+      style={{
+        color: isHovered ? roles[displayed].color : "#D8D0C8",
+        opacity: opacity,
+        transition: "color 0.3s, opacity 0.2s",
+        borderBottom: isHovered ? "none" : "2px solid #D8D0C8",
+        paddingBottom: isHovered ? "0" : "2px",
+      }}
+      onMouseEnter={() => setActive(displayed)}
+      onMouseLeave={() => {
+        setActive(null)
+        setOpacity(1)
+      }}
+    >
+      {isHovered ? roles[displayed].label : "designer?"}
+    </span>
+  )
+}
+
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -73,17 +121,6 @@ export function Hero() {
         {/* Empty div for flex justification */}
         <div className="w-[120px] hidden md:block" />
 
-        {/* SCROLL HINT */}
-        <div
-          className="absolute left-[50%] -translate-x-1/2 flex flex-col items-center gap-[8px] transition-opacity duration-500"
-          style={{ opacity: isScrolled ? 0 : 1 }}
-        >
-          <span className="font-sans font-medium text-[12px] md:text-[13px] text-[#6B6B6B] tracking-[0.06em]">
-            Scroll
-          </span>
-          <div className="w-[1.5px] h-[24px] bg-gradient-to-b from-[#6B6B6B] to-transparent" />
-        </div>
-
         {/* AVAILABILITY BADGE */}
         <div className="flex items-center gap-[8px] pointer-events-auto">
           <div className="relative flex items-center justify-center w-[7px] h-[7px]">
@@ -112,18 +149,22 @@ export function Hero() {
           </div>
 
           {/* Heading Stack */}
-          <h1 className="flex flex-col font-serif leading-[0.95] tracking-[-1px]">
-            <span
-              className="text-transparent text-[clamp(40px,10vw,56px)] md:text-[clamp(48px,7vw,64px)] lg:text-[clamp(52px,8vw,76px)]"
-              style={{ WebkitTextStroke: "1.5px #1A1A1A" }}
-            >
-              HI, I'M
+          <h1 className="flex flex-col font-serif tracking-[-1px]">
+            {/* Name — large, filled */}
+            <span className="text-[#1A1A1A] leading-[1] text-[clamp(52px,10vw,88px)] md:text-[clamp(64px,9vw,96px)]">
+              Caroline Xu
             </span>
-            <span
-              className="text-[#E8602C] mt-[-3px] md:mt-[-6px] text-[clamp(40px,10vw,56px)] md:text-[clamp(48px,7vw,64px)] lg:text-[clamp(52px,8vw,76px)]"
-            >
-              CAROLINE
-            </span>
+
+            {/* Role row — smaller, with hover interaction */}
+            <div className="flex items-baseline gap-[10px] flex-wrap mt-[4px] leading-[1]">
+              <span
+                className="text-[clamp(28px,5vw,48px)] md:text-[clamp(32px,4vw,52px)]"
+                style={{ WebkitTextStroke: "1.5px #1A1A1A", color: "transparent" }}
+              >
+                Hi, I'm a
+              </span>
+              <RoleWord />
+            </div>
           </h1>
 
           {/* Subheading */}
@@ -140,10 +181,10 @@ export function Hero() {
               View my work
             </Link>
             <Link
-              href="#about"
+              href="#contact"
               className="group flex items-center gap-[8px] font-sans font-medium text-[15px] md:text-[16px] text-[#4A4A4A] bg-transparent transition-colors duration-300 hover:text-[#1A1A1A] no-underline"
             >
-              About me
+              Contact me
               <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-[#E8602C] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
