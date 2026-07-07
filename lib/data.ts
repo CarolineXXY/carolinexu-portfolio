@@ -489,7 +489,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "Crumb — AI-powered baking guide",
     category: "Mobile Application",
     description: "A mobile app to help home bakers troubleshoot with AI-powered feedback.",
-    thumbnail: "/crumb-thumbnail.png",
+    thumbnail: assetPath("/crumb-thumbnail.png"),
     heroImage: "/crumb-hero.png",
     tags: ["Mobile App", "UX/UI Design", "AI-assisted Workflow"],
     year: "2026",
