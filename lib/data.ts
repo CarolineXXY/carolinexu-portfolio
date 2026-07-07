@@ -44,7 +44,7 @@ export const projects: Project[] = [
     title: "UQU App",
     category: "Mobile Application",
     description: "A platform that centralises student services and events to boost engagement at university.",
-    thumbnail: "/uqu-banner.png",
+    thumbnail: assetPath("/uqu-banner.png"),
     tags: ["Mobile Design", "User Research", "Prototyping"],
     year: "2024",
   },
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "Accounting Firm Homepage Redesign",
     category: "Responsive Website",
     description: "A speculative redesign of an accounting firm's homepage to improve usability and accessibility.",
-    thumbnail: "/accounting-firm-banner.png",
+    thumbnail: assetPath("/accounting-firm-banner.png"),
     tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
     year: "2025",
   },
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     title: "Sleep Accountability Lamp",
     category: "Product Design",
     description: "An innovative smart lamp designed to promote healthy sleep habits through gentle light cues and accountability features.",
-    thumbnail: "/shroomcycle-banner.png",
+    thumbnail: assetPath("/shroomcycle-banner.png"),
     tags: ["Product Design", "IoT", "Health & Wellness"],
     year: "2024",
     status: "completed",
@@ -75,8 +75,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "Accounting Firm Homepage Redesign",
     category: "Responsive Website",
     description: "Redesigning the mobile banking experience to improve usability and accessibility for all users.",
-    thumbnail: "/accounting-firm-banner.png",
-    heroImage: "/accounting-firm-banner.png",
+    thumbnail: assetPath("/accounting-firm-banner.png"),
+    heroImage: assetPath("/accounting-firm-banner.png"),
     tags: ["Web Design", "Heuristic Evaluation", "Responsive Design"],
     year: "2025",
     role: "UX/UI Designer",
@@ -115,14 +115,14 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: "Wireframes",
         content: "I started with low-fidelity sketches to create the basic layout and content hierarchy to test structural layout functionality.",
         images: [
-          "/accounting-lofi-laptop.jpg",
-          "/accounting-lofi-phone.jpg",
+          assetPath("/accounting-lofi-laptop.jpg"),
+          assetPath("/accounting-lofi-phone.jpg"),
         ]
       },
       {
         title: "Design Guide",
         content: "To ensure consistency across the site, I created a lightweight design system including responsive typography scaling, a semantic color palette, and reusable UI components like buttons and form inputs. The colour palette is based on the firm's branding to convey trust and professionalism. I chose Helvetica Neue as the primary typeface for its clean, modern aesthetic and excellent readability.",
-        images: ["/accounting-branding.png"]
+        images: [assetPath("/accounting-branding.png")],
       },
       {
         title: "High Fidelity Prototype",
@@ -213,8 +213,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "UQU App",
     category: "Mobile Application",
     description: "A platform that centralises student services and events to boost engagement at university.",
-    thumbnail: "/uqu-banner.png",
-    heroImage: "/uqu-banner.png",
+    thumbnail: assetPath("/uqu-banner.png"),
+    heroImage: assetPath("/uqu-banner.png"),
     tags: ["Mobile Design", "User Research", "Prototyping"],
     year: "2024",
     role: "UX Researcher, UX/UI Designer",
@@ -236,12 +236,12 @@ export const caseStudies: Record<string, CaseStudy> = {
           { title: "Discoverability Need", content: "There is a need for improved discoverability and accessibility to boost participation in events, services, and activities." }
         ],
         outro: "That surfaced our core design challenge. With so many features to potentially include, we had to make sure the valuable features are easy to find without overwhelming them with options. Finding that balance between accessibility and focus became the throughline for every decision we made.",
-        images: ["/awareness-and-engagement-chart.jpg"]
+        images: [assetPath("/awareness-and-engagement-chart.jpg")]
       },
       {
         title: "Feature Roadmap",
         content: "From the survey results, we pulled out the recurring pain points and grouped them into themes, such as things like information being hard to find, processes feeling unnecessarily complex, and support services being hidden where students wouldn't think to look. From there, we mapped each pain point against its priority and values, which gave us a clear basis for deciding what features to build first.",
-        images: ["/mapping.png"]
+        images: [assetPath("/mapping.png")]
       },
       {
         title: "User Persona",
@@ -315,13 +315,13 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Design Guide",
         content: "The colour palette was drawn directly from the UQ Union's existing branding. The colours feel vibrant and engaging for uni students demographic. For typography, we used a combination of Futura and Roboto fonts to create a modern, clean and accessible look.",
-        images: ["/uqu-designsystem.png"]
+        images: [assetPath("/uqu-designsystem.png")]
       },
       {
         title: "High Fidelity Prototype",
         content: "For the final high-fidelity prototype, we prioritised key UQU services, high legibility, and a clear visual hierarchy to ensure the app felt simple to use.",
         link: { text: "View Figma Prototype", url: "https://www.figma.com/proto/qY57GRfthfIfOCtbAgVONu/UQU?page-id=122%3A413&node-id=122-1366&viewport=296%2C265%2C0.13&t=HIfHi4c3RF1IbMn8-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=122%3A1366" },
-        images: ["/uqu-main-pages.png", "/uqu-event-ticket.png", "/uqu-sas.png", "/uqu-volunteering.png", "/uqu-community.png"]
+        images: [assetPath("/uqu-main-pages.png"), assetPath("/uqu-event-ticket.png"), assetPath("/uqu-sas.png"), assetPath("/uqu-volunteering.png"), assetPath("/uqu-community.png")]
       },
       {
         title: "User Testing",
@@ -490,7 +490,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     category: "Mobile Application",
     description: "A mobile app to help home bakers troubleshoot with AI-powered feedback.",
     thumbnail: assetPath("/crumb-thumbnail.png"),
-    heroImage: "/crumb-hero.png",
+    heroImage: assetPath("/crumb-hero.png"),
     tags: ["Mobile App", "UX/UI Design", "AI-assisted Workflow"],
     year: "2026",
     role: "UX & Product Designer",
