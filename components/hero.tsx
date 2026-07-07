@@ -156,7 +156,7 @@ export function Hero() {
         >
 
           {/* Heading Stack */}
-          <h1 className="flex flex-col tracking-[-1px] mb-10">
+          <h1 className="flex flex-col tracking-[-1px] my-10">
             {/* Name — DM Serif Display, large */}
             <span
               className="font-serif text-[#e8602c] leading-[1] mb-8"
@@ -168,7 +168,7 @@ export function Hero() {
             {/* Role row — Outfit, smaller */}
             <div className="flex items-baseline gap-[10px] flex-wrap mt-[6px] leading-[1]">
               <span
-                className="font-sans"
+                className="font-serif"
                 style={{
                   fontSize: "clamp(24px, 4vw, 44px)",
                   color: "#1d1d1dff",
