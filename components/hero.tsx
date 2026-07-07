@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+
 
 const roles = [
   { label: "UX/UI Designer", color: "#E8602C" },
@@ -13,41 +14,70 @@ const roles = [
 ]
 
 function RoleWord() {
-  const [active, setActive] = useState<number | null>(null)
+  const [active, setActive] = useState(false)
   const [displayed, setDisplayed] = useState(0)
   const [opacity, setOpacity] = useState(1)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    if (active === null) return
-    const interval = setInterval(() => {
+    const isTouch = window.matchMedia("(hover: none)").matches
+    setIsTouchDevice(isTouch)
+
+    if (isTouch) {
+      // Auto-cycle on touch devices
+      setActive(true)
+      intervalRef.current = setInterval(() => {
+        setOpacity(0)
+        setTimeout(() => {
+          setDisplayed(prev => (prev + 1) % roles.length)
+          setOpacity(1)
+        }, 200)
+      }, 1200)
+    }
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
+  }, [])
+
+  const startCycle = () => {
+    if (isTouchDevice) return
+    setActive(true)
+    intervalRef.current = setInterval(() => {
       setOpacity(0)
       setTimeout(() => {
         setDisplayed(prev => (prev + 1) % roles.length)
         setOpacity(1)
       }, 200)
     }, 900)
-    return () => clearInterval(interval)
-  }, [active])
+  }
 
-  const isHovered = active !== null
+  const stopCycle = () => {
+    if (isTouchDevice) return
+    setActive(false)
+    setOpacity(1)
+    if (intervalRef.current) clearInterval(intervalRef.current)
+  }
 
   return (
     <span
-      className="font-serif italic cursor-default transition-all duration-300 text-[clamp(28px,5vw,48px)] md:text-[clamp(32px,4vw,52px)]"
+      className="cursor-default italic"
       style={{
-        color: isHovered ? roles[displayed].color : "#D8D0C8",
+        fontFamily: "'Outfit', sans-serif",
+        fontSize: "clamp(24px, 4vw, 44px)",
+        fontWeight: 300,
+        color: active ? roles[displayed].color : "#D8D0C8",
         opacity: opacity,
         transition: "color 0.3s, opacity 0.2s",
-        borderBottom: isHovered ? "none" : "2px solid #D8D0C8",
-        paddingBottom: isHovered ? "0" : "2px",
+        borderBottom: active ? "none" : "1.5px solid #D8D0C8",
+        paddingBottom: active ? "0" : "2px",
+        letterSpacing: "-0.3px",
       }}
-      onMouseEnter={() => setActive(displayed)}
-      onMouseLeave={() => {
-        setActive(null)
-        setOpacity(1)
-      }}
+      onMouseEnter={startCycle}
+      onMouseLeave={stopCycle}
     >
-      {isHovered ? roles[displayed].label : "designer?"}
+      {active ? roles[displayed].label : "designer?"}
     </span>
   )
 }
@@ -142,17 +172,25 @@ export function Hero() {
         >
 
           {/* Heading Stack */}
-          <h1 className="flex flex-col font-serif tracking-[-1px]">
-            {/* Name — large, filled */}
-            <span className="text-[#1A1A1A] leading-[1] text-[clamp(52px,10vw,88px)] md:text-[clamp(64px,9vw,96px)] mb-[20px]">
+          <h1 className="flex flex-col tracking-[-1px]">
+            {/* Name — DM Serif Display, large */}
+            <span
+              className="font-serif text-[#292929] leading-[1] mb-2"
+              style={{ fontSize: "clamp(52px, 10vw, 88px)" }}
+            >
               Caroline Xu
             </span>
 
-            {/* Role row — smaller, with hover interaction */}
-            <div className="flex items-baseline gap-[10px] flex-wrap mt-[4px] leading-[1]">
+            {/* Role row — Outfit, smaller */}
+            <div className="flex items-baseline gap-[10px] flex-wrap mt-[6px] leading-[1]">
               <span
-                className="text-[clamp(28px,5vw,48px)] md:text-[clamp(32px,4vw,52px)]"
-                style={{ WebkitTextStroke: "1.5px #1A1A1A", color: "transparent" }}
+                className="font-sans font-light"
+                style={{
+                  fontSize: "clamp(24px, 4vw, 44px)",
+                  WebkitTextStroke: "1px #1A1A1A",
+                  color: "transparent",
+                  letterSpacing: "-0.3px",
+                }}
               >
                 Hi, I'm a
               </span>
