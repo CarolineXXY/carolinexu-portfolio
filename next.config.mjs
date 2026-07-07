@@ -3,9 +3,10 @@ import { fileURLToPath } from "node:url"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+const isGithubPages = process.env.DEPLOY_TARGET === 'gh-pages'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use this project as Turbopack root when multiple lockfiles exist (e.g. parent folder has package-lock.json)
   turbopack: {
     root: __dirname,
   },
@@ -15,11 +16,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
-  basePath: '/carolinexu-portfolio',
-  assetPrefix: '/carolinexu-portfolio/',
+  ...(isGithubPages && {
+    output: 'export',
+    basePath: '/carolinexu-portfolio',
+    assetPrefix: '/carolinexu-portfolio/',
+  }),
 }
 
 export default nextConfig
-
-
