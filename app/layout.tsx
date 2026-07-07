@@ -18,6 +18,9 @@ export const metadata: Metadata = {
       "I'm passionate about user-centred design, and ready to bring fresh, creative ideas to solve real-world problems.",
     type: "website",
   },
+  icons: {
+    icon: '/favicon.svg',
+  },
   generator: "v0.app",
 }
 
