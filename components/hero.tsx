@@ -140,18 +140,11 @@ export function Hero() {
           className="max-w-[680px] pt-[32px] md:pt-[48px] pb-[56px] transition-opacity duration-[400ms] ease-out"
           style={{ opacity: isVisible ? 1 : 0 }}
         >
-          {/* Eyebrow Label */}
-          <div className="flex items-center gap-[12px] mb-[24px] md:mb-[28px]">
-            <span className="w-[28px] h-[1.5px] bg-[#E8602C] block" />
-            <span className="font-sans font-semibold text-[13px] md:text-[14px] uppercase tracking-[0.12em] text-[#6B6B6B]">
-              UX & UI Designer
-            </span>
-          </div>
 
           {/* Heading Stack */}
           <h1 className="flex flex-col font-serif tracking-[-1px]">
             {/* Name — large, filled */}
-            <span className="text-[#1A1A1A] leading-[1] text-[clamp(52px,10vw,88px)] md:text-[clamp(64px,9vw,96px)]">
+            <span className="text-[#1A1A1A] leading-[1] text-[clamp(52px,10vw,88px)] md:text-[clamp(64px,9vw,96px)] mb-[20px]">
               Caroline Xu
             </span>
 
