@@ -131,8 +131,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           text: "View Figma Prototype",
           url: "https://www.figma.com/proto/G6LGZEdOcwEtH1WUx1IRhB/Accounting?page-id=116%3A111&node-id=116-264&p=f&viewport=285%2C90%2C0.15&t=ew9RQo1Rg5m6EHn5-1&scaling=min-zoom&content-scaling=fixed"
         },
-        images: [
-          { src: "/accountin-Key-Screens.png", caption: "Redesigned Homepage - laptop &mobile screens" },
+        images: [assetPath("/accountin-Key-Screens.png"),
         ]
       },
       {
@@ -369,8 +368,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "Sleep Accountability Lamp",
     category: "Product Design",
     description: "An innovative smart lamp designed to promote healthy sleep habits through gentle light cues and accountability features.",
-    thumbnail: "/shroomcycle-banner.png",
-    heroImage: "/shroomcycle-banner.png",
+    thumbnail: assetPath("/shroomcycle-banner.png"),
+    heroImage: assetPath("/shroomcycle-banner.png"),
     tags: ["Product Design", "IoT", "Health & Wellness"],
     year: "2024",
     role: "Product Designer, UX Researcher, Prototype Developer",
@@ -415,7 +414,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             image: { src: "/shroomcycle-diarystudy.png", caption: "Diary Study Questions", size: "medium" }
           },
           {
-            image: { src: "/shroomcycle-user-research.png" }
+            images: [assetPath("/shroomcycle-user-research.png")]
           }
         ],
         cardsTitle: "KEY INSIGHTS",
