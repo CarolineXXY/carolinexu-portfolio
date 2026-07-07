@@ -172,10 +172,10 @@ export function Hero() {
         >
 
           {/* Heading Stack */}
-          <h1 className="flex flex-col tracking-[-1px]">
+          <h1 className="flex flex-col tracking-[-1px] mb-5">
             {/* Name — DM Serif Display, large */}
             <span
-              className="font-serif text-[#292929] leading-[1] mb-5"
+              className="font-serif text-[#e8602c] leading-[1] mb-5"
               style={{ fontSize: "clamp(52px, 10vw, 88px)" }}
             >
               Caroline Xu
@@ -184,7 +184,7 @@ export function Hero() {
             {/* Role row — Outfit, smaller */}
             <div className="flex items-baseline gap-[10px] flex-wrap mt-[6px] leading-[1]">
               <span
-                className="font-sans"
+                className="font-sans font-bold"
                 style={{
                   fontSize: "clamp(24px, 4vw, 44px)",
                   color: "#1A1A1A",
