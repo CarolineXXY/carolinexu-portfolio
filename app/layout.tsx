@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { BackToTop } from "@/components/back-to-top"
 import "./globals.css"
+import { CursorGlow } from "@/components/cursor-glow"
 
 export const metadata: Metadata = {
   title: "Caroline Xu | UX/UI Designer",
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased bg-background text-foreground">
+        <CursorGlow />
         <Navbar />
         {children}
         <Footer />
