@@ -445,7 +445,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         title: "Storyboard",
-        images: [{ src: "/shroomcycle-storyboard.jpg", size: "large" }]
+        images: [assetPath("/shroomcycle-storyboard.jpg")]
       },
       {
         title: "Proposed Solution",
@@ -466,8 +466,8 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             subtitle: "INITIAL PROTOTYPE",
             content: "For our initial prototype, we used an Arduino and a breadboard to wire up the ambient light and pressure sensors. This allowed us to quickly test the core logic of detecting room lighting and sensing phone placement before committing to a physical housing.",
-            images: ["/shroomcycle-Initial_Prototype.png",
-              "/shroomcycle-Initial_prototype2.png"]
+            images: [assetPath("/shroomcycle-Initial_Prototype.png"),
+            assetPath("/shroomcycle-Initial_prototype2.png")]
           },
           {
             subtitle: "BUILDING THE MUSHROOM",
