@@ -1,4 +1,5 @@
 import type { CaseStudyBlock } from "@/components/case-study/block"
+import { assetPath } from './utils'
 
 export interface Project {
   id: string
@@ -33,7 +34,7 @@ export const projects: Project[] = [
     title: "Crumb — AI-powered baking guide",
     category: "Mobile Application",
     description: "A mobile app to help home bakers troubleshoot with AI-powered feedback",
-    thumbnail: "/crumb-thumbnail.png",
+    thumbnail: assetPath("/crumb-thumbnail.png"),
     tags: ["Mobile Design", "AI-Assisted Design", "Lifestyle"],
     year: "2026",
     status: "in-progress",

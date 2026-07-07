@@ -7,7 +7,7 @@
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start",
-    "deploy": "DEPLOY_TARGET=gh-pages next build && touch out/.nojekyll && gh-pages -d out --dotfiles"
+    "deploy": "DEPLOY_TARGET=gh-pages NEXT_PUBLIC_BASE_PATH=/carolinexu-portfolio next build && touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
