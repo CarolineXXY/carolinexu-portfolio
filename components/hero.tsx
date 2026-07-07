@@ -146,22 +146,6 @@ export function Hero() {
         />
       </div>
 
-      {/* BOTTOM ABSOLUTE LAYER FOR SCROLL & BADGE */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 w-full max-w-[1000px] mx-auto px-[24px] md:px-[36px] lg:px-[48px] pb-[24px] md:pb-[36px] lg:pb-[48px] flex items-end justify-between pointer-events-none">
-        {/* Empty div for flex justification */}
-        <div className="w-[120px] hidden md:block" />
-
-        {/* AVAILABILITY BADGE */}
-        <div className="flex items-center gap-[8px] pointer-events-auto">
-          <div className="relative flex items-center justify-center w-[7px] h-[7px]">
-            <span className="absolute inline-flex w-full h-full rounded-full bg-[#E8602C] opacity-75 animate-ping" style={{ animationDuration: '2s' }}></span>
-            <span className="relative inline-flex rounded-full w-[7px] h-[7px] bg-[#E8602C]"></span>
-          </div>
-          <span className="font-sans font-semibold text-[12px] md:text-[13px] uppercase tracking-[0.06em] text-[#6B6B6B]">
-            Available for work
-          </span>
-        </div>
-      </div>
 
       {/* HERO CONTENT CONTAINER */}
       <div className="relative z-10 w-full max-w-[1000px] mx-auto min-h-screen flex flex-col justify-center px-[24px] md:px-[36px] lg:px-[48px]">
@@ -199,7 +183,7 @@ export function Hero() {
           </h1>
 
           {/* Subheading */}
-          <p className="font-sans font-normal text-[16px] md:text-[18px] text-[#4A4A4A] leading-[1.75] max-w-[480px] mt-[28px] md:mt-[32px]">
+          <p className="font-sans font-normal text-[16px] md:text-[18px] text-[#4A4A4A] leading-[1.75] max-w-[480px] mt-[28px] mb-20 md:mt-[32px]">
             I turn complex problems into intuitive and enjoyable digital experience.
           </p>
 
