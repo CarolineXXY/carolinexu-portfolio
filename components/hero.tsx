@@ -77,7 +77,7 @@ function RoleWord() {
       onMouseEnter={startCycle}
       onMouseLeave={stopCycle}
     >
-      {active ? roles[displayed].label : "designer?"}
+      {active ? roles[displayed].label : "...?"}
     </span>
   )
 }
