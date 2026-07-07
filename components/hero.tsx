@@ -66,7 +66,7 @@ function RoleWord() {
       style={{
         fontFamily: "'Outfit', sans-serif",
         fontSize: "clamp(24px, 4vw, 44px)",
-        fontWeight: 300,
+        fontWeight: 500,
         color: active ? roles[displayed].color : "#D8D0C8",
         opacity: opacity,
         transition: "color 0.3s, opacity 0.2s",
@@ -172,7 +172,7 @@ export function Hero() {
         >
 
           {/* Heading Stack */}
-          <h1 className="flex flex-col tracking-[-1px] mb-5">
+          <h1 className="flex flex-col tracking-[-1px] mb-10">
             {/* Name — DM Serif Display, large */}
             <span
               className="font-serif text-[#e8602c] leading-[1] mb-5"
@@ -184,11 +184,12 @@ export function Hero() {
             {/* Role row — Outfit, smaller */}
             <div className="flex items-baseline gap-[10px] flex-wrap mt-[6px] leading-[1]">
               <span
-                className="font-sans font-bold"
+                className="font-sans"
                 style={{
                   fontSize: "clamp(24px, 4vw, 44px)",
                   color: "#1A1A1A",
                   letterSpacing: "-0.3px",
+                  fontWeight: 500,
                 }}
               >
                 Hi, I'm a
