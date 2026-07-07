@@ -64,7 +64,7 @@ function RoleWord() {
     <span
       className="cursor-default italic"
       style={{
-        fontFamily: "'Outfit', serif",
+        fontFamily: "'Outfit', sans-serif",
         fontSize: "clamp(24px, 4vw, 44px)",
         fontWeight: 500,
         color: active ? roles[displayed].color : "#D8D0C8",
@@ -156,7 +156,7 @@ export function Hero() {
         >
 
           {/* Heading Stack */}
-          <h1 className="flex flex-col tracking-[-1px] my-15">
+          <h1 className="flex flex-col tracking-[-1px] mt-20 mb-10">
             {/* Name — DM Serif Display, large */}
             <span
               className="font-serif text-[#e8602c] leading-[1] mb-8"
