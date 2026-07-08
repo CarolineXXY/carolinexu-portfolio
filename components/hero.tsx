@@ -25,7 +25,6 @@ function RoleWord() {
     setIsTouchDevice(isTouch)
 
     if (isTouch) {
-      // Auto-cycle on touch devices
       setActive(true)
       intervalRef.current = setInterval(() => {
         setOpacity(0)
@@ -62,22 +61,20 @@ function RoleWord() {
 
   return (
     <span
-      className="cursor-default italic"
+      className="font-serif italic cursor-default"
       style={{
-        fontFamily: "'Outfit', sans-serif",
-        fontSize: "clamp(24px, 4vw, 44px)",
-        fontWeight: 500,
-        color: active ? roles[displayed].color : "#D8D0C8",
+        fontSize: "clamp(28px, 4vw, 48px)",
+        color: active ? roles[displayed].color : "#C8BFB5",
         opacity: opacity,
         transition: "color 0.3s, opacity 0.2s",
-        borderBottom: active ? "none" : "1.5px solid #D8D0C8",
+        borderBottom: active ? "none" : "1.5px solid #C8BFB5",
         paddingBottom: active ? "0" : "2px",
-        letterSpacing: "-0.3px",
+        letterSpacing: "-0.5px",
       }}
       onMouseEnter={startCycle}
       onMouseLeave={stopCycle}
     >
-      {active ? roles[displayed].label : "...?"}
+      {active ? roles[displayed].label : "designer?"}
     </span>
   )
 }
@@ -156,32 +153,44 @@ export function Hero() {
         >
 
           {/* Heading Stack */}
-          <h1 className="flex flex-col tracking-[-1px] mt-20 mb-10">
-            {/* Name — DM Serif Display, large */}
+          <h1 className="flex flex-col tracking-[-1px]">
+            {/* Name — DM Serif, large, solid dark */}
             <span
-              className="font-serif text-[#e8602c] leading-[1] mb-8"
+              className="font-serif text-[#1A1A1A] leading-[1]"
               style={{ fontSize: "clamp(52px, 10vw, 88px)" }}
             >
               Caroline Xu
             </span>
 
-            {/* Role row — Outfit, smaller */}
+            {/* Role row */}
             <div className="flex items-baseline gap-[10px] flex-wrap mt-[6px] leading-[1]">
+              {/* "Hi, I'm a" — outlined on desktop, solid on mobile */}
               <span
-                className="font-serif"
-                style={{
-                  fontSize: "clamp(24px, 4vw, 44px)",
-                  color: "#1d1d1dff",
-                  letterSpacing: "-0.3px",
-                  fontWeight: 500,
-                }}
+                className="font-serif leading-[1]"
+                style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "-0.5px" }}
               >
-                Hi, I'm a
+                {/* Solid on mobile */}
+                <span
+                  className="block md:hidden"
+                  style={{ color: "#1A1A1A" }}
+                >
+                  Hi, I'm a
+                </span>
+                {/* Outlined on desktop */}
+                <span
+                  className="hidden md:block"
+                  style={{
+                    color: "transparent",
+                    WebkitTextStroke: "1.2px #1A1A1A",
+                  }}
+                >
+                  Hi, I'm a
+                </span>
               </span>
+
               <RoleWord />
             </div>
           </h1>
-
           {/* Subheading */}
           <p className="font-sans font-normal text-[16px] md:text-[18px] text-[#4A4A4A] leading-[1.75] max-w-[480px] mt-[28px] mb-20 md:mt-[32px]">
             I turn complex problems into intuitive and enjoyable digital experience.
