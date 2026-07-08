@@ -63,7 +63,7 @@ function RoleWord() {
     <span
       className="font-serif italic cursor-default"
       style={{
-        fontSize: "clamp(28px, 4vw, 48px)",
+        fontSize: "clamp(22px, 3vw, 36px)",
         color: active ? roles[displayed].color : "#C8BFB5",
         opacity: opacity,
         transition: "color 0.3s, opacity 0.2s",
@@ -74,7 +74,7 @@ function RoleWord() {
       onMouseEnter={startCycle}
       onMouseLeave={stopCycle}
     >
-      {active ? roles[displayed].label : "designer?"}
+      {active ? roles[displayed].label : "...?"}
     </span>
   )
 }
