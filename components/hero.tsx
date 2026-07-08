@@ -63,7 +63,7 @@ function RoleWord() {
     <span
       className="font-serif italic cursor-default"
       style={{
-        fontSize: "clamp(22px, 3vw, 36px)",
+        fontSize: "clamp(26px, 3.5vw, 42px)",
         color: active ? roles[displayed].color : "#C8BFB5",
         opacity: opacity,
         transition: "color 0.3s, opacity 0.2s",
