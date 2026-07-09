@@ -23,7 +23,6 @@ function RoleWord() {
   useEffect(() => {
     const isTouch = window.matchMedia("(hover: none)").matches
     setIsTouchDevice(isTouch)
-
     if (isTouch) {
       setActive(true)
       intervalRef.current = setInterval(() => {
@@ -34,10 +33,7 @@ function RoleWord() {
         }, 200)
       }, 1200)
     }
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
   }, [])
 
   const startCycle = () => {
@@ -74,144 +70,155 @@ function RoleWord() {
       onMouseEnter={startCycle}
       onMouseLeave={stopCycle}
     >
-      {active ? roles[displayed].label : "...?"}
+      {active ? roles[displayed].label : "designer?"}
     </span>
   )
 }
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
-    <section id="hero" className="relative w-full min-h-screen overflow-hidden bg-[#FAF9F6]">
-      {/* BACKGROUND BLOBS (z-index 0) */}
+    <section
+      id="hero"
+      className="relative w-full min-h-screen overflow-hidden bg-[#FAF9F6]"
+    >
+      {/* BLOBS */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* 1. Large radial glow — top right corner */}
         <div
-          className="absolute rounded-full w-[294px] h-[294px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px]"
+          className="absolute rounded-full"
           style={{
+            width: "clamp(280px, 45vw, 600px)",
+            height: "clamp(280px, 45vw, 600px)",
             background: "radial-gradient(circle, #E8602C22 0%, #E8602C08 45%, transparent 70%)",
-            top: "-120px",
-            right: "-80px"
+            top: "-120px", right: "-80px",
           }}
         />
-        {/* 2. Small warm glow — bottom left */}
         <div
-          className="absolute rounded-full w-[154px] h-[154px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px]"
+          className="absolute rounded-full"
           style={{
+            width: "clamp(140px, 25vw, 320px)",
+            height: "clamp(140px, 25vw, 320px)",
             background: "radial-gradient(circle, #C0763A14 0%, transparent 70%)",
-            bottom: "20px",
-            left: "-60px"
+            bottom: "20px", left: "-60px",
           }}
         />
-        {/* 3. Large outline ring — top right */}
         <div
-          className="absolute rounded-full w-[224px] h-[224px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px]"
+          className="absolute rounded-full"
           style={{
+            width: "clamp(200px, 35vw, 480px)",
+            height: "clamp(200px, 35vw, 480px)",
             border: "0.5px solid #F0EBE3",
-            top: "-160px",
-            right: "-30px"
+            top: "-160px", right: "-30px",
           }}
         />
-        {/* 4. Medium outline ring */}
         <div
-          className="absolute rounded-full w-[126px] h-[126px] md:w-[220px] md:h-[220px] lg:w-[280px] lg:h-[280px]"
+          className="absolute rounded-full"
           style={{
+            width: "clamp(100px, 18vw, 280px)",
+            height: "clamp(100px, 18vw, 280px)",
             border: "0.8px solid #E8E3DC",
-            top: "-50px",
-            right: "120px"
+            top: "-50px", right: "120px",
           }}
         />
-        {/* 5. Small outline ring — bottom right */}
         <div
-          className="absolute rounded-full w-[56px] h-[56px] md:w-[130px] md:h-[130px] lg:w-[160px] lg:h-[160px]"
+          className="absolute rounded-full hidden md:block"
           style={{
+            width: "80px", height: "80px",
             border: "0.8px solid #E8E3DC",
-            bottom: "60px",
-            right: "60px"
+            bottom: "60px", right: "60px",
           }}
         />
       </div>
 
+      {/* AVAILABILITY BADGE */}
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 z-10 flex items-center gap-2">
+        <div className="relative flex items-center justify-center w-[7px] h-[7px]">
+          <span className="absolute inline-flex w-full h-full rounded-full bg-[#E8602C] opacity-75 animate-ping" style={{ animationDuration: '2s' }} />
+          <span className="relative inline-flex rounded-full w-[7px] h-[7px] bg-[#E8602C]" />
+        </div>
+        <span className="font-sans font-semibold text-[11px] uppercase tracking-[0.06em] text-[#6B6B6B]">
+          Available for work
+        </span>
+      </div>
 
-      {/* HERO CONTENT CONTAINER */}
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto min-h-screen flex flex-col justify-center px-[24px] md:px-[36px] lg:px-[48px]">
-
+      {/* MAIN CONTENT */}
+      <div className="relative z-10 w-full max-w-[1000px] mx-auto min-h-screen flex flex-col items-center justify-center px-6 md:px-9 lg:px-12 text-center">
         <div
-          className="max-w-[680px] pt-[32px] md:pt-[48px] pb-[56px] transition-opacity duration-[400ms] ease-out"
+          className="w-full max-w-[720px] transition-opacity duration-[400ms] ease-out"
           style={{ opacity: isVisible ? 1 : 0 }}
         >
 
-          {/* Heading Stack */}
-          <h1 className="flex flex-col tracking-[-1px]">
-            {/* Name — DM Serif, large, solid dark */}
-            <span
-              className="font-serif text-[#1A1A1A] leading-[1]"
-              style={{ fontSize: "clamp(52px, 10vw, 88px)" }}
-            >
-              Caroline Xu
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center gap-3 mb-6 md:mb-8">
+            <span className="w-5 h-px bg-[#E8602C] block" />
+            <span className="font-sans font-medium text-[11px] md:text-[12px] uppercase tracking-[0.14em] text-[#9A9080]">
+              Research · Design · Build
             </span>
+            <span className="w-5 h-px bg-[#E8602C] block" />
+          </div>
 
-            {/* Role row */}
-            <div className="flex items-baseline gap-[10px] flex-wrap mt-[6px] leading-[1]">
-              {/* "Hi, I'm a" — outlined on desktop, solid on mobile */}
-              <span
-                className="font-serif leading-[1]"
-                style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "-0.5px" }}
-              >
-                {/* Solid on mobile */}
-                <span
-                  className="block md:hidden"
-                  style={{ color: "#1A1A1A" }}
-                >
-                  Hi, I'm a
-                </span>
-                {/* Outlined on desktop */}
-                <span
-                  className="hidden md:block"
-                  style={{
-                    color: "transparent",
-                    WebkitTextStroke: "1.2px #1A1A1A",
-                  }}
-                >
-                  Hi, I'm a
-                </span>
-              </span>
-
-              <RoleWord />
-            </div>
+          {/* Name */}
+          <h1
+            className="font-serif text-[#1A1A1A] leading-[1] tracking-[-1px]"
+            style={{ fontSize: "clamp(48px, 9vw, 88px)" }}
+          >
+            Caroline Xu
           </h1>
+
+          {/* Role row */}
+          <div className="flex items-baseline justify-center gap-[10px] flex-wrap mt-[6px] leading-[1]">
+            {/* Solid on mobile, outlined on desktop */}
+            <span
+              className="font-serif leading-[1] md:hidden"
+              style={{
+                fontSize: "clamp(26px, 3.5vw, 42px)",
+                color: "#1A1A1A",
+                letterSpacing: "-0.5px",
+              }}
+            >
+              Hi, I'm a
+            </span>
+            <span
+              className="font-serif leading-[1] hidden md:inline"
+              style={{
+                fontSize: "clamp(26px, 3.5vw, 42px)",
+                color: "transparent",
+                WebkitTextStroke: "1.2px #1A1A1A",
+                letterSpacing: "-0.5px",
+              }}
+            >
+              Hi, I'm a
+            </span>
+            <RoleWord />
+          </div>
+
           {/* Subheading */}
-          <p className="font-sans font-normal text-[16px] md:text-[18px] text-[#4A4A4A] leading-[1.75] max-w-[480px] mt-[28px] mb-20 md:mt-[32px]">
-            I turn complex problems into intuitive and enjoyable digital experience.
+          <p className="font-sans font-light text-[15px] md:text-[16px] text-[#6B6B6B] leading-[1.8] max-w-[440px] mx-auto mt-5 md:mt-6">
+            I turn complex problems into intuitive and enjoyable digital experiences.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[24px] md:gap-[32px] mt-[36px] md:mt-[44px]">
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-10">
             <Link
               href="#work"
-              className="font-sans font-medium text-[15px] md:text-[16px] tracking-[0.04em] text-[#1A1A1A] border-[1.5px] border-[#1A1A1A] rounded-[2px] px-[32px] py-[13px] bg-transparent transition-colors duration-300 hover:border-[#E8602C] hover:text-[#E8602C] no-underline"
+              className="font-sans font-medium text-[14px] md:text-[15px] tracking-[0.04em] text-[#1A1A1A] border-[1.5px] border-[#1A1A1A] rounded-[2px] px-8 py-[11px] bg-transparent transition-colors duration-300 hover:border-[#E8602C] hover:text-[#E8602C] no-underline w-full sm:w-auto text-center"
             >
               View my work
             </Link>
             <Link
               href="#contact"
-              className="group flex items-center gap-[8px] font-sans font-medium text-[15px] md:text-[16px] text-[#4A4A4A] bg-transparent transition-colors duration-300 hover:text-[#1A1A1A] no-underline"
+              className="group flex items-center gap-2 font-sans font-medium text-[14px] md:text-[15px] text-[#6B6B6B] transition-colors duration-300 hover:text-[#1A1A1A] no-underline"
             >
               Contact me
-              <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-[#E8602C] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="w-4 h-4 text-[#E8602C] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
+
         </div>
       </div>
     </section>
