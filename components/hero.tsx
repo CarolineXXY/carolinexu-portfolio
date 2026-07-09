@@ -164,14 +164,14 @@ export function Hero() {
 
           {/* Name */}
           <h1
-            className="font-serif text-[#1A1A1A] leading-[1] tracking-[-1px]"
+            className="font-serif text-[#1A1A1A] leading-[1] tracking-[-1px] mb-5"
             style={{ fontSize: "clamp(56px, 10vw, 100px)" }}
           >
             Caroline Xu
           </h1>
 
           {/* Role row */}
-          <div className="flex items-baseline justify-center gap-[10px] flex-wrap mt-[6px] leading-[1]">
+          <div className="flex items-baseline justify-center gap-[10px] flex-wrap mt-[6px] mb-8 leading-[1]">
             {/* Solid on mobile, outlined on desktop */}
             <span
               className="font-serif leading-[1] md:hidden"
