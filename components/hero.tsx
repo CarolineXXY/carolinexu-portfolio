@@ -156,7 +156,7 @@ export function Hero() {
           {/* Eyebrow */}
           <div className="flex items-center justify-center gap-3 mb-6 md:mb-8">
             <span className="w-5 h-px bg-[#E8602C] block" />
-            <span className="font-sans font-medium text-[11px] md:text-[12px] uppercase tracking-[0.14em] text-[#9A9080]">
+            <span className="font-sans font-medium text-[12px] md:text-[13px] uppercase tracking-[0.14em] text-[#9A9080]">
               Research · Design · Build
             </span>
             <span className="w-5 h-px bg-[#E8602C] block" />
