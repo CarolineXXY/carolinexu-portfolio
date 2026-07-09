@@ -149,7 +149,7 @@ export function Hero() {
       {/* MAIN CONTENT */}
       <div className="relative z-10 w-full max-w-[1000px] mx-auto min-h-screen flex flex-col items-center justify-center px-6 md:px-9 lg:px-12 text-center">
         <div
-          className="w-full max-w-[720px] transition-opacity duration-[400ms] ease-out"
+          className="w-full max-w-[860px] transition-opacity duration-[400ms] ease-out"
           style={{ opacity: isVisible ? 1 : 0 }}
         >
 
@@ -176,7 +176,7 @@ export function Hero() {
             <span
               className="font-serif leading-[1] md:hidden"
               style={{
-                fontSize: "clamp(26px, 3.5vw, 42px)",
+                fontSize: "clamp(28px, 4vw, 48px)",
                 color: "#1A1A1A",
                 letterSpacing: "-0.5px",
               }}
@@ -186,7 +186,7 @@ export function Hero() {
             <span
               className="font-serif leading-[1] hidden md:inline"
               style={{
-                fontSize: "clamp(26px, 3.5vw, 42px)",
+                fontSize: "clamp(28px, 4vw, 48px)",
                 color: "transparent",
                 WebkitTextStroke: "1.2px #1A1A1A",
                 letterSpacing: "-0.5px",
@@ -198,7 +198,7 @@ export function Hero() {
           </div>
 
           {/* Subheading */}
-          <p className="font-sans font-light text-[15px] md:text-[16px] text-[#6B6B6B] leading-[1.8] max-w-[440px] mx-auto mt-5 md:mt-6">
+          <p className="font-sans font-light text-[15px] md:text-[17px] text-[#6B6B6B] leading-[1.8] max-w-[520px] mx-auto mt-5 md:mt-6">
             I turn complex problems into intuitive and enjoyable digital experiences.
           </p>
 
