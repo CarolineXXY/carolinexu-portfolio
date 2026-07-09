@@ -59,7 +59,7 @@ function RoleWord() {
     <span
       className="font-serif italic cursor-default"
       style={{
-        fontSize: "clamp(32px, 4.5vw, 54px)",
+        fontSize: "clamp(22px, 4.5vw, 54px)",
         color: active ? roles[displayed].color : "#C8BFB5",
         opacity: opacity,
         transition: "color 0.3s, opacity 0.2s",
@@ -176,7 +176,7 @@ export function Hero() {
             <span
               className="font-serif leading-[1] md:hidden"
               style={{
-                fontSize: "clamp(32px, 4.5vw, 54px)",
+                fontSize: "clamp(22px, 4.5vw, 54px)",
                 color: "#1A1A1A",
                 letterSpacing: "-0.5px",
               }}
