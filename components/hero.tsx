@@ -59,7 +59,7 @@ function RoleWord() {
     <span
       className="font-serif italic cursor-default"
       style={{
-        fontSize: "clamp(26px, 3.5vw, 42px)",
+        fontSize: "clamp(32px, 4.5vw, 54px)",
         color: active ? roles[displayed].color : "#C8BFB5",
         opacity: opacity,
         transition: "color 0.3s, opacity 0.2s",
@@ -165,7 +165,7 @@ export function Hero() {
           {/* Name */}
           <h1
             className="font-serif text-[#1A1A1A] leading-[1] tracking-[-1px]"
-            style={{ fontSize: "clamp(48px, 9vw, 88px)" }}
+            style={{ fontSize: "clamp(56px, 10vw, 100px)" }}
           >
             Caroline Xu
           </h1>
@@ -176,7 +176,7 @@ export function Hero() {
             <span
               className="font-serif leading-[1] md:hidden"
               style={{
-                fontSize: "clamp(28px, 4vw, 48px)",
+                fontSize: "clamp(32px, 4.5vw, 54px)",
                 color: "#1A1A1A",
                 letterSpacing: "-0.5px",
               }}
@@ -186,7 +186,7 @@ export function Hero() {
             <span
               className="font-serif leading-[1] hidden md:inline"
               style={{
-                fontSize: "clamp(28px, 4vw, 48px)",
+                fontSize: "clamp(32px, 4.5vw, 54px)",
                 color: "transparent",
                 WebkitTextStroke: "1.2px #1A1A1A",
                 letterSpacing: "-0.5px",
@@ -198,7 +198,7 @@ export function Hero() {
           </div>
 
           {/* Subheading */}
-          <p className="font-sans font-light text-[15px] md:text-[17px] text-[#6B6B6B] leading-[1.8] max-w-[520px] mx-auto mt-5 md:mt-6">
+          <p className="font-sans font-light text-[17px] md:text-[19px] text-[#6B6B6B] leading-[1.8] max-w-[520px] mx-auto mt-5 md:mt-6">
             I turn complex problems into intuitive and enjoyable digital experiences.
           </p>
 
@@ -206,13 +206,13 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mt-8 md:mt-10">
             <Link
               href="#work"
-              className="font-sans font-medium text-[14px] md:text-[15px] tracking-[0.04em] text-[#1A1A1A] border-[1.5px] border-[#1A1A1A] rounded-[2px] px-8 py-[11px] bg-transparent transition-colors duration-300 hover:border-[#E8602C] hover:text-[#E8602C] no-underline w-full sm:w-auto text-center"
+              className="font-sans font-medium text-[15px] md:text-[16px] tracking-[0.04em] text-[#1A1A1A] border-[1.5px] border-[#1A1A1A] rounded-[2px] px-8 py-[11px] bg-transparent transition-colors duration-300 hover:border-[#E8602C] hover:text-[#E8602C] no-underline w-full sm:w-auto text-center"
             >
               View my work
             </Link>
             <Link
               href="#contact"
-              className="group flex items-center gap-2 font-sans font-medium text-[14px] md:text-[15px] text-[#6B6B6B] transition-colors duration-300 hover:text-[#1A1A1A] no-underline"
+              className="group flex items-center gap-2 font-sans font-medium text-[15px] md:text-[16px] text-[#6B6B6B] transition-colors duration-300 hover:text-[#1A1A1A] no-underline"
             >
               Contact me
               <ArrowUpRight className="w-4 h-4 text-[#E8602C] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
