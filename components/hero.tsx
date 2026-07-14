@@ -164,8 +164,9 @@ export function Hero() {
 
           {/* Name */}
           <h1
-            className="font-serif text-[#1A1A1A] leading-[1] tracking-[-1px] mb-5"
+            className="font-serif text-[#1A1A1A] leading-[1] tracking-[-1px] mb-5 notranslate"
             style={{ fontSize: "clamp(56px, 10vw, 100px)" }}
+            translate="no"
           >
             Caroline Xu
           </h1>
