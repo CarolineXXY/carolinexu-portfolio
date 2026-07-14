@@ -1,5 +1,20 @@
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
+import React, { Fragment } from "react"
+
+const DO_NOT_TRANSLATE = ["Google Stitch", "Stitch", "Claude", "Figma"]
+
+function formatText(text: string) {
+  if (!text) return text;
+  const regex = new RegExp(`(${DO_NOT_TRANSLATE.join('|')})`, 'g');
+  const parts = text.split(regex);
+  return parts.map((part, i) => {
+    if (DO_NOT_TRANSLATE.includes(part)) {
+      return <span key={i} className="notranslate" translate="no">{part}</span>;
+    }
+    return part;
+  });
+}
 
 export interface CaseStudyBlock {
   title: string
@@ -51,7 +66,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
 
   return (
     <section className="section-y border-b border-border">
-      <h2 className="font-serif mb-6">{block.title}</h2>
+      <h2 className="font-serif mb-6">{formatText(block.title)}</h2>
 
       {block.subtitle && (
         <div className="flex items-center gap-2 mb-8 -mt-2">
@@ -59,14 +74,14 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={block.subtitleIcon} alt="" width={18} height={18} className="opacity-80 flex-shrink-0" />
           )}
-          <span className="text-foreground-muted font-medium text-[15px] tracking-[0.01em]">{block.subtitle}</span>
+          <span className="text-foreground-muted font-medium text-[15px] tracking-[0.01em]">{formatText(block.subtitle)}</span>
         </div>
       )}
 
       {block.label && (
         <div className="mb-8">
           <span className="inline-flex items-center gap-2 text-[13px] uppercase tracking-wider font-semibold font-sans text-accent border border-accent/25 bg-accent/5 px-3 py-1.5 rounded-sm">
-            {block.label}
+            {formatText(block.label)}
           </span>
         </div>
       )}
@@ -75,7 +90,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <div className={`flex flex-col gap-6 max-w-3xl ${block.link ? 'mb-8' : 'mb-12'}`}>
           {block.content.split('\n\n').map((paragraph, idx) => (
             <p key={idx} className="text-foreground-muted leading-[1.75]">
-              {paragraph}
+              {formatText(paragraph)}
             </p>
           ))}
         </div>
@@ -83,7 +98,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
 
       {block.quote && (
         <div className="my-10 max-w-3xl bg-muted/40 border-l-4 border-accent rounded-r-sm px-7 py-6">
-          <p className="text-foreground leading-[1.8] text-[15px] md:text-[16px]">{block.quote}</p>
+          <p className="text-foreground leading-[1.8] text-[15px] md:text-[16px]">{formatText(block.quote)}</p>
         </div>
       )}
 
@@ -192,14 +207,14 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
               <div key={idx} className="flex flex-col gap-6 w-full">
                 <div className={`flex flex-col ${isSideBySide ? 'md:flex-row md:items-start md:gap-12' : 'gap-4'} max-w-none w-full`}>
                   <div className={`${isSideBySide ? 'flex-1' : 'max-w-3xl'} flex flex-col gap-4 w-full`}>
-                    {sub.title && <h3 className="font-serif text-foreground">{sub.title}</h3>}
-                    {sub.subtitle && <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-1">{sub.subtitle}</h4>}
-                    {sub.content && <p className="text-foreground-muted leading-[1.75]">{sub.content}</p>}
+                    {sub.title && <h3 className="font-serif text-foreground">{formatText(sub.title)}</h3>}
+                    {sub.subtitle && <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-1">{formatText(sub.subtitle)}</h4>}
+                    {sub.content && <p className="text-foreground-muted leading-[1.75]">{formatText(sub.content)}</p>}
 
                     {sub.items && sub.items.length > 0 && sub.listType === 'number' && (
                       <ol className="list-decimal pl-5 space-y-3">
                         {sub.items.map((item, i) => (
-                          <li key={i} className="text-foreground-muted leading-[1.75] pl-1">{item}</li>
+                          <li key={i} className="text-foreground-muted leading-[1.75] pl-1">{formatText(item)}</li>
                         ))}
                       </ol>
                     )}
@@ -209,7 +224,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                         {sub.items.map((item, i) => (
                           <li key={i} className="flex items-start gap-4">
                             <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">•</span>
-                            <span className="text-foreground-muted leading-[1.75]">{item}</span>
+                            <span className="text-foreground-muted leading-[1.75]">{formatText(item)}</span>
                           </li>
                         ))}
                       </ul>
@@ -224,7 +239,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                                 <path d="M1.5 1.5L8.5 8.5M8.5 1.5L1.5 8.5" stroke="#dc2626" strokeWidth="1.5" strokeLinecap="round" />
                               </svg>
                             </span>
-                            <span className="text-foreground-muted leading-[1.75]">{item}</span>
+                            <span className="text-foreground-muted leading-[1.75]">{formatText(item)}</span>
                           </li>
                         ))}
                       </ul>
@@ -247,7 +262,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                                 className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.06]"
                               />
                             </div>
-                            {caption && <p className="text-xs font-medium text-foreground-muted text-center max-w-xs">{caption}</p>}
+                            {caption && <p className="text-xs font-medium text-foreground-muted text-center max-w-xs">{formatText(caption)}</p>}
                           </div>
                         );
                       })}
@@ -273,7 +288,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                               className="w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.06]"
                             />
                           </div>
-                          {caption && <p className="text-sm font-medium text-foreground-muted text-center max-w-xl">{caption}</p>}
+                          {caption && <p className="text-sm font-medium text-foreground-muted text-center max-w-xl">{formatText(caption)}</p>}
                         </div>
                       );
                     })}
@@ -338,7 +353,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
 
       {/* Cards array */}
       {block.cardsTitle && block.cards && block.cards.length > 0 && (
-        <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-6">{block.cardsTitle}</h4>
+        <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-6">{formatText(block.cardsTitle)}</h4>
       )}
       {block.cards && block.cards.length > 0 && (
         <div className={`grid grid-cols-1 ${block.cards.length === 2
@@ -352,10 +367,10 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
           {block.cards.map((card, idx) => (
             <div key={idx} className="bg-white border border-border p-6 rounded-sm flex flex-col">
               <span className="text-accent font-serif text-4xl mb-3">{card.prefix ?? (idx + 1).toString().padStart(2, '0')}</span>
-              <h3 className="text-foreground text-base mb-2 leading-tight">{card.title}</h3>
-              <p className="text-foreground-muted leading-[1.6] flex-1">{card.content}</p>
+              <h3 className="text-foreground text-base mb-2 leading-tight">{formatText(card.title)}</h3>
+              <p className="text-foreground-muted leading-[1.6] flex-1">{formatText(card.content)}</p>
               {card.note && (
-                <p className="mt-4 pt-4 border-t border-border text-[15px] text-foreground-muted/80 leading-relaxed italic font-sans">{card.note}</p>
+                <p className="mt-4 pt-4 border-t border-border text-[15px] text-foreground-muted/80 leading-relaxed italic font-sans">{formatText(card.note)}</p>
               )}
             </div>
           ))}
@@ -364,7 +379,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
 
       {/* List items if any */}
       {block.itemsTitle && block.items && block.items.length > 0 && (
-        <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-6">{block.itemsTitle}</h4>
+        <h4 className="font-medium tracking-[0.08em] uppercase text-foreground mb-6">{formatText(block.itemsTitle)}</h4>
       )}
       {block.items && block.items.length > 0 && (
         <div className={isMetrics ? "grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12" : "mb-12 max-w-3xl"}>
@@ -377,7 +392,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                       <span className="flex-shrink-0 w-8 h-8 border-[1.5px] border-foreground text-foreground text-sm font-medium flex items-center justify-center rounded-full">
                         {index + 1}
                       </span>
-                      <span className="text-foreground-muted leading-[1.75] pt-1">{item}</span>
+                      <span className="text-foreground-muted leading-[1.75] pt-1">{formatText(item)}</span>
                     </li>
                   )
                 } else if ('title' in item && 'description' in item) {
@@ -386,8 +401,8 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                     return (
                       <li key={index} className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-border/50 pb-6 last:border-0 last:pb-0">
                         <div className="flex-1">
-                          <strong className="text-foreground font-medium text-lg block mb-1">{item.title}</strong>
-                          <span className="text-foreground-muted leading-[1.75]">{item.description}</span>
+                          <strong className="text-foreground font-medium text-lg block mb-1">{formatText(item.title)}</strong>
+                          <span className="text-foreground-muted leading-[1.75]">{formatText(item.description)}</span>
                         </div>
                         <div className="flex flex-wrap gap-2 md:w-80 md:flex-shrink-0 md:justify-end mt-2 md:mt-0">
                           {(item.tags as { label: string; value: string }[]).map((tag, idx) => (
@@ -407,8 +422,8 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                   } else {
                     return (
                       <li key={index} className="flex flex-col gap-1">
-                        <strong className="text-foreground font-medium">{item.title}</strong>
-                        <span className="text-foreground-muted leading-[1.75]">{item.description}</span>
+                        <strong className="text-foreground font-medium">{formatText(item.title)}</strong>
+                        <span className="text-foreground-muted leading-[1.75]">{formatText(item.description)}</span>
                       </li>
                     )
                   }
@@ -439,8 +454,8 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
       {block.callout && (
         <div className="my-10 max-w-3xl">
           <div className="bg-foreground text-background rounded-sm px-7 py-6">
-            <p className="text-[12px] uppercase tracking-widest font-semibold mb-3 opacity-60 font-sans">{block.callout.eyebrow}</p>
-            <p className="text-background leading-[1.8] text-base md:text-[17px]">{block.callout.text}</p>
+            <p className="text-[12px] uppercase tracking-widest font-semibold mb-3 opacity-60 font-sans">{formatText(block.callout.eyebrow)}</p>
+            <p className="text-background leading-[1.8] text-base md:text-[17px]">{formatText(block.callout.text)}</p>
           </div>
         </div>
       )}
@@ -450,7 +465,7 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
         <div className="flex flex-col gap-6 mt-12 mb-12 max-w-3xl">
           {block.outro.split('\n\n').map((paragraph, idx) => (
             <p key={idx} className="text-foreground-muted leading-[1.75]">
-              {paragraph}
+              {formatText(paragraph)}
             </p>
           ))}
         </div>
@@ -484,14 +499,14 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                   )}
                 </span>
                 <h3 className={`font-sans font-semibold text-[15px] md:text-[16px] uppercase tracking-wider ${panel.variant === 'positive' ? 'text-emerald-800' : 'text-amber-800'
-                  }`}>{panel.title}</h3>
+                  }`}>{formatText(panel.title)}</h3>
               </div>
               {/* Panel items */}
               <ul className="flex flex-col divide-y divide-border/40 px-6">
                 {panel.items.map((item, iIdx) => (
                   <li key={iIdx} className="py-5 flex flex-col gap-1.5">
-                    <strong className="text-foreground font-semibold text-[17px] md:text-[18px] leading-snug">{item.title}</strong>
-                    <span className="text-foreground-muted leading-[1.75] text-[16px] md:text-[17px]">{item.description}</span>
+                    <strong className="text-foreground font-semibold text-[17px] md:text-[18px] leading-snug">{formatText(item.title)}</strong>
+                    <span className="text-foreground-muted leading-[1.75] text-[16px] md:text-[17px]">{formatText(item.description)}</span>
                   </li>
                 ))}
               </ul>

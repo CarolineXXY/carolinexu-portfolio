@@ -50,7 +50,7 @@ export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
               <div>
                 <span className="text-label block mb-1">View All</span>
                 <h3 className="font-serif text-foreground group-hover:text-warm-orange transition-colors">
-                  Back to Portfolio
+                  Back to Case Study
                 </h3>
               </div>
               <ArrowRight size={22} strokeWidth={1.5} className="text-foreground-muted shrink-0" />

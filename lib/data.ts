@@ -535,7 +535,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           eyebrow: "Design Opportunity",
           text: "How might we guide bakers to become better observers of their own bakes, so that troubleshooting is itself a skill-building lesson?"
         },
-        images: [{ src: "/problem-framing.png", caption: "Problem framing output" }]
+        images: [{ src: assetPath("/problem-framing.png"), caption: "Problem framing output" }]
       },
       {
         title: "Step 2 — Design Direction",
@@ -566,14 +566,14 @@ export const caseStudies: Record<string, CaseStudy> = {
           eyebrow: "My Decision",
           text: "Direction B as the backbone, extended with the AI companion from C as a \"go deeper\" layer, and the photo feature from A as an optional accelerator at the start."
         },
-        images: [{ src: "/design-direction.png", caption: "Design direction summary" }]
+        images: [{ src: assetPath("/design-direction.png"), caption: "Design direction summary" }]
       },
       {
         title: "Step 3 — Design System",
         label: "Tool: Claude",
         content: "I chose an editorial aesthetic for a premium food publication feel, and asked Claude to define exact tokens and rules, including specific hex values, typeface pairings, and usage constraints.",
         quote: "Claude's first palette used gold #C9A96E which failed WCAG AA contrast on white (ratio ~2.8:1, minimum 4.5:1) and read as dirty yellow on screen. I flagged this and Claude replaced it with terracotta — warmer, more editorial, and WCAG compliant as a fill.",
-        images: [{ src: "/crumb_typography_colour_specimen.png", caption: "Colour palette and typography specimen" }]
+        images: [{ src: assetPath("/crumb_typography_colour_specimen.png"), caption: "Colour palette and typography specimen" }]
       },
       {
         title: "Step 4 — Prompt Engineering",
@@ -583,7 +583,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           eyebrow: "Why this matters",
           text: "Vague prompts produce vague output. Specifying the design details directly determined what Stitch generated."
         },
-        images: [{ src: "/prompt-excerpt.png", caption: "Prompt structure excerpt" }]
+        images: [{ src: assetPath("/prompt-excerpt.png"), caption: "Prompt structure excerpt" }]
       },
       {
         title: "Step 5 — Stitch Prototype Iterations",
@@ -600,7 +600,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Bake names in History truncated mid-word",
               "Stitch added additional content sections not in the spec"
             ],
-            image: { src: "/version1.png", caption: "Version 1 — all screens" }
+            image: { src: assetPath("/version1.png"), caption: "Version 1 — all screens" }
           },
           {
             title: "Round 2",
@@ -611,7 +611,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Button text inconsistency on several screens",
               "Home screen still had an unnecessary card wrapper"
             ],
-            image: { src: "/version2.png", caption: "Version 2 — all screens" }
+            image: { src: assetPath("/version2.png"), caption: "Version 2 — all screens" }
           },
           {
             title: "Round 3",
@@ -622,7 +622,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Result looked not refined",
               "Some components felt chunky"
             ],
-            image: { src: "/version3.png", caption: "Version 3 — all screens" }
+            image: { src: assetPath("/version3.png"), caption: "Version 3 — all screens" }
           },
           {
             title: "Round 4 — Inspiration-led refinement",
@@ -634,7 +634,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Wrong icons on the Bake Category Selection screen",
               "Small inconsistency on several screens"
             ],
-            image: { src: "/version4.png", caption: "Version 4 — final screens" }
+            image: { src: assetPath("/version4.png"), caption: "Version 4 — final screens" }
           }
         ]
       },
@@ -694,7 +694,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Next Steps",
         subtitle: "HANDOVER TO FIGMA",
-        subtitleIcon: "/figma-icon.svg",
+        subtitleIcon: assetPath("/figma-icon.svg"),
         outro: "The Stitch prototype is now being rebuilt in Figma. Priority fixes include a full WCAG contrast audit, and fixing all inconsistencies. Once it's ready, the next phase is user testing with home bakers."
       }
     ]
