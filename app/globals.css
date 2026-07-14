@@ -236,3 +236,8 @@
     transform: translateX(0);
   }
 }
+/* Google Translate Overrides */
+.goog-te-banner-frame { display: none !important; }
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+.skiptranslate { display: none !important; }

@@ -6,7 +6,6 @@ import { Footer } from "@/components/footer"
 import { BackToTop } from "@/components/back-to-top"
 import "./globals.css"
 import { CursorGlow } from "@/components/cursor-glow"
-import { LanguageProvider } from "@/components/language-context"
 
 export const metadata: Metadata = {
   title: "Caroline Xu | UX/UI Designer",
@@ -42,14 +41,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased bg-background text-foreground">
-        <LanguageProvider>
-          <CursorGlow />
+        <CursorGlow />
           <Navbar />
           {children}
           <Footer />
-          <BackToTop />
-          <Analytics />
-        </LanguageProvider>
+        <BackToTop />
+        <Analytics />
+        <div id="google_translate_element" style={{ display: 'none' }} />
+        <script 
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          async
+        />
+        <script dangerouslySetInnerHTML={{ __html: `
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              includedLanguages: 'zh-CN',
+              autoDisplay: false
+            }, 'google_translate_element');
+          }
+        `}} />
       </body>
     </html>
   )

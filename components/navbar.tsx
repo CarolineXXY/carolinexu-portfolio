@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { useLanguage } from "@/components/language-context"
 
 const navLinks = [
   { href: "/#work", label: "Work" },
@@ -12,10 +11,22 @@ const navLinks = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const { language, setLanguage } = useLanguage()
+  const [lang, setLang] = useState<'en' | 'zh'>('en')
 
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "zh" : "en")
+  const switchToZh = () => {
+    setLang('zh')
+    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement
+    if (select) {
+      select.value = 'zh-CN'
+      select.dispatchEvent(new Event('change'))
+    }
+  }
+
+  const switchToEn = () => {
+    setLang('en')
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname
+    window.location.reload()
   }
 
   return (
@@ -49,19 +60,22 @@ export function Navbar() {
           <div
             className="flex items-center gap-[4px] cursor-pointer"
             style={{ fontFamily: 'Outfit, sans-serif', fontSize: '14px' }}
-            onClick={toggleLanguage}
           >
-            <span style={{
-              color: language === 'zh' ? '#e8602c' : '#9A9080',
-              fontWeight: language === 'zh' ? 500 : 400,
-              transition: 'opacity 200ms ease, color 200ms ease'
-            }}>中</span>
+            <span 
+              onClick={switchToZh}
+              style={{
+                color: lang === 'zh' ? '#e8602c' : '#9A9080',
+                fontWeight: lang === 'zh' ? 500 : 400,
+                transition: 'opacity 200ms ease, color 200ms ease'
+              }}>中</span>
             <span style={{ color: '#E8E3DC' }}>/</span>
-            <span style={{
-              color: language === 'en' ? '#e8602c' : '#9A9080',
-              fontWeight: language === 'en' ? 500 : 400,
-              transition: 'opacity 200ms ease, color 200ms ease'
-            }}>EN</span>
+            <span 
+              onClick={switchToEn}
+              style={{
+                color: lang === 'en' ? '#e8602c' : '#9A9080',
+                fontWeight: lang === 'en' ? 500 : 400,
+                transition: 'opacity 200ms ease, color 200ms ease'
+              }}>EN</span>
           </div>
         </div>
 
@@ -101,22 +115,28 @@ export function Navbar() {
             <div
               className="flex items-center gap-[4px] cursor-pointer"
               style={{ fontFamily: 'Outfit, sans-serif', fontSize: '15px' }}
-              onClick={() => {
-                toggleLanguage();
-                setIsOpen(false);
-              }}
             >
-              <span style={{
-                color: language === 'zh' ? '#1A1A1A' : '#9A9080',
-                fontWeight: language === 'zh' ? 500 : 400,
-                transition: 'opacity 200ms ease, color 200ms ease'
-              }}>中</span>
+              <span 
+                onClick={() => {
+                  switchToZh();
+                  setIsOpen(false);
+                }}
+                style={{
+                  color: lang === 'zh' ? '#e8602c' : '#9A9080',
+                  fontWeight: lang === 'zh' ? 500 : 400,
+                  transition: 'opacity 200ms ease, color 200ms ease'
+                }}>中</span>
               <span style={{ color: '#E8E3DC' }}>/</span>
-              <span style={{
-                color: language === 'en' ? '#1A1A1A' : '#9A9080',
-                fontWeight: language === 'en' ? 500 : 400,
-                transition: 'opacity 200ms ease, color 200ms ease'
-              }}>EN</span>
+              <span 
+                onClick={() => {
+                  switchToEn();
+                  setIsOpen(false);
+                }}
+                style={{
+                  color: lang === 'en' ? '#e8602c' : '#9A9080',
+                  fontWeight: lang === 'en' ? 500 : 400,
+                  transition: 'opacity 200ms ease, color 200ms ease'
+                }}>EN</span>
             </div>
           </li>
         </ul>
