@@ -411,11 +411,10 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Users would often stay awake and not have good sleep around assignment deadlines and exam times.",
               "Users would often check their phones as soon as they wake up."
             ],
-            images: [
-              { src: assetPath("/shroomcycle-diarystudy.png"), caption: "Diary Study Questions" },
-              assetPath("/shroomcycle-user-research.png")
-            ],
-            layout: "image-grid"
+            image: { src: assetPath("/shroomcycle-diarystudy.png"), caption: "Diary Study Questions" }
+          },
+          {
+            images: [assetPath("/shroomcycle-user-research.png")]
           }
         ],
         cardsTitle: "KEY INSIGHTS",
