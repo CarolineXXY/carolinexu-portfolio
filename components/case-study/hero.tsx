@@ -1,5 +1,20 @@
 import Image from "next/image"
 import type { CaseStudy } from "@/lib/data"
+import React from "react"
+
+const DO_NOT_TRANSLATE = ["Google Stitch", "Stitch", "Claude", "Figma"]
+
+function formatText(text: string) {
+  if (!text) return text;
+  const regex = new RegExp(`(${DO_NOT_TRANSLATE.join('|')})`, 'g');
+  const parts = text.split(regex);
+  return parts.map((part, i) => {
+    if (DO_NOT_TRANSLATE.includes(part)) {
+      return <span key={i} className="notranslate" translate="no">{part}</span>;
+    }
+    return part;
+  });
+}
 
 interface CaseStudyHeroProps {
   study: CaseStudy
@@ -13,9 +28,9 @@ export function CaseStudyHero({ study }: CaseStudyHeroProps) {
           <span className="text-accent">{study.category}</span>
         </p>
 
-        <h1 className="font-serif mb-6 max-w-[20ch]">{study.title}</h1>
+        <h1 className="font-serif mb-6 max-w-[20ch]">{formatText(study.title)}</h1>
 
-        <p className="text-foreground-muted max-w-2xl mb-10 leading-[1.75]">{study.description}</p>
+        <p className="text-foreground-muted max-w-2xl mb-10 leading-[1.75]">{formatText(study.description)}</p>
 
         <div className="flex flex-wrap gap-2 mb-12">
           {study.tags.map((tag) => (

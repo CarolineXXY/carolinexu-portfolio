@@ -1,4 +1,19 @@
 import type { CaseStudy } from "@/lib/data"
+import React from "react"
+
+const DO_NOT_TRANSLATE = ["Google Stitch", "Stitch", "Claude", "Figma"]
+
+function formatText(text: string) {
+  if (!text) return text;
+  const regex = new RegExp(`(${DO_NOT_TRANSLATE.join('|')})`, 'g');
+  const parts = text.split(regex);
+  return parts.map((part, i) => {
+    if (DO_NOT_TRANSLATE.includes(part)) {
+      return <span key={i} className="notranslate" translate="no">{part}</span>;
+    }
+    return part;
+  });
+}
 
 interface CaseStudyOverviewProps {
   study: CaseStudy
@@ -26,11 +41,11 @@ export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
       <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-16">
         <div>
           <h3 className="text-label mb-4 text-accent">The Challenge</h3>
-          <p className="text-foreground-muted leading-[1.75]">{study.challenge}</p>
+          <p className="text-foreground-muted leading-[1.75]">{formatText(study.challenge)}</p>
         </div>
         <div>
           <h3 className="text-label mb-4 text-accent">The Solution</h3>
-          <p className="text-foreground-muted leading-[1.75]">{study.solution}</p>
+          <p className="text-foreground-muted leading-[1.75]">{formatText(study.solution)}</p>
         </div>
       </div>
 
@@ -45,7 +60,17 @@ export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
         </div>
         <div>
           <h4 className="text-label mb-3">Tools</h4>
-          <p className="text-foreground font-medium leading-[1.75]">{study.tools.join(" · ")}</p>
+          <p className="text-foreground font-medium leading-[1.75]">
+            {study.tools.map((tool, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && " · "}
+                {DO_NOT_TRANSLATE.includes(tool) 
+                  ? <span className="notranslate" translate="no">{tool}</span>
+                  : tool
+                }
+              </React.Fragment>
+            ))}
+          </p>
         </div>
         {study.status ? (
           <div>
@@ -74,7 +99,7 @@ export function CaseStudyOverview({ study }: CaseStudyOverviewProps) {
       {study.roleDescription && (
         <div className="mt-12 bg-white border border-border p-6 md:p-8 rounded-sm shadow-sm">
           <h4 className="text-label mb-3 text-accent">Role Description</h4>
-          <p className="text-foreground-muted leading-[1.75]">{study.roleDescription}</p>
+          <p className="text-foreground-muted leading-[1.75]">{formatText(study.roleDescription)}</p>
         </div>
       )}
     </section>

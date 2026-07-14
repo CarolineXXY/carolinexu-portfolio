@@ -4,6 +4,21 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Project } from "@/lib/data"
 import { caseStudies } from "@/lib/data"
+import React from "react"
+
+const DO_NOT_TRANSLATE = ["Google Stitch", "Stitch", "Claude", "Figma"]
+
+function formatText(text: string) {
+  if (!text) return text;
+  const regex = new RegExp(`(${DO_NOT_TRANSLATE.join('|')})`, 'g');
+  const parts = text.split(regex);
+  return parts.map((part, i) => {
+    if (DO_NOT_TRANSLATE.includes(part)) {
+      return <span key={i} className="notranslate" translate="no">{part}</span>;
+    }
+    return part;
+  });
+}
 
 interface ProjectCardProps {
   project: Project
@@ -46,10 +61,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <p className="font-sans text-[13px] font-medium tracking-[0.08em] uppercase text-warm-orange mb-3">{project.category}</p>
 
         <h3 className="font-serif mb-3 transition-colors duration-300 group-hover:text-accent">
-          {project.title}
+          {formatText(project.title)}
         </h3>
 
-        <p className="text-foreground-muted leading-[1.75]">{project.description}</p>
+        <p className="text-foreground-muted leading-[1.75]">{formatText(project.description)}</p>
 
         {!isDeactivated && (
           <span className="inline-block mt-4 text-sm font-medium text-foreground no-underline transition-colors duration-300 group-hover:text-warm-orange group-hover:underline underline-offset-[0.2em] decoration-warm-orange">
