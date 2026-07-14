@@ -19,7 +19,7 @@ export interface CaseStudyBlock {
     items?: string[]
     image?: { src: string; caption?: string; size?: 'small' | 'medium' | 'large' }
     images?: (string | { src: string; caption?: string; size?: 'small' | 'medium' | 'large' })[]
-    layout?: 'side-by-side' | 'stacked'
+    layout?: 'side-by-side' | 'stacked' | 'image-grid'
   }[]
   persona?: {
     avatarInitials: string
@@ -256,12 +256,12 @@ export function GenericCaseStudyBlock({ block }: { block: CaseStudyBlock }) {
                 </div>
 
                 {!isSideBySide && imagesToRender.length > 0 && (
-                  <div className="w-full flex flex-col gap-8 items-center mt-2 mb-4">
+                  <div className={`w-full flex flex-col ${sub.layout === 'image-grid' ? 'md:flex-row md:items-start md:justify-center' : 'items-center'} gap-8 mt-2 mb-4`}>
                     {imagesToRender.map((img, imgIdx) => {
                       const src = typeof img === 'string' ? img : img.src;
                       const caption = typeof img === 'string' ? null : img.caption;
                       const size = typeof img === 'object' && 'size' in img ? img.size : 'large';
-                      const widthClass = size === 'small' ? 'max-w-md' : size === 'medium' ? 'max-w-2xl' : 'max-w-4xl';
+                      const widthClass = sub.layout === 'image-grid' ? 'flex-1 min-w-0' : size === 'small' ? 'max-w-md' : size === 'medium' ? 'max-w-2xl' : 'max-w-4xl';
                       return (
                         <div key={imgIdx} className={`w-full flex flex-col items-center ${widthClass}`}>
                           <div className="w-full overflow-hidden rounded-sm bg-muted mb-3 shadow-sm border border-border flex justify-center">
