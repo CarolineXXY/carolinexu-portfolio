@@ -43,24 +43,24 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          
+
           <div className="w-[1px] h-[14px] bg-[#E8E3DC]"></div>
-          
-          <div 
-            className="flex items-center gap-[4px] cursor-pointer" 
-            style={{ fontFamily: 'Outfit, sans-serif', fontSize: '13px' }}
+
+          <div
+            className="flex items-center gap-[4px] cursor-pointer"
+            style={{ fontFamily: 'Outfit, sans-serif', fontSize: '14px' }}
             onClick={toggleLanguage}
           >
-            <span style={{ 
-              color: language === 'zh' ? '#1A1A1A' : '#9A9080', 
-              fontWeight: language === 'zh' ? 500 : 400, 
-              transition: 'opacity 200ms ease, color 200ms ease' 
+            <span style={{
+              color: language === 'zh' ? '#e8602c' : '#9A9080',
+              fontWeight: language === 'zh' ? 500 : 400,
+              transition: 'opacity 200ms ease, color 200ms ease'
             }}>中</span>
             <span style={{ color: '#E8E3DC' }}>/</span>
-            <span style={{ 
-              color: language === 'en' ? '#1A1A1A' : '#9A9080', 
-              fontWeight: language === 'en' ? 500 : 400, 
-              transition: 'opacity 200ms ease, color 200ms ease' 
+            <span style={{
+              color: language === 'en' ? '#e8602c' : '#9A9080',
+              fontWeight: language === 'en' ? 500 : 400,
+              transition: 'opacity 200ms ease, color 200ms ease'
             }}>EN</span>
           </div>
         </div>
@@ -79,9 +79,8 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-background transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-64 border-b border-border" : "max-h-0"
-        }`}
+        className={`md:hidden absolute top-full left-0 right-0 bg-background transition-all duration-300 overflow-hidden ${isOpen ? "max-h-64 border-b border-border" : "max-h-0"
+          }`}
       >
         <ul className="flex flex-col items-center py-6 space-y-6">
           {navLinks.map((link) => (
@@ -99,24 +98,24 @@ export function Navbar() {
             <div className="w-[30px] h-[1px] bg-[#E8E3DC] my-1 mx-auto"></div>
           </li>
           <li>
-            <div 
-              className="flex items-center gap-[4px] cursor-pointer" 
+            <div
+              className="flex items-center gap-[4px] cursor-pointer"
               style={{ fontFamily: 'Outfit, sans-serif', fontSize: '15px' }}
               onClick={() => {
                 toggleLanguage();
                 setIsOpen(false);
               }}
             >
-              <span style={{ 
-                color: language === 'zh' ? '#1A1A1A' : '#9A9080', 
-                fontWeight: language === 'zh' ? 500 : 400, 
-                transition: 'opacity 200ms ease, color 200ms ease' 
+              <span style={{
+                color: language === 'zh' ? '#1A1A1A' : '#9A9080',
+                fontWeight: language === 'zh' ? 500 : 400,
+                transition: 'opacity 200ms ease, color 200ms ease'
               }}>中</span>
               <span style={{ color: '#E8E3DC' }}>/</span>
-              <span style={{ 
-                color: language === 'en' ? '#1A1A1A' : '#9A9080', 
-                fontWeight: language === 'en' ? 500 : 400, 
-                transition: 'opacity 200ms ease, color 200ms ease' 
+              <span style={{
+                color: language === 'en' ? '#1A1A1A' : '#9A9080',
+                fontWeight: language === 'en' ? 500 : 400,
+                transition: 'opacity 200ms ease, color 200ms ease'
               }}>EN</span>
             </div>
           </li>
