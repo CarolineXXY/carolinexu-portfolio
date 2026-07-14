@@ -6,6 +6,8 @@ import { FadeIn } from "./fade-in"
 import { ToolsCarousel } from "./tools-carousel"
 import { SkillsMarquee } from "./skills-marquee"
 import { ArrowUpRight } from "lucide-react"
+import { assetPath } from '@/lib/utils'
+
 
 export function AboutSection() {
   return (
@@ -16,7 +18,7 @@ export function AboutSection() {
             <div className="relative max-w-sm mx-auto lg:mx-0 lg:mt-40">
               <div className="aspect-[3/4] overflow-hidden bg-muted rounded-[4px] relative">
                 <Image
-                  src="/myprofile.JPG"
+                  src={assetPath("/myprofile.JPG")}
                   alt="Caroline Xu"
                   fill
                   className="object-cover"
