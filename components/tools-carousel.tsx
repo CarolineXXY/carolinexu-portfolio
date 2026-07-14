@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { assetPath } from '../lib/utils'
 
 interface Tool {
   name: string
@@ -33,7 +34,7 @@ export function ToolsCarousel({ tools }: ToolsCarouselProps) {
             >
               <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
                 <Image
-                  src={tool.logo}
+                  src={assetPath(tool.logo)}
                   alt={`${tool.name} logo`}
                   fill
                   className="object-contain"
