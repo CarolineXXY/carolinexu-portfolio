@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ThemeToggle } from "@/components/theme-toggle"
 
 const navLinks = [
   { href: "/#work", label: "Work" },
@@ -78,10 +77,6 @@ export function Navbar() {
                 transition: 'opacity 200ms ease, color 200ms ease'
               }}>EN</span>
           </div>
-
-          <div className="w-[1px] h-[14px] bg-border"></div>
-
-          <ThemeToggle />
         </div>
 
         {/* Mobile Hamburger (3 lines, 1.5px, #1a1a1a) */}
@@ -143,12 +138,6 @@ export function Navbar() {
                   transition: 'opacity 200ms ease, color 200ms ease'
                 }}>EN</span>
             </div>
-          </li>
-          <li>
-            <div className="w-[30px] h-[1px] bg-border my-1 mx-auto"></div>
-          </li>
-          <li>
-            <ThemeToggle />
           </li>
         </ul>
       </div>

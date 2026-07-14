@@ -6,7 +6,6 @@ import { Footer } from "@/components/footer"
 import { BackToTop } from "@/components/back-to-top"
 import "./globals.css"
 import { CursorGlow } from "@/components/cursor-glow"
-import { ThemeProvider } from "next-themes"
 
 export const metadata: Metadata = {
   title: "Caroline Xu | UX/UI Designer",
@@ -40,15 +39,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className="font-sans antialiased bg-background text-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange={false}
-        >
-          <CursorGlow />
+        <CursorGlow />
           <Navbar />
           {children}
           <Footer />
@@ -68,7 +61,6 @@ export default function RootLayout({
             }, 'google_translate_element');
           }
         `}} />
-        </ThemeProvider>
       </body>
     </html>
   )
