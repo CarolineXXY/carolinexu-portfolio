@@ -92,7 +92,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Research & Discovery",
         content: "As this was a self-initiated trial project without formal user testing, I conducted a heuristic evaluation based on Nielsen's 10 Usability Heuristics and supplemented it with an informal competitor analysis of modern accounting firm websites to benchmark against industry standards.",
-        images: ["/original.png"],
+        images: [assetPath("/original.png")],
         items: [
           "Visual & Aesthetic: Outdated UI and oversized logo disrupt the Aesthetic-Usability Effect and reduce brand trust.",
           "Navigation: Poor navigation structure and lack of clear CTAs and contact forms lead to increased bounce rates.",
@@ -411,7 +411,7 @@ export const caseStudies: Record<string, CaseStudy> = {
               "Users would often stay awake and not have good sleep around assignment deadlines and exam times.",
               "Users would often check their phones as soon as they wake up."
             ],
-            image: { src: "/shroomcycle-diarystudy.png", caption: "Diary Study Questions", size: "medium" }
+            image: { src: assetPath("/shroomcycle-diarystudy.png"), caption: "Diary Study Questions", size: "medium" }
           },
           {
             images: [assetPath("/shroomcycle-user-research.png")]
@@ -450,7 +450,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Proposed Solution",
         content: "We designed ShroomCycle, a smart, interactive lamp that uses gentle ambient lights and a accountability mechanism to help university students build and maintain healthier sleep routines.",
-        images: [{ src: "/shroomcycle-initial-design-draft.png", caption: "ShroomCycle Design Draft", size: "medium" }],
+        images: [{ src: assetPath("/shroomcycle-initial-design-draft.png"), caption: "ShroomCycle Design Draft", size: "medium" }],
         itemsTitle: "KEY FEATURES",
         items: [
           { title: "Ambient Light Detection", description: "Lamps activate when room lights dim." },
@@ -472,7 +472,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           {
             subtitle: "BUILDING THE MUSHROOM",
             content: "We used cardboard, wood planks, and paper to create a mushroom-shaped lamp that diffused the LED light while safely housing all the internal wiring.",
-            image: { src: "/Make_Shroom.png", size: "small" }
+            image: { src: assetPath("/Make_Shroom.png"), size: "small" }
           }
         ]
       },
