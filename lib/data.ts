@@ -180,7 +180,7 @@ export const caseStudies: Record<string, CaseStudy> = {
             subNote: "Self-reported after task completion"
           },
           {
-            value: "< 5s",
+            value: "< 3s",
             label: "Time to find CTA",
             subNote: "Fastest critical task across all sessions",
             highlight: true
